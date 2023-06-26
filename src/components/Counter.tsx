@@ -1,3 +1,4 @@
+import style from "./Counter.module.scss";
 import { useState } from "react";
 
 export const Counter = () => {
@@ -12,8 +13,8 @@ export const Counter = () => {
   return (
     <div>
       {value}
-      <div>
-        <button onClick={() => handlerClick("+")}>+</button>
+      <div className={style.clx}>
+        <button className="button" onClick={() => handlerClick("+")}>+</button>
         <button onClick={() => handlerClick("-")}>-</button>
       </div>
     </div>
