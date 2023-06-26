@@ -1,17 +1,10 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import AboutPage from "../pages/AboutPage/AboutPage";
-import MainPage from "../pages/MainPage/MainPage";
+import AboutPage from "pages/AboutPage/AboutPage";
+import MainPage from "pages/MainPage/MainPage";
 import { Suspense } from "react";
-import "../style/index.scss";
-import { ThemeContext } from "../theme/ThemeContext";
-import { useTheme } from "../useTheme";
-import { classNames } from "../helpers/classnames/classnames";
-
-enum Pages {
-  "MainPage" = "MainPage",
-  "AboutPage" = "AboutPage",
-  "UsersPage" = "UsersPage",
-}
+import "./style/index.scss";
+import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
+import { classNames } from "../shared/lib/helpers/classnames/classnames";
 
 export const App = () => {
   const { theme, toggleThemeHamdler } = useTheme();

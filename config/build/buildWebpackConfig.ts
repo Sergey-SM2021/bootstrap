@@ -22,7 +22,7 @@ export function BuildWebpackConfig(
     module: {
       rules: BuildLoaders(BuildOptions),
     },
-    resolve: BuildResolve(),
+    resolve: BuildResolve(BuildOptions),
     devServer: isDev ? BuildDevServer(BuildOptions) : undefined,
     devtool: isDev ? "inline-source-map" : undefined,
   };

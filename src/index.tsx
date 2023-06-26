@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
-import "./components/Counter.scss";
-import { App } from "./components/App";
-import { ThemeProvider } from "./theme/ThemeProvider";
+import { App } from "./app/App";
+import { ThemeProvider } from "./app/providers/ThemeProvider/ui/ThemeProvider";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
