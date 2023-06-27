@@ -1,3 +1,5 @@
+import AboutPage from "pages/AboutPage/AboutPage";
+import MainPage from "pages/MainPage/MainPage";
 import { RouteProps } from "react-router-dom";
 
 enum RouterPages {
@@ -13,8 +15,10 @@ const RouterPaths: Record<RouterPages, string> = {
 export const RouterConfig: Record<RouterPages, RouteProps> = {
   about: {
     path: RouterPaths.about,
+    element: <AboutPage />,
   },
   home: {
+    element: <MainPage />,
     path: RouterPaths.home,
   },
 };
