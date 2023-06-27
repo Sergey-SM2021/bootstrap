@@ -2,7 +2,8 @@ import { useState } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
 import clx from "./Sidebar.module.scss";
 import { AppButton, AppButtonTheme } from "shared/ui/appButton/appButton";
-import { ThemeSwitcher } from "shared/themeSwitcher";
+import { ThemeSwitcher } from "shared/ui/themeSwitcher";
+import { LangSwitcher } from "shared/ui/langSwitcher/langSwitcher";
 
 export const Sidebar = () => {
   const [rolledUp, setRolledUp] = useState<boolean>(true);
@@ -18,9 +19,7 @@ export const Sidebar = () => {
       </AppButton>
       <div className={clx.switchers}>
         <ThemeSwitcher />
-        <AppButton theme={AppButtonTheme.clear} onClick={handlerRollUp}>
-          Lang
-        </AppButton>
+        <LangSwitcher />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useTheme } from "app/providers/ThemeProvider/lib/useTheme";
-import Light from "../../assets/light.svg";
-import Dark from "../../assets/dark.svg";
+import Light from "../../../assets/light.svg";
+import Dark from "../../../assets/dark.svg";
 import { AppButton, AppButtonTheme } from "shared/ui/appButton/appButton";
 
 export const ThemeSwitcher = () => {
