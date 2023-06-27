@@ -1,0 +1,18 @@
+.sidebar {
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background-color: var(--inverted-bg-color);
+    transition: width .3s;
+    position: relative;
+}
+
+.rolledUp {
+    width: var(--sidebar-width-rooled-up);
+}
+
+.switchers{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}

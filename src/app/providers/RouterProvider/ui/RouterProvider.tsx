@@ -6,8 +6,12 @@ export const RouterProvider = () => {
   return (
     <Suspense>
       <Routes>
-        {Object.values(RouterConfig).map((el) => (
-          <Route {...el} />
+        {Object.values(RouterConfig).map(({ element, path }) => (
+          <Route
+            key={path}
+            element={<div className="page">{element}</div>}
+            path={path}
+          />
         ))}
       </Routes>
     </Suspense>
