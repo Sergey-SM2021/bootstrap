@@ -11,7 +11,6 @@ export const App = () => {
     <BrowserRouter>
       <div className={classNames("app", {}, [theme])}>
         <Navbar />
-        <button onClick={toggleThemeHamdler}>toggle theme</button>
         <RouterProvider />
       </div>
     </BrowserRouter>
