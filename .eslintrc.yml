@@ -6,6 +6,7 @@ extends:
   - plugin:react/recommended
   - plugin:@typescript-eslint/recommended
   - plugin:react/jsx-runtime
+  - plugin:i18next/recommended
 overrides: []
 parser: "@typescript-eslint/parser"
 parserOptions:
@@ -13,7 +14,8 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-  - "@typescript-eslint"  
+  - i18next
+  - "@typescript-eslint"
 rules:
   "@typescript-eslint/no-empty-function":
     - off
