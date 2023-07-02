@@ -1,15 +1,18 @@
 import AboutPage from "pages/AboutPage/AboutPage"
 import MainPage from "pages/MainPage/MainPage"
+import { NotFoundPage } from "pages/NotFoundPage/ui/NotFoundPage"
 import { RouteProps } from "react-router-dom"
 
 enum RouterPages {
   HOME = "home",
   ABOUT = "about",
+  NOTFOUND = "notfound"
 }
 
 const RouterPaths: Record<RouterPages, string> = {
 	about: "/about",
 	home: "/",
+	notfound: "*",
 }
 
 export const RouterConfig: Record<RouterPages, RouteProps> = {
@@ -21,4 +24,8 @@ export const RouterConfig: Record<RouterPages, RouteProps> = {
 		element: <MainPage />,
 		path: RouterPaths.home,
 	},
+	notfound: {
+		element: <NotFoundPage />,
+		path: RouterPaths.notfound,
+	}
 }
