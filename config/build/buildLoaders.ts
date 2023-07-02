@@ -15,6 +15,14 @@ export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: ["@svgr/webpack"],
   };
 
+  const babel = {
+    test: /\.(ts|js|tsx|jsx)/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+    },
+  };
+
   const scssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -37,5 +45,5 @@ export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [typescriptLoader, svgLoader, scssLoader];
+  return [babel, typescriptLoader, svgLoader, scssLoader];
 }
