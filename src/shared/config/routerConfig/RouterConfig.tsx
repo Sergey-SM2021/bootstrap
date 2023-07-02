@@ -1,12 +1,12 @@
-import AboutPage from "pages/AboutPage/AboutPage"
-import MainPage from "pages/MainPage/MainPage"
+import { AboutPage } from "pages/AboutPage"
+import { MainPage } from "pages/MainPage"
 import { NotFoundPage } from "pages/NotFoundPage/ui/NotFoundPage"
 import { RouteProps } from "react-router-dom"
 
 enum RouterPages {
   HOME = "home",
   ABOUT = "about",
-  NOTFOUND = "notfound"
+  NOTFOUND = "notfound",
 }
 
 const RouterPaths: Record<RouterPages, string> = {
@@ -27,5 +27,5 @@ export const RouterConfig: Record<RouterPages, RouteProps> = {
 	notfound: {
 		element: <NotFoundPage />,
 		path: RouterPaths.notfound,
-	}
+	},
 }
