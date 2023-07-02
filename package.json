@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint src/** --fix",
     "start": "webpack serve --env PORT=8081",
     "build:prod": "webpack --env MODE=production",
     "build:dev": "webpack --env MODE=development"
@@ -19,7 +20,11 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@types/webpack": "^5.28.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
     "babel-loader": "^9.1.2",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.63.6",
