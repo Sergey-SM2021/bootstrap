@@ -1,4 +1,9 @@
 {
   "language": "English",
-  "not found page": "Not found page"
+  "not found page": "Not found page",
+  "crash": "BOOOM-BOOOM!!!! SITE CRASHED!!!!",
+  "reload": "Reload page",
+  "rollup": "Rollup",
+  "about link": "About",
+  "home link": "Home"
 }

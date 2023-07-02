@@ -4,6 +4,7 @@ import { ButtonHTMLAttributes } from "react"
 
 export enum AppButtonTheme {
   clear = "clear",
+  primary = "primary",
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

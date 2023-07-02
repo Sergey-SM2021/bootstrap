@@ -24,6 +24,7 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@types/webpack": "^5.28.0",
+    "@types/webpack-bundle-analyzer": "^4.6.0",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "babel-loader": "^9.1.2",
@@ -54,6 +55,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.1",
     "react-router-dom": "^6.14.0",
-    "style-loader": "^3.3.3"
+    "style-loader": "^3.3.3",
+    "webpack-bundle-analyzer": "^4.9.0"
   }
 }
