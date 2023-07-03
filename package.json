@@ -11,7 +11,7 @@
     "stylelint": "stylelint **/*.scss --fix",
     "test": "jest",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build"
+    "loki:ci": "storybook build -c ./config/storybook && loki --config ./config/storybook --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],
   "author": "",
