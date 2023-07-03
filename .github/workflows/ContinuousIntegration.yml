@@ -10,3 +10,5 @@ jobs:
         run: yarn install
       - name: build storybook
         run: npm run loki:ci
+      - name: ui test
+        run: npm run test
