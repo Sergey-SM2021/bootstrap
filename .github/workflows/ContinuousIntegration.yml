@@ -12,3 +12,5 @@ jobs:
         run: npm run loki:ci
       - name: ui test
         run: npm run test
+      - name: eslint
+        run: npm run eslint

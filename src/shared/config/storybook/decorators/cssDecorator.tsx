@@ -1,7 +1,7 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react"
 
-import "app/style/index.scss";
+import "app/style/index.scss"
 
 export const CssDecorator = (Story: StoryFn) => {
-  return <Story />;
-};
+	return <Story />
+}
