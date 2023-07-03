@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"
-import { AppButton, AppButtonTheme } from "../appButton/appButton"
+import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 
 export const LangSwitcher = () => {
 	const { i18n, t } = useTranslation()

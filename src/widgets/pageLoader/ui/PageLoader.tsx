@@ -1,4 +1,4 @@
-import { Spinner } from "../spinner/spinner"
+import { Spinner } from "shared/ui/spinner"
 import style from "./PageLoader.module.scss"
 
 export const PageLoader = () => {

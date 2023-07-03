@@ -5,7 +5,7 @@ export const MainPage = lazy(
 		new Promise((resolve) => {
 			setTimeout(() => {
 				// @ts-ignore
-				resolve(import("./MainPage"))
+				resolve(import("./ui/MainPage"))
 			}, 1500)
 		})
 )

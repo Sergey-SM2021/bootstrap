@@ -1,4 +1,4 @@
-import { AppButton, AppButtonTheme } from "shared/ui/appButton/appButton"
+import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { render, screen } from "@testing-library/react"
 
 describe("appButton", () => {
