@@ -1,5 +1,5 @@
 name: ContinuousIntegration
-on: [workflow_dispatch]
+on: [workflow_dispatch, push]
 jobs:
   loki:
     runs-on: ubuntu-latest
