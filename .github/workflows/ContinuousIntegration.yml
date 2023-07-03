@@ -9,4 +9,4 @@ jobs:
       - name: install dep
         run: yarn install
       - name: build storybook
-        run: npm run build-storybook
+        run: npm run loki:ci
