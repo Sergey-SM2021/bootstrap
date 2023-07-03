@@ -14,3 +14,5 @@ jobs:
         run: npm run test
       - name: eslint
         run: npm run eslint
+      - name: stylelint
+        run: npm run stylelint
