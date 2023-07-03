@@ -15,8 +15,8 @@ export const Sidebar = () => {
 	}
 
 	return (
-		<div className={classNames(clx.sidebar, { [clx.rolledUp]: rolledUp }, [])}>
-			<AppButton theme={AppButtonTheme.primary} onClick={handlerRollUp}>
+		<div className={classNames(clx.sidebar, { [clx.rolledUp]: rolledUp }, [])} data-testid="sidebar">
+			<AppButton data-testid={"sidebar-toggle"} theme={AppButtonTheme.primary} onClick={handlerRollUp}>
 				{t("rollup")}
 			</AppButton>
 			<div className={clx.switchers}>
