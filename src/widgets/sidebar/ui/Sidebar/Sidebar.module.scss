@@ -3,7 +3,8 @@
     width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
     transition: width .3s;
-    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .rolledUp {
@@ -11,8 +12,12 @@
 }
 
 .switchers{
-    position: absolute;
-    bottom: 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.inner {
+    flex: 1 1 auto;
 }
