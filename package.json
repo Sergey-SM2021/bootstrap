@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "html-report" : "reg-cli ./.loki/current ./.loki/reference ./.loki/difference -R ./report.html",
     "eslint": "eslint src/** --fix",
     "start": "webpack serve --env PORT=8081",
     "build:prod": "webpack --env MODE=production",
@@ -73,6 +74,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.1",
     "react-router-dom": "^6.14.0",
+    "reg-cli": "^0.17.7",
     "style-loader": "^3.3.3",
     "webpack-bundle-analyzer": "^4.9.0"
   },
