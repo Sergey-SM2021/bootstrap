@@ -5,19 +5,56 @@
     transition: width .3s;
     display: flex;
     flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 10px;
 }
 
 .rolledUp {
     width: var(--sidebar-width-rooled-up);
 }
 
-.switchers{
+.switchers {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
+}
+
+.rolledUp .switchers {
+    flex-direction: column;
 }
 
 .inner {
     flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonRolledUp {
+    right: -40px;
+    bottom: 40px;
+    position: absolute;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+    justify-content: start;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    * {
+        fill: var(--bg-color);
+    }
 }

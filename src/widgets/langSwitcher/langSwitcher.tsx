@@ -1,7 +1,11 @@
 import { useTranslation } from "react-i18next"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 
-export const LangSwitcher = () => {
+interface LangSwitcherProps {
+  short: boolean;
+}
+
+export const LangSwitcher = ({ short }: LangSwitcherProps) => {
 	const { i18n, t } = useTranslation()
 
 	const handlerTranslate = () => {
@@ -14,7 +18,7 @@ export const LangSwitcher = () => {
 
 	return (
 		<AppButton onClick={handlerTranslate} theme={AppButtonTheme.clear}>
-			{t("language")}
+			{short ? t("language") : t("lang")}
 		</AppButton>
 	)
 }

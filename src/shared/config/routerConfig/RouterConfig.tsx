@@ -9,7 +9,7 @@ enum RouterPages {
   NOTFOUND = "notfound",
 }
 
-const RouterPaths: Record<RouterPages, string> = {
+export const RouterPaths: Record<RouterPages, string> = {
 	about: "/about",
 	home: "/",
 	notfound: "*",
