@@ -1,22 +1,22 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Sidebar } from "./Sidebar"
-import { RenderWithTranslation } from "shared/lib/helpers/renderWithTranslation"
+import { ComponentRender } from "shared/config/test"
 
 describe("sideBar", () => {
 	it("render success", () => {
 		render(
-			<RenderWithTranslation>
+			<ComponentRender route="/">
 				<Sidebar />
-			</RenderWithTranslation>
+			</ComponentRender>
 		)
 		expect(screen.getByTestId("sidebar")).toBeInTheDocument()
 	})
 
 	it("sideBar toggle", () => {
 		render(
-			<RenderWithTranslation>
+			<ComponentRender route="/">
 				<Sidebar />
-			</RenderWithTranslation>
+			</ComponentRender>
 		)
 		const toggleButton = screen.getByTestId("sidebar-toggle")
 		expect(screen.getByTestId("sidebar")).toHaveClass("rolledUp")
