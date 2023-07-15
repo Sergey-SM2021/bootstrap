@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom"
-import "./style/index.scss"
 import { useTheme } from "./providers/ThemeProvider/lib/useTheme"
 import { classNames } from "../shared/lib/helpers/classNames/classNames"
 import { RouterProvider } from "./providers/RouterProvider/ui/RouterProvider"

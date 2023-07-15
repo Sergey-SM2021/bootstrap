@@ -1,67 +1,67 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
+import type { StorybookConfig } from "@storybook/react-webpack5"
 
 const config: StorybookConfig = {
-  stories: ["../../src/**/*.stories.tsx"],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-  ],
-  framework: {
-    name: "@storybook/react-webpack5",
-    options: {},
-  },
-  docs: {
-    autodocs: "tag",
-  },
-  webpackFinal(config, options) {
-    const webpackConfig = config;
+	stories: ["../../src/**/*.stories.tsx"],
+	addons: [
+		"@storybook/addon-links",
+		"@storybook/addon-essentials",
+		"@storybook/addon-interactions",
+	],
+	framework: {
+		name: "@storybook/react-webpack5",
+		options: {},
+	},
+	docs: {
+		autodocs: "tag",
+	},
+	webpackFinal(config, options) {
+		const webpackConfig = config
 
-    const imageRule = config.module?.rules?.find(rule => {
-      const test = (rule as { test: RegExp }).test
+		const imageRule = config.module?.rules?.find(rule => {
+			const test = (rule as { test: RegExp }).test
   
-      if (!test) {
-        return false
-      }
+			if (!test) {
+				return false
+			}
   
-      return test.test('.svg')
-    }) as { [key: string]: any }
+			return test.test(".svg")
+		}) as { [key: string]: any }
   
-    imageRule.exclude = /\.svg$/
+		imageRule.exclude = /\.svg$/
   
-    webpackConfig.module?.rules?.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack']
-    })
+		webpackConfig.module?.rules?.push({
+			test: /\.svg$/,
+			use: ["@svgr/webpack"]
+		})
     
-    if (webpackConfig.module?.rules) {
-      webpackConfig.module.rules = [
-        ...webpackConfig.module.rules,
-        {
-          test: /\.s[ac]ss$/i,
-          use: [
-            "style-loader",
-            {
-              loader: "css-loader",
-              options: {
-                modules: {
-                  auto: (resourcePath: string) =>
-                    resourcePath.endsWith(".module.scss"),
-                  localIdentName: "[hash:base64:8]",
-                },
-              },
-            },
-            "sass-loader",
-          ],
-        },
-      ];
-    }
+		if (webpackConfig.module?.rules) {
+			webpackConfig.module.rules = [
+				...webpackConfig.module.rules,
+				{
+					test: /\.s[ac]ss$/i,
+					use: [
+						"style-loader",
+						{
+							loader: "css-loader",
+							options: {
+								modules: {
+									auto: (resourcePath: string) =>
+										resourcePath.endsWith(".module.scss"),
+									localIdentName: "[hash:base64:8]",
+								},
+							},
+						},
+						"sass-loader",
+					],
+				},
+			]
+		}
 
-    webpackConfig.resolve?.modules?.push("src")
+		webpackConfig.resolve?.modules?.push("src")
 
-    console.log(webpackConfig.resolve?.modules)
+		console.log(webpackConfig.resolve?.modules)
 
-    return webpackConfig;
-  },
-};
-export default config;
+		return webpackConfig
+	},
+}
+export default config

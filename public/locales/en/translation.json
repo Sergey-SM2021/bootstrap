@@ -6,5 +6,7 @@
   "rollup": "Rollup",
   "about link": "About",
   "home link": "Home",
-  "lang": "En"
+  "lang": "En",
+  "login": "Login",
+  "modal": "Modal-content"
 }

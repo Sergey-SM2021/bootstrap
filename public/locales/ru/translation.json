@@ -6,5 +6,7 @@
   "rollup":"Свернуть",
   "about link": "О приложении",
   "home link": "Домой",
-  "lang": "Ru"
+  "lang": "Ru",
+  "login": "Войти",
+  "modal": "Контент модалки"
 }
