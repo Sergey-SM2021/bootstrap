@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Theme, ThemeContext } from "./ThemeContext"
 
 export const useTheme = () => {
@@ -11,6 +11,11 @@ export const useTheme = () => {
 			setTheme(Theme.lightTheme)
 		}
 	}
+
+	useEffect(() => {
+		document.body.className = ""
+		document.body.classList.add(theme)
+	}, [theme])
 
 	return {
 		theme,

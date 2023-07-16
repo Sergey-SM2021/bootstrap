@@ -11,14 +11,28 @@ const meta: Meta<typeof Modal> = {
 export default meta
 type Story = StoryObj<typeof Modal>;
 
-export const Primary: Story = {
+export const Light: Story = {
 	args: {
 		children: "yuyuyu",
 		isOpen: true,
 	},
 	decorators: [
 		(Story: StoryFn) => (
-			<div id="portal">
+			<div className="light-theme">
+				<Story />
+			</div>
+		),
+	],
+}
+
+export const Dark: Story = {
+	args: {
+		children: "yuyuyu",
+		isOpen: true,
+	},
+	decorators: [
+		(Story: StoryFn) => (
+			<div className="dark-theme">
 				<Story />
 			</div>
 		),
