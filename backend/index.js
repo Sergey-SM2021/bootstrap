@@ -5,7 +5,8 @@ const fs = require("fs")
 // eslint-disable-next-line
 const path = require("path")
 const server = jsonServer.create()
-const router = jsonServer.router("db.json")
+// eslint-disable-next-line
+const router = jsonServer.router(path.resolve(__dirname,"db.json"))
 const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
