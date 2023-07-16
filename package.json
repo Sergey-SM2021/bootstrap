@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "backend": "node ./backend/index.js",
     "html-report": "reg-cli ./.loki/current ./.loki/reference ./.loki/difference -R ./report.html",
     "eslint": "eslint src/** --fix",
     "start": "webpack serve --env PORT=8081",
@@ -75,6 +76,7 @@
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
     "jest-environment-jsdom": "^29.5.0",
+    "json-server": "^0.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.1",
