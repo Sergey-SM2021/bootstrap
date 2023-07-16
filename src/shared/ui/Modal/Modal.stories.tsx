@@ -15,7 +15,6 @@ export const Primary: Story = {
 	args: {
 		children: "yuyuyu",
 		isOpen: true,
-		element: document.getElementById("portal")
 	},
 	decorators: [
 		(Story: StoryFn) => (

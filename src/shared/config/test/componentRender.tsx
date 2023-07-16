@@ -1,13 +1,21 @@
 import { PropsWithChildren } from "react"
 import { RenderWithRouter } from "./renderWithRouter"
 import { RenderWithTranslation } from "./renderWithTranslation"
+import { ReduxProvider } from "app/providers/ReduxProvider"
+import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
+import { DeepPartial } from "@reduxjs/toolkit"
 
 interface ComponentRenderProps extends PropsWithChildren {
   route: string;
+  initialStore?: DeepPartial<StoreSchema>
 }
 
-export const ComponentRender = ({ children, route }: ComponentRenderProps) => (
+export const ComponentRender = ({ children, route, initialStore }: ComponentRenderProps) => (
 	<RenderWithRouter route={route}>
-		<RenderWithTranslation>{children}</RenderWithTranslation>
+		<RenderWithTranslation>
+			<ReduxProvider initialStore={initialStore}>
+				{children}
+			</ReduxProvider>
+		</RenderWithTranslation>
 	</RenderWithRouter>
 )

@@ -1,28 +1,32 @@
 export default {
-  clearMocks: true,
+	clearMocks: true,
 
-  moduleDirectories: ["node_modules", "src"],
+	globals:{
+		__IS_DEV__:true
+	},
 
-  moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node",
-  ],
+	moduleDirectories: ["node_modules", "src"],
 
-  testEnvironment: "jsdom",
+	moduleFileExtensions: [
+		"js",
+		"mjs",
+		"cjs",
+		"jsx",
+		"ts",
+		"tsx",
+		"json",
+		"node",
+	],
 
-  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+	testEnvironment: "jsdom",
 
-  testPathIgnorePatterns: ["/node_modules/"],
+	testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
 
-  moduleNameMapper: {
-    "\\.(scss)$": "identity-obj-proxy",
-    "\\.svg": "<rootDir>/__mocks__/svg.ts"
-  },
-  setupFilesAfterEnv: ['<rootDir>/setupTest.ts']
-};
+	testPathIgnorePatterns: ["/node_modules/"],
+
+	moduleNameMapper: {
+		"\\.(scss)$": "identity-obj-proxy",
+		"\\.svg": "<rootDir>/__mocks__/svg.ts"
+	},
+	setupFilesAfterEnv: ["<rootDir>/setupTest.ts"]
+}

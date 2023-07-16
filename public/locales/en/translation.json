@@ -8,5 +8,7 @@
   "home link": "Home",
   "lang": "En",
   "login": "Login",
-  "modal": "Modal-content"
+  "modal": "Modal-content",
+  "increment":"increment",
+  "decrement":"decrement"
 }

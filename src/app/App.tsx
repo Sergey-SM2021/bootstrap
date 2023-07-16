@@ -7,21 +7,26 @@ import { Sidebar } from "widgets/sidebar"
 import "shared/config/i18nConfig/i18n"
 import { ErrorBoundary } from "./providers/ErrorBoundary"
 import { ErrorPage } from "widgets/ErrorPage"
+import { ReduxProvider } from "./providers/ReduxProvider"
+import { Counter } from "../entity/counter/ui/Counter"
 
 export const App = () => {
 	const { theme } = useTheme()
 
 	return (
-		<BrowserRouter>
-			<div className={classNames("app", {}, [theme])}>
-				<ErrorBoundary fallback={<ErrorPage />}>
-					<Navbar />
-					<div className="content-page">
-						<Sidebar />
-						<RouterProvider />
-					</div>
-				</ErrorBoundary>
-			</div>
-		</BrowserRouter>
+		<ReduxProvider>
+			<BrowserRouter>
+				<div className={classNames("app", {}, [theme])}>
+					<ErrorBoundary fallback={<ErrorPage />}>
+						<Counter/>
+						<Navbar />
+						<div className="content-page">
+							<Sidebar />
+							<RouterProvider />
+						</div>
+					</ErrorBoundary>
+				</div>
+			</BrowserRouter>
+		</ReduxProvider>
 	)
 }
