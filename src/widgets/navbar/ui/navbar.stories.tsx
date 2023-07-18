@@ -3,6 +3,7 @@ import { Navbar } from "./navbar"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
+import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
 
 const meta: Meta<typeof Navbar> = {
 	title: "Widget/Navbar",
@@ -14,13 +15,13 @@ export default meta
 type Story = StoryObj<typeof Navbar>;
 
 export const Dark: Story = {
-	decorators: [RouterDecorator, ThemeDecorator(Theme.darkTheme)],
+	decorators: [RouterDecorator,ReduxDecorator, ThemeDecorator(Theme.darkTheme)],
 }
 
 export const Light: Story = {
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator,ReduxDecorator, ThemeDecorator(Theme.lightTheme)],
 }
 
 export const Primary: Story = {
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator,ReduxDecorator, ThemeDecorator(Theme.lightTheme)],
 }

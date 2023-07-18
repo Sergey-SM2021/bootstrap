@@ -2,8 +2,8 @@ import { classNames } from "shared/lib/helpers/classNames/classNames"
 import cls from "./navbar.module.scss"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { useCallback, useState } from "react"
-import { Modal } from "shared/ui/Modal/Modal"
 import { useTranslation } from "react-i18next"
+import { LoginModal } from "features/login"
 
 interface NavbarProps {
   className?: string;
@@ -19,9 +19,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
 	return (
 		<div className={classNames(className, {}, [cls.navbar])}>
-			<Modal isOpen={isOpen} onClose={onToggle}>
-				{t("modal")}
-			</Modal>
+			<LoginModal isOpen={isOpen} onClose={onToggle}/>
 			<div className={cls.links}></div>
 			<AppButton onClick={onToggle} theme={AppButtonTheme.clear}>
 				{t("login")}

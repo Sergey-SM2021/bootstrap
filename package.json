@@ -68,6 +68,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "babel-plugin-i18next-extract": "^0.9.0",
     "css-loader": "^6.8.1",
     "eslint-plugin-i18n": "^2.1.0",

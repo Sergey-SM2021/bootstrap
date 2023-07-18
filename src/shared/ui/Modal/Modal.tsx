@@ -1,6 +1,7 @@
 import {
 	MouseEvent,
 	PropsWithChildren,
+	memo,
 	useCallback,
 	useEffect,
 	useRef,
@@ -17,7 +18,8 @@ interface ModalProps extends PropsWithChildren {
 
 const ANIMATION_DELAY = 300
 
-export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
+export const Modal = memo((props : ModalProps) => {
+	const {children, className, isOpen, onClose} = props
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -43,16 +45,11 @@ export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
 	)
 
 	useEffect(() => {
-		return () => {
-			clearTimeout(timerRef.current)
-		}
-	}, [])
-
-	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener("keydown", onKeyDown)
 		}
 		return () => {
+			clearTimeout(timerRef.current)
 			window.removeEventListener("keydown", onKeyDown)
 		}
 	}, [onKeyDown, isOpen])
@@ -73,4 +70,6 @@ export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
 			</div>
 		</div>
 	)
-}
+})
+
+Modal.displayName = "Modal"

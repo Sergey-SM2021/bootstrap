@@ -10,5 +10,7 @@
   "login": "Войти",
   "modal": "Контент модалки",
   "increment":"Увеличить",
-  "decrement":"Уменьшить"
+  "decrement":"Уменьшить",
+  "password":"Пароль",
+  "signin":"Войти"
 }

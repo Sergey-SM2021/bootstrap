@@ -17,11 +17,6 @@ server.use((req, res, next)=> new Promise((resolve, reject) => {setTimeout(()=>{
 	next()
 },1500)}))
 
-server.use((req, res, next) => {
-	if (!req.headers.authorization) res.status(403).json("Invalid authorization")
-	next()
-})
-
 server.post("/login", (req, res) => {
 	const {login, password} = req.body
 	// eslint-disable-next-line
@@ -29,6 +24,11 @@ server.post("/login", (req, res) => {
 	const user = db.users.find(el => el.login === login && el.password === password)
 	if (!user) res.status(403).json("Invalid password")
 	res.send(user)
+})
+
+server.use((req, res, next) => {
+	if (!req.headers.authorization) res.status(403).json("Invalid authorization")
+	next()
 })
 
 server.use(router)

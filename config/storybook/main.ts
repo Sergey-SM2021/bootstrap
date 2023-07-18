@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5"
+import webpack from "webpack"
 
 const config: StorybookConfig = {
 	stories: ["../../src/**/*.stories.tsx"],
@@ -59,7 +60,9 @@ const config: StorybookConfig = {
 
 		webpackConfig.resolve?.modules?.push("src")
 
-		console.log(webpackConfig.resolve?.modules)
+		webpackConfig.plugins?.push(new webpack.DefinePlugin({
+			__IS_DEV__: true,
+		}))
 
 		return webpackConfig
 	},
