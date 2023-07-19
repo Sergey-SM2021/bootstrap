@@ -27,11 +27,12 @@ export const AppButton = (props: AppButtonProps) => {
 		theme,
 		square = false,
 		className,
+		disabled,
 		...restProps
 	} = props
 	return (
 		<button
-			className={classNames(clx.appButton, { [clx.square]: square }, [
+			className={classNames(clx.appButton, { [clx.square]: square, [clx.disabled]: disabled }, [
 				clx[theme],
 				className,
 				clx[size],

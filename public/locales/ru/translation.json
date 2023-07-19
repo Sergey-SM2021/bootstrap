@@ -12,5 +12,6 @@
   "increment":"Увеличить",
   "decrement":"Уменьшить",
   "password":"Пароль",
-  "signin":"Войти"
+  "signin":"Войти",
+  "logout":"Выйти"
 }

@@ -1,31 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Navbar } from "./navbar"
+import {Form} from "./form"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
 
-const meta: Meta<typeof Navbar> = {
-	title: "Widget/Navbar",
-	component: Navbar,
+const meta: Meta<typeof Form> = {
+	title: "Feature/Form",
+	component: Form,
 	tags: ["autodocs"],
 }
 
 export default meta
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof Form>;
 
 export const Dark: Story = {
-	decorators: [
-		RouterDecorator,
-		ReduxDecorator(),
-		ThemeDecorator(Theme.darkTheme),
-	],
-}
-
-export const Logined: Story = {
-	decorators: [
-		RouterDecorator,
-		ReduxDecorator({ user: { authData: { id: 8, login: "sergey" } } }),
-		ThemeDecorator(Theme.lightTheme),
-	],
+	args: {},
+	decorators: [RouterDecorator, ThemeDecorator(Theme.darkTheme), ReduxDecorator()],
 }

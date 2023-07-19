@@ -12,5 +12,6 @@
   "modal": "Modal-content",
   "increment":"increment",
   "decrement":"decrement",
-  "signin":"Login"
+  "signin":"Login",
+  "logout":"Logout"
 }

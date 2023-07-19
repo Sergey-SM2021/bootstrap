@@ -4,7 +4,7 @@ import { Input } from "./Input"
 
 describe("<Input />", () => {
 	test("it should mount", () => {
-		render(<Input />)
+		render(<Input onChange={()=>{}} value=""/>)
 
 		const input = screen.getByTestId("Input")
 

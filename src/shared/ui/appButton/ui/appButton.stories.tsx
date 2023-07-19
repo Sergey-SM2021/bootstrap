@@ -98,4 +98,14 @@ export const XL: Story = {
 	decorators: [ThemeDecorator(Theme.lightTheme)],
 }
 
+export const Disabled: Story = {
+	args: {
+		theme: AppButtonTheme.primary,
+		children: "disabled",
+		size: AppButtonSize.xl,
+		disabled: true
+	},
+	decorators: [ThemeDecorator(Theme.lightTheme)],
+}
+
 

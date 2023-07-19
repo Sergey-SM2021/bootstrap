@@ -4,22 +4,42 @@ import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { LoginModal } from "features/login"
+import { useDispatch, useSelector } from "react-redux"
+import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
+import { logout } from "entity/user/model/slice/userSlice"
 
 interface NavbarProps {
   className?: string;
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
+	const selector = useSelector((state: StoreSchema) => state.user.authData)
 	const [isOpen, setIsOpen] = useState(false)
+	const dispatch = useDispatch()
 	const { t } = useTranslation()
+
+	const logoutHandler = useCallback(() => {
+		dispatch(logout())
+	},[dispatch])
 
 	const onToggle = useCallback(() => {
 		setIsOpen((prev) => !prev)
 	}, [])
 
+	if (selector) {
+		return (
+			<div className={classNames(className, {}, [cls.navbar])}>
+				<div className={cls.links}></div>
+				<AppButton onClick={logoutHandler} theme={AppButtonTheme.clear}>
+					{t("logout")}
+				</AppButton>
+			</div>
+		)
+	}
+
 	return (
 		<div className={classNames(className, {}, [cls.navbar])}>
-			<LoginModal isOpen={isOpen} onClose={onToggle}/>
+			<LoginModal isOpen={isOpen} onClose={onToggle} />
 			<div className={cls.links}></div>
 			<AppButton onClick={onToggle} theme={AppButtonTheme.clear}>
 				{t("login")}
