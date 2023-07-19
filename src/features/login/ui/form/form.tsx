@@ -4,17 +4,29 @@ import { useTranslation } from "react-i18next"
 import { Text, ThemeEnum } from "shared/ui/Text/Text"
 import { Input } from "shared/ui/Input/Input"
 import { useSelector } from "react-redux"
-import { setLogin, setPassword } from "../../model/slice/loginSlice"
+import {
+	loginSliceReducer,
+	setLogin,
+	setPassword,
+} from "../../model/slice/loginSlice"
 import { memo, useCallback } from "react"
 import { login_action } from "features/login/model/services/loginService"
 import { useAppDispatch } from "app/providers/ReduxProvider/config/store"
-import { LoginSelector } from "features/login/model/selectors/loginSelector"
+import {
+	LoginFormErrorSelector,
+	LoginFormIsLoadingSelector,
+	LoginFormLoginSelector,
+	LoginFormPasswordSelector,
+} from "features/login/model/selectors/loginSelector"
+import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 
 export const Form = memo(() => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
-
-	const { isLoading, login, password, error } = useSelector(LoginSelector)
+	const password = useSelector(LoginFormPasswordSelector)
+	const error = useSelector(LoginFormErrorSelector)
+	const isLoading = useSelector(LoginFormIsLoadingSelector)
+	const login = useSelector(LoginFormLoginSelector)
 
 	const onChangeLogin = useCallback(
 		(value: string) => {
@@ -36,7 +48,7 @@ export const Form = memo(() => {
 
 	return (
 		<div className={s.form}>
-			{error.length ? <Text theme={ThemeEnum.Error}>{error}</Text> : null}
+			{error ? <Text theme={ThemeEnum.Error}>{error}</Text> : null}
 			<div>
 				<Text>{t("login")}</Text>
 				<Input value={login} onChange={onChangeLogin} />
@@ -45,7 +57,11 @@ export const Form = memo(() => {
 				<Text>{t("password")}</Text>
 				<Input value={password} onChange={onChangePassword} />
 			</div>
-			<AppButton disabled={isLoading} theme={AppButtonTheme.primary} onClick={handlerSubmit}>
+			<AppButton
+				disabled={isLoading}
+				theme={AppButtonTheme.primary}
+				onClick={handlerSubmit}
+			>
 				{t("signin")}
 			</AppButton>
 		</div>
@@ -53,3 +69,11 @@ export const Form = memo(() => {
 })
 
 Form.displayName = "Form"
+
+const WithAsyncComponent = () => (
+	<AsyncComponent reducer={loginSliceReducer} reducerName="login">
+		<Form />
+	</AsyncComponent>
+)
+
+export default WithAsyncComponent

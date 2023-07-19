@@ -4,6 +4,6 @@ import { LoginSchema } from "features/login"
 
 export interface StoreSchema {
 	counter: CounterSchema
-	login: LoginSchema
+	login?: LoginSchema
 	user: UserSchema
 }

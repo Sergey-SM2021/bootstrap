@@ -39,7 +39,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
 	return (
 		<div className={classNames(className, {}, [cls.navbar])}>
-			<LoginModal isOpen={isOpen} onClose={onToggle} />
+			{isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null}
 			<div className={cls.links}></div>
 			<AppButton onClick={onToggle} theme={AppButtonTheme.clear}>
 				{t("login")}

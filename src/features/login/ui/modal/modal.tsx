@@ -1,16 +1,24 @@
 import { Modal } from "shared/ui/Modal/Modal"
-import { Form } from "../form/form"
-import { memo } from "react"
+import { memo, Suspense } from "react"
+import { FormAsync } from "../form/form.async"
+import { Spinner } from "shared/ui/spinner"
 
 interface LoginModalProps {
-	isOpen: boolean
-	onClose: VoidFunction
+  isOpen: boolean;
+  onClose: VoidFunction;
 }
 
 export const LoginModal = memo((props: LoginModalProps) => {
-	return <Modal {...props}>
-		<Form />
-	</Modal>
+	if (!props.isOpen) {
+		return null
+	}
+	return (
+		<Modal {...props}>
+			<Suspense fallback={<Spinner />}>
+				<FormAsync />
+			</Suspense>
+		</Modal>
+	)
 })
 
 LoginModal.displayName = "LoginModal"
