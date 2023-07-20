@@ -16,7 +16,9 @@ export const login_action = createAsyncThunk<
   { rejectValue: string }
 >("login/login", async ({ login, password }, thankAPI) => {
 	try {
-		const response = await (await axios.post("http://localhost:3000/login", { login, password })).data
+		const response = (
+			await axios.post("http://localhost:3000/login", { login, password })
+		).data
 		localStorage.setItem(USER_LOCALSTORAGE_NAME, JSON.stringify(response))
 		thankAPI.dispatch(setUser(response))
 		return response
