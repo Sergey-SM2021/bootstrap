@@ -21,5 +21,3 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 		</div>
 	)
 })
-
-SidebarItem.displayName = "Sidebar Item"

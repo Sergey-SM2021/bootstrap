@@ -28,6 +28,8 @@ rules:
   indent:
     - error
     - tab
+  react/display-name:
+    - 0
   linebreak-style:
     - error
     - unix
