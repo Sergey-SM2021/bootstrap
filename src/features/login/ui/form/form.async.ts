@@ -1,3 +1,3 @@
 import { lazy } from "react"
 
-export const FormAsync = lazy(() => import("./form"))
+export const FormAsync = lazy(() => import("./Form"))

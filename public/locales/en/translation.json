@@ -10,8 +10,9 @@
   "login": "Login",
   "password": "Password",
   "modal": "Modal-content",
-  "increment":"increment",
-  "decrement":"decrement",
-  "signin":"Login",
-  "logout":"Logout"
+  "increment": "increment",
+  "decrement": "decrement",
+  "signin": "Login",
+  "logout": "Logout",
+  "profile": "profile"
 }

@@ -6,8 +6,8 @@ import "shared/config/i18nConfig/i18n"
 import { ErrorBoundary } from "./providers/ErrorBoundary"
 import { ErrorPage } from "widgets/ErrorPage"
 import { useEffect } from "react"
-import { useAppDispatch } from "./providers/ReduxProvider/config/store"
 import { initAuthData } from "entity/user/model/slice/userSlice"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 
 export const App = () => {
 	const dispatch = useAppDispatch()

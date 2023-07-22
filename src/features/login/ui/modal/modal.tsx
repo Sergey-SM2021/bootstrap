@@ -15,7 +15,7 @@ export const LoginModal = memo((props: LoginModalProps) => {
 	return (
 		<Modal {...props}>
 			<Suspense fallback={<Spinner />}>
-				<FormAsync />
+				<FormAsync onSuccess={props.onClose} />
 			</Suspense>
 		</Modal>
 	)

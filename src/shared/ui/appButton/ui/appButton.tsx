@@ -1,17 +1,17 @@
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 import clx from "./appButton.module.scss"
-import { ButtonHTMLAttributes } from "react"
+import { ButtonHTMLAttributes, memo } from "react"
 
 export enum AppButtonTheme {
   clear = "clear",
   primary = "primary",
-  background_inverted = "background_inverted"
+  background_inverted = "background_inverted",
 }
 
 export enum AppButtonSize {
   md = "SIZE_MD",
   lg = "SIZE_LG",
-  xl = "SIZE_XL"
+  xl = "SIZE_XL",
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,7 +20,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: AppButtonSize;
 }
 
-export const AppButton = (props: AppButtonProps) => {
+export const AppButton = memo((props: AppButtonProps) => {
 	const {
 		children,
 		size = AppButtonSize.md,
@@ -32,14 +32,16 @@ export const AppButton = (props: AppButtonProps) => {
 	} = props
 	return (
 		<button
-			className={classNames(clx.appButton, { [clx.square]: square, [clx.disabled]: disabled }, [
-				clx[theme],
-				className,
-				clx[size],
-			])}
+			className={classNames(
+				clx.appButton,
+				{ [clx.square]: square, [clx.disabled]: disabled },
+				[clx[theme], className, clx[size]]
+			)}
 			{...restProps}
 		>
 			{children}
 		</button>
 	)
-}
+})
+
+AppButton.displayName = "AppButton"

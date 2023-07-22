@@ -11,7 +11,6 @@ import {
 } from "../../model/slice/loginSlice"
 import { memo, useCallback } from "react"
 import { login_action } from "features/login/model/services/loginService"
-import { useAppDispatch } from "app/providers/ReduxProvider/config/store"
 import {
 	LoginFormErrorSelector,
 	LoginFormIsLoadingSelector,
@@ -19,8 +18,13 @@ import {
 	LoginFormPasswordSelector,
 } from "features/login/model/selectors/loginSelector"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 
-export const Form = memo(() => {
+interface FormProps {
+  onSuccess: VoidFunction;
+}
+
+const Form = memo(({ onSuccess }: FormProps) => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const password = useSelector(LoginFormPasswordSelector)
@@ -42,38 +46,37 @@ export const Form = memo(() => {
 		[dispatch]
 	)
 
-	const handlerSubmit = async () => {
-		await dispatch(login_action({ login, password }))
-	}
+	const handlerSubmit = useCallback(async () => {
+		const result = await dispatch(login_action({ login, password }))
+		if (result.meta.requestStatus === "fulfilled") {
+			onSuccess()
+		}
+	}, [login, onSuccess, password, dispatch])
 
 	return (
-		<div className={s.form}>
-			{error ? <Text theme={ThemeEnum.Error}>{error}</Text> : null}
-			<div>
-				<Text>{t("login")}</Text>
-				<Input value={login} onChange={onChangeLogin} />
+		<AsyncComponent reducer={loginSliceReducer} reducerName="login">
+			<div className={s.form}>
+				{error ? <Text theme={ThemeEnum.Error}>{error}</Text> : null}
+				<div>
+					<Text>{t("login")}</Text>
+					<Input value={login} onChange={onChangeLogin} />
+				</div>
+				<div>
+					<Text>{t("password")}</Text>
+					<Input value={password} onChange={onChangePassword} />
+				</div>
+				<AppButton
+					disabled={isLoading}
+					theme={AppButtonTheme.primary}
+					onClick={handlerSubmit}
+				>
+					{t("signin")}
+				</AppButton>
 			</div>
-			<div>
-				<Text>{t("password")}</Text>
-				<Input value={password} onChange={onChangePassword} />
-			</div>
-			<AppButton
-				disabled={isLoading}
-				theme={AppButtonTheme.primary}
-				onClick={handlerSubmit}
-			>
-				{t("signin")}
-			</AppButton>
-		</div>
+		</AsyncComponent>
 	)
 })
 
 Form.displayName = "Form"
 
-const WithAsyncComponent = () => (
-	<AsyncComponent reducer={loginSliceReducer} reducerName="login">
-		<Form />
-	</AsyncComponent>
-)
-
-export default WithAsyncComponent
+export default Form

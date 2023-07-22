@@ -1,0 +1,16 @@
+.link {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+    justify-content: start;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+
+    * {
+        fill: var(--bg-color);
+    }
+}

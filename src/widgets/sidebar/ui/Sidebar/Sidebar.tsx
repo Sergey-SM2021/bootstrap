@@ -1,28 +1,21 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 import clx from "./Sidebar.module.scss"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { ThemeSwitcher } from "widgets/themeSwitcher"
-import { LangSwitcher } from "widgets/langSwitcher/langSwitcher"
+import { LangSwitcher } from "widgets/langSwitcher"
 import { AppButtonSize } from "shared/ui/appButton/ui/appButton"
-import { AppLink } from "shared/ui/appLink"
 import { useTranslation } from "react-i18next"
-import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
-import About from "../../assets/Description.svg"
-import Home from "../../assets/Home.svg"
+import { SidebarItem } from "../SidebarItem/SidebarItem"
+import { links } from "../../model/SidebarLinks"
 
 export const Sidebar = () => {
 	const [rolledUp, setRolledUp] = useState<boolean>(true)
 	const { t } = useTranslation()
 
-	const links = [
-		{ icon: <About />, path: RouterPaths.about, text: t("about link") },
-		{ icon: <Home />, path: RouterPaths.home, text: t("home link") },
-	]
-
-	const handlerRollUp = () => {
+	const handlerRollUp = useCallback(() => {
 		setRolledUp((prev) => !prev)
-	}
+	}, [])
 
 	return (
 		<div
@@ -42,12 +35,12 @@ export const Sidebar = () => {
 			<div className={clx.inner}>
 				<div className={clx.links}>
 					{links.map((el) => (
-						<div key={el.path} className={clx.link}>
-							<AppLink to={el.path} className={clx.link}>
-								{!rolledUp ? el.text : null}
-								<span className={clx.icon}>{el.icon}</span>
-							</AppLink>
-						</div>
+						<SidebarItem
+							{...el}
+							key={el.path}
+							text={t(el.text)}
+							rolledUp={rolledUp}
+						/>
 					))}
 				</div>
 			</div>

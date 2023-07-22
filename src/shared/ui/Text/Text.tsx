@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, memo } from "react"
 import style from "./Text.module.scss"
 
 export enum ThemeEnum {
@@ -10,8 +10,10 @@ interface TextProps extends PropsWithChildren {
 	theme?: ThemeEnum
 }
 
-export const Text = ({children, theme = ThemeEnum.Primary}: TextProps) => (
+export const Text = memo(({children, theme = ThemeEnum.Primary}: TextProps) => (
 	<div data-testid="Text" className={style[theme]}>
 		{children}
 	</div>
-)
+))
+
+Text.displayName = "Text"
