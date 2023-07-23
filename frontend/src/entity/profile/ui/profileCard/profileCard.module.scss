@@ -1,0 +1,22 @@
+.profileCard {
+    border: 1px solid var(--inverted-bg-color);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item {
+}

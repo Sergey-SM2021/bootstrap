@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
+import { thunkExtra } from "app/providers/ReduxProvider/config/StoreSchema"
 import { setUser } from "entity/user"
 import { USER_LOCALSTORAGE_NAME } from "shared/const/localstorage"
 
@@ -13,12 +13,10 @@ export const login_action = createAsyncThunk<
     login: string;
     password: string;
   },
-  { rejectValue: string }
+  { rejectValue: string, extra: thunkExtra}
 >("login/login", async ({ login, password }, thankAPI) => {
 	try {
-		const response = (
-			await axios.post("http://localhost:3000/login", { login, password })
-		).data
+		const response = (await thankAPI.extra.api.post("login", { login, password })).data
 		localStorage.setItem(USER_LOCALSTORAGE_NAME, JSON.stringify(response))
 		thankAPI.dispatch(setUser(response))
 		return response

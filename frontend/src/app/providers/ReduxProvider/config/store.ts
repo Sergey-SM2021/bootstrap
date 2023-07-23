@@ -2,6 +2,7 @@ import { DeepPartial, combineReducers, configureStore } from "@reduxjs/toolkit"
 import { StoreSchema } from "./StoreSchema"
 import { counterSliceReducer } from "entity/counter/model/slice/counterSlice"
 import { userSliceReducer } from "entity/user"
+import { $api } from "shared/api/api"
 
 const staticReducers = {
 	counter: counterSliceReducer,
@@ -17,13 +18,15 @@ function createReducer(asyncReducers) {
 }
 
 export const createStore = (preloadedState?: DeepPartial<StoreSchema>) => {
-	const store = configureStore<StoreSchema>({
+	const store = configureStore({
 		reducer: {
 			counter: counterSliceReducer,
 			user: userSliceReducer,
 		},
 		preloadedState: preloadedState as StoreSchema,
 		devTools: __IS_DEV__,
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware({ thunk: { extraArgument: { api: $api } } }),
 	})
 
 	// @ts-ignore
