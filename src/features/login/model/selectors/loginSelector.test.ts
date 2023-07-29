@@ -1,4 +1,3 @@
-import { DeepPartial } from "@reduxjs/toolkit"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { LoginFormErrorSelector, LoginFormIsLoadingSelector, LoginFormLoginSelector, LoginFormPasswordSelector } from "./loginSelector"
 

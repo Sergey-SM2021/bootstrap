@@ -12,7 +12,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = memo(({ className }: NavbarProps) => {
+export const Navbar = memo(({ className = "" }: NavbarProps) => {
 	const selector = useSelector((state: StoreSchema) => state.user.authData)
 	const [isOpen, setIsOpen] = useState(false)
 	const dispatch = useDispatch()

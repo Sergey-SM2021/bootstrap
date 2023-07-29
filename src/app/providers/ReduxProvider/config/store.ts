@@ -1,4 +1,4 @@
-import { DeepPartial, combineReducers, configureStore } from "@reduxjs/toolkit"
+import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { StoreSchema } from "./StoreSchema"
 import { counterSliceReducer } from "entity/counter/model/slice/counterSlice"
 import { userSliceReducer } from "entity/user"

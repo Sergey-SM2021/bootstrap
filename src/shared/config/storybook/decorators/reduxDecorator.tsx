@@ -1,4 +1,3 @@
-import { DeepPartial } from "@reduxjs/toolkit"
 import { StoryFn } from "@storybook/react"
 import { ReduxProvider } from "app/providers/ReduxProvider"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"

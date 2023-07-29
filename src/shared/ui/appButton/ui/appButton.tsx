@@ -26,8 +26,8 @@ export const AppButton = memo((props: AppButtonProps) => {
 		size = AppButtonSize.md,
 		theme,
 		square = false,
-		className,
-		disabled,
+		className = "",
+		disabled = false,
 		...restProps
 	} = props
 	return (

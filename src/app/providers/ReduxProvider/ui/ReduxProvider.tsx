@@ -1,6 +1,5 @@
 import { Provider } from "react-redux"
 import { PropsWithChildren } from "react"
-import { DeepPartial } from "@reduxjs/toolkit"
 import { StoreSchema } from "../config/StoreSchema"
 import { createStore } from "../config/store"
 

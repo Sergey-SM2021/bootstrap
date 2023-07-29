@@ -1,3 +1,4 @@
+import { $api } from "shared/api/api"
 import axios from "axios"
 import { login_action } from "./loginService"
 import { Dispatch } from "@reduxjs/toolkit"
@@ -21,7 +22,7 @@ describe("login action tests", () => {
 			new Promise((resolve) => resolve({ data: { login: "123", id: 67 } }))
 		)
 		const action = login_action({ login: "123", password: "123" })
-		const result = await action(dispatch, getState, undefined)
+		const result = await action(dispatch, getState, {api: $api})
 		expect(mockedAxios.post).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe("fulfilled")
 		expect(dispatch).toHaveBeenCalledTimes(3)
@@ -35,7 +36,7 @@ describe("login action tests", () => {
 			)
 		)
 		const action = login_action({ login: "123", password: "123" })
-		const result = await action(dispatch, getState, undefined)
+		const result = await action(dispatch, getState, {api: $api})
 		expect(result.meta.requestStatus).toBe("rejected")
 		expect(mockedAxios.post).toHaveBeenCalled()
 		expect(dispatch).toHaveBeenCalledTimes(2)

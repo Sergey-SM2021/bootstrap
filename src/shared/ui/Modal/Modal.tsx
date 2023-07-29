@@ -19,7 +19,7 @@ interface ModalProps extends PropsWithChildren {
 const ANIMATION_DELAY = 300
 
 export const Modal = memo((props : ModalProps) => {
-	const {children, className, isOpen, onClose} = props
+	const {children, className = "", isOpen = false, onClose} = props
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -30,7 +30,9 @@ export const Modal = memo((props : ModalProps) => {
 	const CloseHandler = useCallback(() => {
 		setIsClosing(true)
 		timerRef.current = setTimeout(() => {
-			onClose()
+			if (onClose) {
+				onClose()				
+			}
 			setIsClosing(false)
 		}, ANIMATION_DELAY)
 	}, [onClose])
