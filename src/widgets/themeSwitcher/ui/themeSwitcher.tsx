@@ -4,11 +4,12 @@ import Dark from "../assets/dark.svg"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { memo } from "react"
+import clx from "./themeSwitcher.module.scss"
 
 export const ThemeSwitcher = memo(() => {
 	const { theme, toggleThemeHamdler } = useTheme()
 	return (
-		<AppButton theme={AppButtonTheme.clear} onClick={toggleThemeHamdler}>
+		<AppButton className={clx.themeSwitcher} theme={AppButtonTheme.clear} onClick={toggleThemeHamdler}>
 			{theme === Theme.lightTheme ? <Dark /> : <Light />}
 		</AppButton>
 	)

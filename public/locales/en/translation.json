@@ -14,5 +14,8 @@
   "decrement": "decrement",
   "signin": "Login",
   "logout": "Logout",
-  "profile": "profile"
+  "profile": "Profile",
+  "name": "Name",
+  "lastname": "Lastname",
+  "edit": "Edit"
 }
