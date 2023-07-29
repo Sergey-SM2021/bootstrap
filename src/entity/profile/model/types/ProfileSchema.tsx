@@ -2,14 +2,11 @@ import { City } from "shared/const/common"
 
 export interface ProfileSchema {
   data?: {
-    fio: string;
-    age: number;
-    balance: number;
-    avatar: string;
-    city: City;
-    shop: any[];
+    name: string;
+    lastname: string;
+    city: City
   };
   isLoading?: boolean;
   error: string;
-  readonly: boolean
+  readOnly: boolean
 }

@@ -5,10 +5,10 @@ import { LoginSchema } from "features/login"
 import { $api } from "shared/api/api"
 
 export interface StoreSchema {
-  counter: CounterSchema;
-  login?: LoginSchema;
-  user: UserSchema;
-  profile?: ProfileSchema;
+  counter: CounterSchema
+  login?: LoginSchema
+  user: UserSchema
+  profile?: ProfileSchema
 }
 
 export interface thunkExtra {
