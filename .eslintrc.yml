@@ -41,6 +41,8 @@ rules:
   semi:
     - error
     - never
+  no-mixed-spaces-and-tabs:
+    - off
 settings:
   react:
     version: detect

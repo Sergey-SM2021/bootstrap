@@ -6,6 +6,7 @@ export enum AppButtonTheme {
   clear = "clear",
   primary = "primary",
   background_inverted = "background_inverted",
+  dangerous = "dangerous",
 }
 
 export enum AppButtonSize {

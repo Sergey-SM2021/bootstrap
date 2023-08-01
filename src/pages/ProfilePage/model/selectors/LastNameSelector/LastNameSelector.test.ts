@@ -7,9 +7,11 @@ describe("lastname", () => {
 		const state: DeepPartial<StoreSchema> = {
 			profile: {
 				data: {
-					city: City.Delhi,
-					lastname: "jojyKlim",
-					name: "loloy",
+					editedProfile:{
+						city: City.Delhi,
+						lastname: "jojyKlim",
+						name: "loloy",
+					}
 				},
 				error: "",
 				isLoading: false,

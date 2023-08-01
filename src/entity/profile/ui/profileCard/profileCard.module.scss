@@ -1,9 +1,10 @@
 .profileCard {
     border: 1px solid var(--inverted-bg-color);
-    padding: 8px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border-radius: 5px;
 }
 
 .header {
@@ -13,10 +14,18 @@
 }
 
 .body {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    gap: 24px;
+    display: grid;
+    grid-template: 1fr / repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .item {
+}
+
+.avatar {
+    grid-row: span 2;
+}
+
+.edit {
+    border: solid 1px var(--secondary-color);
 }

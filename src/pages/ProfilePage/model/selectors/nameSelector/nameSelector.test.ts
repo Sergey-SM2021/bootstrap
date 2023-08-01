@@ -6,10 +6,12 @@ describe("name selector test", () => {
 	it("name selector test", () => {
 		const Store: DeepPartial<StoreSchema> = {
 			profile: {
-				data: {
-					city: City.Tokyo,
-					lastname: "yugb",
-					name: "ydtrwqqqw2232",
+				data: { 
+					editedProfile:{
+						city: City.Tokyo,
+						lastname: "yugb",
+						name: "ydtrwqqqw2232",
+					}
 				},
 				error: "",
 				isLoading: false,

@@ -19,7 +19,7 @@
     color: var(--bg-color);
 }
 
-.square{
+.square {
     padding: 0;
 }
 
@@ -41,18 +41,22 @@
     font-size: var(--font-xl);
 }
 
-.SIZE_MD{
+.SIZE_MD {
     font-size: var(--font-size-m);
 }
 
-.SIZE_LG{
+.SIZE_LG {
     font-size: var(--font-size-l);
 }
 
-.SIZE_XL{
+.SIZE_XL {
     font-size: var(--font-size-xl);
 }
 
 .disabled {
     opacity: .5
+}
+
+.dangerous {
+    background-color: var(--red-color);
 }

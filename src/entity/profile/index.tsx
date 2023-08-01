@@ -1,3 +1,3 @@
-export { ProfileReducer, actions } from "./model/slice/profileSlice"
-export { ProfileSchema } from "./model/types/ProfileSchema"
+export { ProfileReducer } from "../../pages/ProfilePage/model/slice/profileSlice/profileSlice"
+export { ProfileSchema } from "../../pages/ProfilePage/model/types/ProfileSchema"
 export { ProfileCard } from "./ui/profileCard/profileCard"

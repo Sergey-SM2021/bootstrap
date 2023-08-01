@@ -1,4 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, memo } from "react"
+import style from "./Input.module.scss"
+import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value"> {
@@ -7,7 +9,7 @@ interface InputProps
 }
 
 export const Input = memo((props: InputProps) => {
-	const { value, onChange, ...rest } = props
+	const { value, onChange, readOnly = false, ...rest } = props
 
 	const handlerChange = (e: ChangeEvent) => {
 		if (e.currentTarget instanceof HTMLInputElement) {
@@ -17,6 +19,8 @@ export const Input = memo((props: InputProps) => {
 
 	return (
 		<input
+			className={classNames(style.input, { [style["readOnly"]]: readOnly })}
+			readOnly={readOnly}
 			value={value}
 			onChange={handlerChange}
 			data-testid="Input"

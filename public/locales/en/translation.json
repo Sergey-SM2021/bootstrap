@@ -17,5 +17,7 @@
   "profile": "Profile",
   "name": "Name",
   "lastname": "Lastname",
-  "edit": "Edit"
+  "edit": "Edit",
+  "cancle": "Cancle",
+  "save": "Save"
 }
