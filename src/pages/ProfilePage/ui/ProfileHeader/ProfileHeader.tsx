@@ -8,6 +8,7 @@ import { readOnlySelector } from "../../model/selectors/readOnlySelector/readOnl
 import { memo } from "react"
 import { cancleEdit, toggleReadOnly } from "pages/ProfilePage/model/slice/profileSlice/profileSlice"
 import { updateProfile } from "pages/ProfilePage/model/services/updateProfile/updateProfile"
+import { validateProfile } from "pages/ProfilePage/model/services/validateProfile/validateProfile"
 
 export const ProfileHeader = memo(() => {
 	const { t } = useTranslation()
@@ -21,6 +22,7 @@ export const ProfileHeader = memo(() => {
 
 	const handlerSave = () => {
 		dispatch(updateProfile())
+		dispatch(validateProfile())
 	}
 
 	const handlerEditProfile = () => {

@@ -21,7 +21,7 @@ import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 
 interface FormProps {
-  onSuccess: VoidFunction;
+  onSuccess: VoidFunction
 }
 
 const Form = memo(({ onSuccess }: FormProps) => {
@@ -59,13 +59,14 @@ const Form = memo(({ onSuccess }: FormProps) => {
 				{error ? <Text theme={ThemeEnum.Error}>{error}</Text> : null}
 				<div>
 					<Text>{t("login")}</Text>
-					<Input value={login} onChange={onChangeLogin} />
+					<Input data-testid="login" value={login} onChange={onChangeLogin} />
 				</div>
 				<div>
 					<Text>{t("password")}</Text>
-					<Input value={password} onChange={onChangePassword} />
+					<Input data-testid="password" value={password} onChange={onChangePassword} />
 				</div>
 				<AppButton
+					data-testid="signin"
 					disabled={isLoading}
 					theme={AppButtonTheme.primary}
 					onClick={handlerSubmit}
