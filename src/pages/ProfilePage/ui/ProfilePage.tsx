@@ -22,6 +22,7 @@ import { citySelector } from "../model/selectors/CitySelector/CitySelector"
 import { countrySelector } from "../model/selectors/CountrySelector/countrySelector"
 import { currencySelector } from "../model/selectors/CurrencySelector/CurrencySelector"
 import { useTranslation } from "react-i18next"
+import { ageSelector } from "../model/selectors/ageSelector/ageSelector"
 
 const ProfilePage = () => {
 	const {t} = useTranslation()
@@ -33,6 +34,7 @@ const ProfilePage = () => {
 	const avatar = useSelector(AvatarSelector)
 	const nikname = useSelector(niknameSelector)
 	const city = useSelector(citySelector)
+	const age = useSelector(ageSelector)
 
 	const country = useSelector(countrySelector)
 	const currency = useSelector(currencySelector)
@@ -55,7 +57,7 @@ const ProfilePage = () => {
 			<div className={style.profile}>
 				<ProfileHeader />
 				<ProfileCard
-					age={12}
+					age={age}
 					avatar={avatar}
 					city={city}
 					country={country}
