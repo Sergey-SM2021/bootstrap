@@ -21,8 +21,10 @@ import { niknameSelector } from "../model/selectors/nikNameSelector/nikNameSelec
 import { citySelector } from "../model/selectors/CitySelector/CitySelector"
 import { countrySelector } from "../model/selectors/CountrySelector/countrySelector"
 import { currencySelector } from "../model/selectors/CurrencySelector/CurrencySelector"
+import { useTranslation } from "react-i18next"
 
 const ProfilePage = () => {
+	const {t} = useTranslation()
 	const name = useSelector(nameSelector)
 	const error = useSelector(errorSelector)
 	const isLoading = useSelector(isLoadingSelector)
@@ -33,7 +35,7 @@ const ProfilePage = () => {
 	const city = useSelector(citySelector)
 
 	const country = useSelector(countrySelector)
-	const currancy = useSelector(currencySelector)
+	const currency = useSelector(currencySelector)
 
 	const dispatch = useAppDispatch()
 
@@ -57,12 +59,12 @@ const ProfilePage = () => {
 					avatar={avatar}
 					city={city}
 					country={country}
-					currancy={currancy}
+					currency={currency}
 					lastname={lastname}
 					name={name}
 					nikname={nikname}
 					handlerCange={handlerChange}
-					error={error}
+					error={t(error)}
 					isLoading={isLoading}
 					readOnly={readOnly}
 				/>

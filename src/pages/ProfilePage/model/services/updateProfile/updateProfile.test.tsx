@@ -18,7 +18,7 @@ describe("uptate profile", () => {
 					avatar: "profile999.jpg",
 					city: City.Shanghai,
 					country: Country.Russia,
-					currancy: Currency.RUB,
+					currency: Currency.RUB,
 					lastname: "ikjnkn76guyyuuykj",
 					name: "ijnkku",
 					nikname: "k768hyk",
@@ -35,7 +35,7 @@ describe("uptate profile", () => {
 		nikname: "",
 		country: Country.Russia,
 		avatar: "",
-		currancy: Currency.USD,
+		currency: Currency.USD,
 	}
 
 	it("update profile success", async () => {

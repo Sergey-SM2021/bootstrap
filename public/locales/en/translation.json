@@ -19,5 +19,6 @@
   "lastname": "Lastname",
   "edit": "Edit",
   "cancle": "Cancle",
-  "save": "Save"
+  "save": "Save",
+  "can't get profile":"Can't get profile"
 }

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { ProfileSchema } from "../../types/ProfileSchema"
+import { ProfileErrors, ProfileSchema } from "../../types/ProfileSchema"
 import { getProfile } from "../../services/getProfile/getProfile"
 import { City, Country, Currency } from "shared/const/common"
 import { updateProfile } from "../../services/updateProfile/updateProfile"
@@ -16,7 +16,7 @@ const initialState: ProfileSchema = {
 			nikname: "",
 			country: Country.Russia,
 			avatar: "",
-			currancy: Currency.USD,
+			currency: Currency.USD,
 		},
 		editedProfile: {
 			name: "",
@@ -26,9 +26,10 @@ const initialState: ProfileSchema = {
 			nikname: "",
 			country: Country.Russia,
 			avatar: "",
-			currancy: Currency.USD,
+			currency: Currency.USD,
 		},
 	},
+	profileValidateErrors: [],
 	isLoading: false,
 }
 
@@ -73,10 +74,13 @@ const profileSlice = createSlice({
 				state.isLoading = false
 				state.error = ""
 			})
-			.addCase(updateProfile.rejected, (state, payload) => {
-				state.isLoading = false
-				state.error = payload.payload as string
-			})
+			.addCase(
+				updateProfile.rejected,
+				(state, payload: PayloadAction<any>) => {
+					state.isLoading = false
+					state.profileValidateErrors = payload.payload
+				}
+			)
 	},
 })
 

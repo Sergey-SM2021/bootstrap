@@ -12,7 +12,7 @@ import { Option, Select } from "shared/ui/Select"
 import { City } from "shared/const/common"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 
-type profileType = Omit<ProfileSchema, "data"> & Profile;
+type profileType = Omit<ProfileSchema, "data" | "profileValidateErrors"> & Profile;
 
 interface ProfileCardProps extends profileType {
   handlerCange: (value: Partial<Profile>) => void;
@@ -28,7 +28,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		avatar,
 		city,
 		country,
-		currancy,
+		currency,
 		lastname,
 		name,
 		nikname,
@@ -128,7 +128,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					<Select
 						disabled={readOnly}
 						onChange={handlerChangeCity}
-						initialValue={{ label: currancy, value: currancy }}
+						initialValue={{ label: currency, value: currency }}
 					>
 						<Option label="Доллар США" value="Доллар США"></Option>
 						<Option label="Россий рубль" value="Россий рубль"></Option>
