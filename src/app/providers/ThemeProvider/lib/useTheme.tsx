@@ -5,10 +5,16 @@ export const useTheme = () => {
 	const { setTheme, theme } = useContext(ThemeContext)
 
 	const toggleThemeHamdler = () => {
-		if (theme === Theme.lightTheme) {
+		switch (theme) {
+		case Theme.darkTheme:
+			setTheme(Theme.CustomTheme)
+			break
+		case Theme.lightTheme:
 			setTheme(Theme.darkTheme)
-		} else {
+			break
+		case Theme.CustomTheme:
 			setTheme(Theme.lightTheme)
+			break
 		}
 	}
 
