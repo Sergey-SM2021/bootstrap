@@ -38,7 +38,7 @@ export const ProfileHeader = memo(() => {
 		<div className={style.header}>
 			<Text>{t("profile")}</Text>
 			{errors.map((el) => (
-				<div key={el}>{el}</div>
+				<div key={el}>{t(el)}</div>
 			))}
 			{!isProfileReceived ? (
 				edit ? (
