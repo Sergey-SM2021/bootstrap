@@ -15,6 +15,7 @@
     "test:loki": "yarn loki --config ./config/storybook test",
     "loki:approve": "yarn loki --config ./config/storybook approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "jest-debug":"node --inspect-brk node_modules/.bin/jest --runInBand",
     "loki:ci": "storybook build -c ./config/storybook && loki --config ./config/storybook --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],

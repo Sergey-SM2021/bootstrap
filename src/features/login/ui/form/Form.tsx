@@ -78,6 +78,4 @@ const Form = memo(({ onSuccess }: FormProps) => {
 	)
 })
 
-Form.displayName = "Form"
-
 export default Form
