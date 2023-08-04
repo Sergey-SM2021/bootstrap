@@ -2,7 +2,8 @@ import { Dispatch } from "@reduxjs/toolkit"
 import { updateProfile } from "./updateProfile"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import axios from "axios"
-import { City, Country, Currency } from "shared/const/common"
+import { Country, Currency } from "shared/const/common"
+import { Citys } from "entity/City/model/types/CitySchema"
 
 jest.mock("axios")
 
@@ -16,7 +17,7 @@ describe("uptate profile", () => {
 				editedProfile: {
 					age: 783,
 					avatar: "profile999.jpg",
-					city: City.Shanghai,
+					city: Citys.Shanghai,
 					country: Country.Russia,
 					currency: Currency.RUB,
 					lastname: "ikjnkn76guyyuuykj",
@@ -31,7 +32,7 @@ describe("uptate profile", () => {
 		name: "",
 		lastname: "",
 		age: 22,
-		city: City.Moscow,
+		city: Citys.Moscow,
 		nikname: "",
 		country: Country.Russia,
 		avatar: "",

@@ -1,6 +1,6 @@
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { lastnameSelector } from "./LastNameSelector"
-import { City } from "shared/const/common"
+import { Citys } from "entity/City/model/types/CitySchema"
 
 describe("lastname", () => {
 	it("lastname", () => {
@@ -8,7 +8,7 @@ describe("lastname", () => {
 			profile: {
 				data: {
 					editedProfile:{
-						city: City.Delhi,
+						city: Citys.Delhi,
 						lastname: "jojyKlim",
 						name: "loloy",
 					}

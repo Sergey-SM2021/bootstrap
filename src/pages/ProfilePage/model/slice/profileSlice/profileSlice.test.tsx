@@ -5,7 +5,8 @@ import {
 	editProfile,
 } from "./profileSlice"
 import { ProfileSchema } from "../../types/ProfileSchema"
-import { City, Country, Currency } from "shared/const/common"
+import { Country, Currency } from "shared/const/common"
+import { Citys } from "entity/City/model/types/CitySchema"
 
 describe("Profile reducer", () => {
 	it("toggle test", () => {
@@ -38,7 +39,7 @@ describe("Profile reducer", () => {
 		const profile = {
 			age: 11,
 			avatar: "profile.jpg",
-			city: City.Tokyo,
+			city: Citys.Tokyo,
 			country: Country.Russia,
 			currency: Currency.RUB,
 			lastname: "in76guyyuuykj",
@@ -51,7 +52,7 @@ describe("Profile reducer", () => {
 				editedProfile: {
 					age: 89,
 					avatar: "https://",
-					city: City.Delhi,
+					city: Citys.Delhi,
 					country: Country.Mexico,
 					currency: Currency.USD,
 					lastname: "inkj",
@@ -76,7 +77,7 @@ describe("Profile reducer", () => {
 				editedProfile: {
 					age: 89,
 					avatar: "https://",
-					city: City.Delhi,
+					city: Citys.Delhi,
 					country: Country.Mexico,
 					currency: Currency.USD,
 					lastname: "inkj",
@@ -89,7 +90,7 @@ describe("Profile reducer", () => {
 		const expectetResult = {
 			age: 489,
 			avatar: "njknhttps://",
-			city: City.Tokyo,
+			city: Citys.Tokyo,
 			country: Country.Russia,
 			currency: Currency.RUB,
 			lastname: "inkmoih78hbuyhjj",

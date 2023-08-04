@@ -4,7 +4,7 @@ import style from "./Select.module.scss"
 import { useOutsideClick } from "shared/lib/hooks/useOutsideClick"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 
-interface SelectProviderProps extends PropsWithChildren {
+export interface SelectProviderProps extends PropsWithChildren {
   onChange: (value: string) => void;
   initialValue: StateType;
   disabled: boolean;

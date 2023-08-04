@@ -9,10 +9,12 @@ import {
 import { Spinner } from "shared/ui/spinner"
 import { Avatar } from "shared/ui/avatar/avatar"
 import { Option, Select } from "shared/ui/Select"
-import { City } from "shared/const/common"
+import { City } from "entity/City"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
+import { Citys } from "entity/City/model/types/CitySchema"
 
-type profileType = Omit<ProfileSchema, "data" | "profileValidateErrors"> & Profile;
+type profileType = Omit<ProfileSchema, "data" | "profileValidateErrors"> &
+  Profile;
 
 interface ProfileCardProps extends profileType {
   handlerCange: (value: Partial<Profile>) => void;
@@ -49,7 +51,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	}
 
 	const handlerChangeCity = (value: string) => {
-		handlerCange({ city: value as City })
+		handlerCange({ city: value as Citys })
 	}
 
 	const handlerChangeAvatar = (value: string) => {
@@ -59,9 +61,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	const handlerChangeNikname = (value: string) => {
 		handlerCange({ nikname: value })
 	}
-
-	console.log(city)
-	
 
 	if (isLoading) {
 		return (
@@ -80,7 +79,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	}
 
 	return (
-		<div className={classNames(style.profileCard, {[style.edit] : !readOnly})}>
+		<div className={classNames(style.profileCard, { [style.edit]: !readOnly })}>
 			<div className={style.body}>
 				<Avatar className={style.avatar} src={avatar} />
 				<div className={style.item}>
@@ -137,15 +136,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 				</div>
 				<div className={style.item}>
 					<Text>{t("city")}</Text>
-					<Select
-						disabled={readOnly}
+					<City
 						onChange={handlerChangeCity}
 						initialValue={{ label: city, value: city }}
-					>
-						<Option label="Москва" value="Москва"></Option>
-						<Option label="Тбилиси" value="Тбилиси"></Option>
-						<Option label="Токио" value="Токио"></Option>
-					</Select>
+						disabled={readOnly}
+					/>
 				</div>
 				<div className={style.item}>
 					<Text>{t("avatar")}</Text>

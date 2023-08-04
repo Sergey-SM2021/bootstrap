@@ -1,5 +1,5 @@
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
-import { City } from "shared/const/common"
+import { Citys } from "entity/City/model/types/CitySchema"
 import { nameSelector } from "./NameSelector"
 
 describe("name selector test", () => {
@@ -8,7 +8,7 @@ describe("name selector test", () => {
 			profile: {
 				data: { 
 					editedProfile:{
-						city: City.Tokyo,
+						city: Citys.Tokyo,
 						lastname: "yugb",
 						name: "ydtrwqqqw2232",
 					}

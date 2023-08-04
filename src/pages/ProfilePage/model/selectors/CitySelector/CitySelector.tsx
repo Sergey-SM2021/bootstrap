@@ -1,4 +1,4 @@
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
-import { City } from "shared/const/common"
+import { Citys } from "entity/City/model/types/CitySchema"
 
-export const citySelector = (state:StoreSchema) => state.profile?.data?.editedProfile.city ?? City.Moscow
+export const citySelector = (state:StoreSchema) => state.profile?.data?.editedProfile.city ?? Citys.Moscow

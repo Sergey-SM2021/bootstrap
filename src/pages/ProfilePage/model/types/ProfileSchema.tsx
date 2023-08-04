@@ -1,10 +1,11 @@
-import { City, Country, Currency } from "shared/const/common"
+import { Country, Currency } from "shared/const/common"
+import { Citys } from "entity/City/model/types/CitySchema"
 
 export interface Profile {
   name: string
   lastname: string
   age: number
-  city: City
+  city: Citys
   nikname: string
   country: Country
   avatar: string

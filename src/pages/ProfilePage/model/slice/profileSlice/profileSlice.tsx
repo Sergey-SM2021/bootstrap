@@ -1,8 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { ProfileErrors, ProfileSchema } from "../../types/ProfileSchema"
+import { ProfileSchema } from "../../types/ProfileSchema"
 import { getProfile } from "../../services/getProfile/getProfile"
-import { City, Country, Currency } from "shared/const/common"
+import { Country, Currency } from "shared/const/common"
 import { updateProfile } from "../../services/updateProfile/updateProfile"
+import { Citys } from "entity/City/model/types/CitySchema"
 
 const initialState: ProfileSchema = {
 	error: "",
@@ -12,7 +13,7 @@ const initialState: ProfileSchema = {
 			name: "",
 			lastname: "",
 			age: 22,
-			city: City.Moscow,
+			city: Citys.Moscow,
 			nikname: "",
 			country: Country.Russia,
 			avatar: "",
@@ -22,7 +23,7 @@ const initialState: ProfileSchema = {
 			name: "",
 			lastname: "",
 			age: 22,
-			city: City.Moscow,
+			city: Citys.Moscow,
 			nikname: "",
 			country: Country.Russia,
 			avatar: "",
