@@ -19,7 +19,7 @@ export function buildPlugins({
 		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: isDev,
-			__PROJECT__: "frontend"
+			__PROJECT__: JSON.stringify("frontend")
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new BundleAnalyzerPlugin(),
