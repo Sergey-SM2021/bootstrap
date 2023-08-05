@@ -1,7 +1,7 @@
 export default {
 	clearMocks: true,
 
-	globals:{
+	globals : {
 		__IS_DEV__:true
 	},
 

@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorato
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 
 const meta: Meta<typeof City> = {
-	title: "Pages/ProfilePage",
+	title: "Entity/City",
 	component: City,
 	tags: ["autodocs"],
 }

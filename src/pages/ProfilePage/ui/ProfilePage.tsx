@@ -42,7 +42,9 @@ const ProfilePage = () => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(getProfile(13))
+		if(__PROJECT__ === "frontend"){
+			dispatch(getProfile(13))
+		}
 	}, [dispatch])
 
 	const handlerChange = useCallback(
