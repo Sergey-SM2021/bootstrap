@@ -5,7 +5,7 @@ import { ProfilePage } from "pages/ProfilePage"
 import { RouteProps } from "react-router-dom"
 
 type RoutePropsType = RouteProps & {
-  private: boolean;
+  isPrivate: boolean;
 };
 
 enum RouterPages {
@@ -26,20 +26,20 @@ export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 	about: {
 		path: RouterPaths.about,
 		element: <AboutPage />,
-		private: false,
+		isPrivate: false,
 	},
 	home: {
-		private: false,
+		isPrivate: false,
 		element: <MainPage />,
 		path: RouterPaths.home,
 	},
 	notfound: {
-		private: false,
+		isPrivate: false,
 		element: <NotFoundPage />,
 		path: RouterPaths.notfound,
 	},
 	profile: {
-		private: true,
+		isPrivate: true,
 		element: <ProfilePage />,
 		path: RouterPaths.profile,
 	},
