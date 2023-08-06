@@ -8,9 +8,12 @@ import { ErrorPage } from "widgets/ErrorPage"
 import { useEffect } from "react"
 import { initAuthData } from "entity/user/model/slice/userSlice"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
+import { useSelector } from "react-redux"
+import { getInited } from "entity/user/model/selector/getInited"
 
 export const App = () => {
 	const dispatch = useAppDispatch()
+	const inited = useSelector(getInited)
 
 	useEffect(() => {
 		dispatch(initAuthData())
@@ -23,7 +26,7 @@ export const App = () => {
 					<Navbar />
 					<div className="content-page">
 						<Sidebar />
-						<RouterProvider />
+						{inited && <RouterProvider />}
 					</div>
 				</ErrorBoundary>
 			</div>
