@@ -1,11 +1,7 @@
 import { memo } from "react"
 
-interface ArticlesPageProps {
-
-}
-
-const ArticlesPage = memo(({}:ArticlesPageProps) => {
-
+const ArticlesPage = memo(() => {
+	// eslint-disable-next-line i18next/no-literal-string
 	return (<div>ArticlesPage</div>)
 })
 

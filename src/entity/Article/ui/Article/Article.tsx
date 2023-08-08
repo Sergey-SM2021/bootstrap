@@ -12,6 +12,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import clx from "./Article.module.scss"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
 import { Flex } from "shared/ui/Flex/Flex"
+import { useTranslation } from "react-i18next"
 
 interface ArticleProps {
   id: number;
@@ -19,6 +20,7 @@ interface ArticleProps {
 
 export const Article = memo(({ id }: ArticleProps) => {
 	const dispatch = useAppDispatch()
+	const { t } = useTranslation()
 	const article = useSelector(getArticleDetalisData)
 	const error = useSelector(getArticleDetalisError)
 	const isLoading = useSelector(getArticleDetalisIsLoading)
@@ -32,11 +34,16 @@ export const Article = memo(({ id }: ArticleProps) => {
 	let content
 
 	if (error) {
-		content = <div>Не удалось получить статью</div>
+		content = <div>{t("can't get the article")}</div>
 	} else if (isLoading) {
 		content = (
 			<Flex gap={10} direction="column">
-				<Skeleton className={clx.avatar} radius="50%" width={100} height={100} />
+				<Skeleton
+					className={clx.avatar}
+					radius="50%"
+					width={100}
+					height={100}
+				/>
 				<Skeleton height={50} width={"50%"} radius={5} />
 				<Skeleton height={25} width={"50%"} radius={5} />
 				<Skeleton height={100} width={"100%"} radius={5} />
@@ -45,7 +52,6 @@ export const Article = memo(({ id }: ArticleProps) => {
 	} else {
 		content = (
 			<div>
-				<h2>article page</h2>
 				{article?.title}
 			</div>
 		)
@@ -53,9 +59,7 @@ export const Article = memo(({ id }: ArticleProps) => {
 
 	return (
 		<AsyncComponent reducer={ArticleReducer} reducerName="ArticleReducer">
-			<div className={clx.article}>
-				{content}
-			</div>
+			<div className={clx.article}>{content}</div>
 		</AsyncComponent>
 	)
 })
