@@ -1,12 +1,21 @@
+import { Article } from "entity/Article"
 import { memo } from "react"
+import { useParams } from "react-router-dom"
 
-interface ArticleDetalisPageProps {
+const ArticleDetalisPage = memo(() => {
+	const { id } = useParams()
 
-}
+	if (!id) {
+		return <div>
+			console.error()
+		</div>
+	}
 
-const ArticleDetalisPage = memo(({}:ArticleDetalisPageProps) => {
-
-	return (<div>ArticleDetalisPage</div>)
+	return (
+		<div>
+			<Article id={Number(id)} />
+		</div>
+	)
 })
 
 export default ArticleDetalisPage

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { ArticlePageSchema } from "../types/ArticlePageSchema"
 
-const initialState:ArticlePageSchema = {
+const initialState = {
 	value: 0,
 }
 
@@ -9,7 +8,7 @@ const ArticlePageSlice = createSlice({
 	name: "ArticlePage",
 	initialState,
 	reducers: {
-		test(state, payload:PayloadAction<string>) {
+		test(state, payload) {
 			state = payload.payload
 		}
 	}
