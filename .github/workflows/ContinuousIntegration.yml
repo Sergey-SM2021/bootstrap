@@ -1,17 +1,41 @@
 name: ContinuousIntegration
-on: [workflow_dispatch, push]
+on: 
+  push: 
+    paths:
+      - "!config/**"
+      - "src/**"
 jobs:
-  loki:
+  ui-test:
     runs-on: ubuntu-latest
     steps:
       - name: clone project
         uses: actions/checkout@v3
       - name: install dep
         run: yarn install
+      - name: Restore cached Primes
+        uses: actions/cache/restore@v3
       - name: test ui view screen
         run: npm run loki:ci
+  jest-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone project
+        uses: actions/checkout@v3
+      - name: install dep
+        run: yarn install
+      - name: Restore cached Primes
+        uses: actions/cache/restore@v3
       - name: ui test
         run: npm run test
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone project
+        uses: actions/checkout@v3
+      - name: install dep
+        run: yarn install
+      - name: Restore cached Primes
+        uses: actions/cache/restore@v3
       - name: eslint
         run: npm run eslint
       - name: stylelint

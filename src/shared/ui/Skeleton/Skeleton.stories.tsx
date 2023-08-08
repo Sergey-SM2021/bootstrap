@@ -15,6 +15,7 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Dark: Story = {
 	args: {
+		width: "100%",
 		height: 100
 	},
 	decorators: [ThemeDecorator(Theme.lightTheme)]

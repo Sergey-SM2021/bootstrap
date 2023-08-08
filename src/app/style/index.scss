@@ -21,5 +21,8 @@
 
 .page {
     flex-grow: 1;
+    box-sizing: border-box;
     padding: 20px;
+    height: calc(100vh - var(--navbar-height));
+    overflow: scroll;
 }
