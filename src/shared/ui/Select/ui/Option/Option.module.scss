@@ -1,5 +1,6 @@
 .option {
     color: var(--bg-color);
+
     &:hover{
         cursor: pointer;
     }
@@ -7,6 +8,7 @@
 
 .active {
     color: var(--secondary-color);
+
     &:hover{
         cursor: default;
     }
