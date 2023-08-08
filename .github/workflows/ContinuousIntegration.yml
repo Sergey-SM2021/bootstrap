@@ -1,19 +1,23 @@
 name: ContinuousIntegration
-on: 
-  push: 
+on:
+  push:
     paths:
       - "!config/**"
       - "src/**"
+  workflow_dispatch:
 jobs:
   ui-test:
     runs-on: ubuntu-latest
     steps:
       - name: clone project
         uses: actions/checkout@v3
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: install dep
         run: yarn install
-      - name: Restore cached Primes
-        uses: actions/cache/restore@v3
       - name: test ui view screen
         run: npm run loki:ci
   jest-test:
@@ -23,8 +27,11 @@ jobs:
         uses: actions/checkout@v3
       - name: install dep
         run: yarn install
-      - name: Restore cached Primes
-        uses: actions/cache/restore@v3
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: ui test
         run: npm run test
   linting:
@@ -32,10 +39,13 @@ jobs:
     steps:
       - name: clone project
         uses: actions/checkout@v3
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: install dep
         run: yarn install
-      - name: Restore cached Primes
-        uses: actions/cache/restore@v3
       - name: eslint
         run: npm run eslint
       - name: stylelint
