@@ -9,8 +9,8 @@ import { memo, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
-import { Spinner } from "shared/ui/spinner"
 import clx from "./Article.module.scss"
+import { Skeleton } from "shared/ui/Skeleton/Skeleton"
 
 interface ArticleProps {
   id: number;
@@ -35,7 +35,7 @@ export const Article = memo(({ id }: ArticleProps) => {
 	} else if (isLoading) {
 		content = (
 			<div>
-				<Spinner />
+				<Skeleton />
 			</div>
 		)
 	} else {

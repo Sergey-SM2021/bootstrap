@@ -14,8 +14,10 @@ export default meta
 type Story = StoryObj<typeof Skeleton>;
 
 export const Dark: Story = {
-	args: {},
-	decorators: [ThemeDecorator(Theme.CustomTheme)]
+	args: {
+		height: 100
+	},
+	decorators: [ThemeDecorator(Theme.lightTheme)]
 }
 
 export const Circle: Story = {
@@ -24,5 +26,5 @@ export const Circle: Story = {
 		width: 100,
 		radius: "50%"
 	},
-	decorators: [ThemeDecorator(Theme.CustomTheme)]
+	decorators: [ThemeDecorator(Theme.lightTheme)]
 }
