@@ -6,7 +6,6 @@ import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import { Citys } from "entity/City/model/types/CitySchema"
 import { Country, Currency } from "shared/const/common"
-import avatar from "shared/assets/avatar.jpg"
 
 const meta: Meta<typeof ProfileCard> = {
 	title: "Entity/ProfileCard",
@@ -25,7 +24,7 @@ export const Dark: Story = {
 		city: Citys.Moscow,
 		nikname: "uui",
 		country: Country.Russia,
-		avatar,
+		avatar:"",
 		currency: Currency.USD,
 	},
 	decorators: [ThemeDecorator(Theme.darkTheme), RouterDecorator],
