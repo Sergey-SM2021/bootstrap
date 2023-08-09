@@ -15,15 +15,15 @@ type Story = StoryObj<typeof Spinner>;
 
 export const Dark: Story = {
 	args: {},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.darkTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const Light: Story = {
 	args: {},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }
 
 export const Primary: Story = {
 	args: {},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }

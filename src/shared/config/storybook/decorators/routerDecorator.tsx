@@ -1,8 +1,8 @@
 import { StoryFn } from "@storybook/react"
-import { BrowserRouter } from "react-router-dom"
+import { MemoryRouter } from "react-router-dom"
 
-export const RouterDecorator = (Story: StoryFn) => (
-	<BrowserRouter>
+export const RouterDecorator = (path?: string) => (Story:StoryFn) => (
+	<MemoryRouter basename={path??""}>
 		<Story />
-	</BrowserRouter>
+	</MemoryRouter>
 )

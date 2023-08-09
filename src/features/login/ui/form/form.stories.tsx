@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Form>;
 export const Dark: Story = {
 	args: {},
 	decorators: [
-		RouterDecorator,
+		RouterDecorator(),
 		ThemeDecorator(Theme.darkTheme),
 		ReduxDecorator(),
 	],

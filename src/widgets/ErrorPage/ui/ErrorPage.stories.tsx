@@ -14,13 +14,13 @@ export default meta
 type Story = StoryObj<typeof ErrorPage>;
 
 export const Dark: Story = {
-	decorators: [RouterDecorator, ThemeDecorator(Theme.darkTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const Light: Story = {
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }
 
 export const Primary: Story = {
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }

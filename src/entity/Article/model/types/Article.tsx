@@ -57,7 +57,7 @@
 //     ];
 //   }
 
-enum ArticleLabel {
+export enum ArticleLabel {
   "IT" = "IT",
   "MEDICINE" = "MEDICINE",
   "ECONOMICS" = "ECONOMICS",

@@ -18,7 +18,7 @@ export const Dark: Story = {
 		children: "AppLink",
 		theme: linkTheme.primary,
 	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.darkTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const Light: Story = {
@@ -26,7 +26,7 @@ export const Light: Story = {
 		children: "AppLink",
 		theme: linkTheme.primary,
 	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }
 
 export const Primary: Story = {
@@ -34,7 +34,7 @@ export const Primary: Story = {
 		children: "AppLink",
 		theme: linkTheme.primary,
 	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }
 
 export const Secondary: Story = {
@@ -42,7 +42,7 @@ export const Secondary: Story = {
 		children: "AppLink",
 		theme: linkTheme.secondary,
 	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }
 
 export const InvertedPrimary: Story = {
@@ -50,7 +50,7 @@ export const InvertedPrimary: Story = {
 		children: "AppLink",
 		theme: linkTheme.invertedPrimary,
 	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }
 
 export const IinvertedSecondary: Story = {
@@ -58,5 +58,5 @@ export const IinvertedSecondary: Story = {
 		children: "AppLink",
 		theme: linkTheme.invertedSecondary,
 	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.lightTheme)],
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.lightTheme)],
 }

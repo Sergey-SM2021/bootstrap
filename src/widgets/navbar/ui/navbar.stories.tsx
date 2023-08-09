@@ -16,7 +16,7 @@ type Story = StoryObj<typeof Navbar>;
 
 export const Dark: Story = {
 	decorators: [
-		RouterDecorator,
+		RouterDecorator(),
 		ReduxDecorator(),
 		ThemeDecorator(Theme.darkTheme),
 	],
@@ -24,7 +24,7 @@ export const Dark: Story = {
 
 export const Logined: Story = {
 	decorators: [
-		RouterDecorator,
+		RouterDecorator(),
 		ReduxDecorator({ user: { authData: { id: 8, login: "sergey" } } }),
 		ThemeDecorator(Theme.lightTheme),
 	],

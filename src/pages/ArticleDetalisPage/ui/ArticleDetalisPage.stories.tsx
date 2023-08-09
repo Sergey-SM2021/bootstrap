@@ -1,45 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Article } from "./Article"
+import ArticleDetalisPage from "./ArticleDetalisPage"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
+import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
-import { ArticleType } from "entity/Article/model/types/Article"
+import { ArticleLabel, ArticleType } from "entity/Article/model/types/Article"
 
-const meta: Meta<typeof Article> = {
-	title: "Entity/Article",
-	component: Article,
+const meta: Meta<typeof ArticleDetalisPage> = {
+	title: "Pages/ArticleDetalisPage",
+	component: ArticleDetalisPage,
 	tags: ["autodocs"],
 }
 
 export default meta
-type Story = StoryObj<typeof Article>;
+type Story = StoryObj<typeof ArticleDetalisPage>;
 
 export const Error: Story = {
 	args: {
 		id: 67,
 	},
 	decorators: [
-		ThemeDecorator(Theme.darkTheme),
-		ReduxDecorator({ ArticleReducer: { error: "cannot get Article" } }),
-	],
-}
-
-export const Pending: Story = {
-	args: {
-		id: 67,
-	},
-	decorators: [
-		ThemeDecorator(Theme.darkTheme),
-		ReduxDecorator({ ArticleReducer: { isLoading: true } }),
-	],
-}
-
-export const Fulefilled: Story = {
-	args: {
-		id: 67,
-	},
-	decorators: [
+		RouterDecorator("/id=9"),
 		ThemeDecorator(Theme.darkTheme),
 		ReduxDecorator({
 			ArticleReducer: {
@@ -50,7 +32,7 @@ export const Fulefilled: Story = {
 					img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
 					views: 1022,
 					createdAt: "26.02.2022",
-					type: ["IT"],
+					label: [ArticleLabel.IT],
 					blocks: [
 						{
 							id: 1,

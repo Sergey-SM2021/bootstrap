@@ -1,4 +1,3 @@
-
 import { CssDecorator } from "../../src/shared/config/storybook/decorators/cssDecorator"
 import type { Preview } from "@storybook/react"
 
@@ -12,7 +11,7 @@ const preview: Preview = {
 			},
 		},
 	},
-	decorators: [CssDecorator],
+	decorators: [CssDecorator ],
 }
 
 export default preview

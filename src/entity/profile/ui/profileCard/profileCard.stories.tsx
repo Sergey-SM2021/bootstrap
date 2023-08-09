@@ -27,5 +27,5 @@ export const Dark: Story = {
 		avatar:"",
 		currency: Currency.USD,
 	},
-	decorators: [ThemeDecorator(Theme.darkTheme), RouterDecorator],
+	decorators: [ThemeDecorator(Theme.darkTheme), RouterDecorator()],
 }
