@@ -8,6 +8,8 @@ declare module "*.svg" {
   export default content
 }
 
+declare module "*.jpg"
+
 declare const __IS_DEV__: boolean
 
 declare const __PROJECT__: "frontend" | "storybook" | "jest"
