@@ -15,7 +15,20 @@ const meta: Meta<typeof Sidebar> = {
 export default meta
 type Story = StoryObj<typeof Sidebar>;
 
-export const Dark: Story = {
+export const Authorized: Story = {
 	args: {},
-	decorators: [ThemeDecorator(Theme.darkTheme), RouterDecorator, ReduxDecorator()],
+	decorators: [
+		ThemeDecorator(Theme.darkTheme),
+		RouterDecorator,
+		ReduxDecorator({ user: { authData: {id:8} } }),
+	],
+}
+
+export const NotAuthorized: Story = {
+	args: {},
+	decorators: [
+		ThemeDecorator(Theme.darkTheme),
+		RouterDecorator,
+		ReduxDecorator(),
+	],
 }

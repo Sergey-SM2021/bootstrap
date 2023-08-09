@@ -63,7 +63,7 @@ enum ArticleLabel {
   "ECONOMICS" = "ECONOMICS",
 }
 
-enum ArticleType {
+export enum ArticleType {
   IMAGE = "IMAGE",
   TEXT = "TEXT",
   CODE = "CODE",
@@ -74,24 +74,24 @@ interface ArticleGeneral {
   type: ArticleType;
 }
 
-interface ArticleCodeBlock extends ArticleGeneral {
+export interface ArticleCodeBlock extends ArticleGeneral {
     type: ArticleType.CODE
     code: string
 }
 
-interface ArticleImageBlock extends ArticleGeneral {
+export interface ArticleImageBlock extends ArticleGeneral {
     type: ArticleType.IMAGE
     src: string
     title: string
 }
 
-interface ArticleTextBlock extends ArticleGeneral {
+export interface ArticleTextBlock extends ArticleGeneral {
     type: ArticleType.TEXT
     paragraphs: string[]
     title: string
 }
 
-type ArticleBlock = ArticleImageBlock | ArticleTextBlock | ArticleCodeBlock;
+export type ArticleBlock = ArticleImageBlock | ArticleTextBlock | ArticleCodeBlock;
 
 export interface Article {
   id: string;

@@ -1,7 +1,19 @@
-// eslint-disable-next-line
-interface IArticleParagraph {}
+import { ArticleTextBlock } from "entity/Article/model/types/Article"
+import { Text, TextSize } from "shared/ui/Text/Text"
+import clx from "./ArticleParagraph.module.scss"
 
-export const ArticleParagraph = () => {
-	// eslint-disable-next-line
-	return <div>ArticleParagraph</div>
+interface IArticleParagraph {
+  block: ArticleTextBlock;
+}
+
+export const ArticleParagraph = ({ block }: IArticleParagraph) => {
+	const { paragraphs, title } = block
+	return (
+		<div>
+			{title ? <Text size={TextSize.lg} className={clx.title}>{title}</Text> : null}
+			{paragraphs.map((el, index) => (
+				<Text className={clx.paragraph} key={index}>{el}</Text>
+			))}
+		</div>
+	)
 }

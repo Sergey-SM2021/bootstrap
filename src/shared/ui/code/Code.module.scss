@@ -1,0 +1,21 @@
+.code {
+    overflow-x: scroll;
+}
+
+.copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.codeWrapper {
+    border: 1px solid var(--code-border);
+    padding: 16px;
+    position: relative;
+    background-color: var(--code-bg);
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}

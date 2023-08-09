@@ -65,6 +65,6 @@ describe("getProfile", () => {
 		expect(dispatch).toBeCalledTimes(2)
 		expect(dispatch.mock.calls[0][0].type).toBe("Profile/GetProfile/pending")
 		expect(dispatch.mock.calls[1][0].type).toBe("Profile/GetProfile/rejected")
-		expect(dispatch.mock.calls[1][0].payload).toBe("Не удалось получить профиль")
+		expect(dispatch.mock.calls[1][0].payload).toBe("can't get profile")
 	})
 })

@@ -51,7 +51,7 @@ describe("uptate profile", () => {
 		await thunk(dispatch, getState as () => StoreSchema, {
 			api: AxiosInstance,
 		})
-		expect(dispatch).toHaveBeenCalledTimes(2)
+		expect(dispatch).toHaveBeenCalledTimes(3)
 		expect(dispatch.mock.lastCall[0].type).toBe("profile/update/fulfilled")
 		expect(dispatch.mock.calls[0][0].type).toBe("profile/update/pending")
 		expect(dispatch.mock.lastCall[0].payload.data).toBe(responce)
@@ -70,6 +70,6 @@ describe("uptate profile", () => {
 		expect(dispatch).toHaveBeenCalledTimes(2)
 		expect(dispatch.mock.calls[0][0].type).toBe("profile/update/pending")
 		expect(dispatch.mock.lastCall[0].type).toBe("profile/update/rejected")
-		expect(dispatch.mock.lastCall[0].payload).toBe("\"update profile failed\"")
+		expect(dispatch.mock.lastCall[0].payload).toEqual(["ServerError"])
 	})
 })

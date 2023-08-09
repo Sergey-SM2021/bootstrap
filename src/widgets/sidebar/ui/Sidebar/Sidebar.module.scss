@@ -8,6 +8,7 @@
     position: relative;
     box-sizing: border-box;
     padding-bottom: 10px;
+    flex-shrink: 0;
 }
 
 .rolledUp {
@@ -29,6 +30,7 @@
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .buttonRolledUp {
