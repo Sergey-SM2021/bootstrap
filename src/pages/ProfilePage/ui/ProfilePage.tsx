@@ -17,7 +17,7 @@ import { isLoadingSelector } from "../model/selectors/isLoadingSelector/isLoadin
 import { readOnlySelector } from "../model/selectors/readOnlySelector/readOnlySelector"
 import { Profile } from "../model/types/ProfileSchema"
 import { AvatarSelector } from "../model/selectors/AvatarSelector/AvatarSelector"
-import { niknameSelector } from "../model/selectors/nikNameSelector/nikNameSelector"
+import { nicknameSelector } from "../model/selectors/nikNameSelector/nikNameSelector"
 import { citySelector } from "../model/selectors/CitySelector/CitySelector"
 import { countrySelector } from "../model/selectors/CountrySelector/countrySelector"
 import { currencySelector } from "../model/selectors/CurrencySelector/CurrencySelector"
@@ -32,7 +32,7 @@ const ProfilePage = () => {
 	const lastname = useSelector(lastnameSelector)
 	const readOnly = useSelector(readOnlySelector)
 	const avatar = useSelector(AvatarSelector)
-	const nikname = useSelector(niknameSelector)
+	const nickname = useSelector(nicknameSelector)
 	const city = useSelector(citySelector)
 	const age = useSelector(ageSelector)
 
@@ -66,7 +66,7 @@ const ProfilePage = () => {
 					currency={currency}
 					lastname={lastname}
 					name={name}
-					nikname={nikname}
+					nickname={nickname}
 					handlerCange={handlerChange}
 					error={t(error)}
 					isLoading={isLoading}

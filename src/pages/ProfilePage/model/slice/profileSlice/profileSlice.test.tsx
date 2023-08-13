@@ -44,7 +44,7 @@ describe("Profile reducer", () => {
 			currency: Currency.RUB,
 			lastname: "in76guyyuuykj",
 			name: "iu",
-			nikname: "kk",
+			nickname: "kk",
 		}
 
 		const state: DeepPartial<ProfileSchema> = {
@@ -57,7 +57,7 @@ describe("Profile reducer", () => {
 					currency: Currency.USD,
 					lastname: "inkj",
 					name: "54ddfgvh",
-					nikname: "90jnhyvtr5ex",
+					nickname: "90jnhyvtr5ex",
 				},
 				profile,
 			},
@@ -82,7 +82,7 @@ describe("Profile reducer", () => {
 					currency: Currency.USD,
 					lastname: "inkj",
 					name: "54ddfgvh",
-					nikname: "90jnhyvtr5ex",
+					nickname: "90jnhyvtr5ex",
 				},
 			},
 		}
@@ -95,7 +95,7 @@ describe("Profile reducer", () => {
 			currency: Currency.RUB,
 			lastname: "inkmoih78hbuyhjj",
 			name: "54ddfgvh909jnkj",
-			nikname: "90jn",
+			nickname: "90jn",
 		}
 
 		expect(

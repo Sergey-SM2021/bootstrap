@@ -6,7 +6,7 @@ export interface Profile {
   lastname: string
   age: number
   city: Citys
-  nikname: string
+  nickname: string
   country: Country
   avatar: string
   currency: Currency
@@ -28,7 +28,7 @@ export enum ProfileErrors {
   NameError = "NameError",
   LastNameError = "LastNameError",
   CityError = "CityError",
-  NikNameError = "NikNameError",
+  nicknameError = "nicknameError",
   CountryError = "CountryError",
   AvatarError = "AvatarError",
   CurrencyError = "CurrencyError",

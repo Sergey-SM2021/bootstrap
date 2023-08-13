@@ -27,7 +27,7 @@ const ArticleDetalisPage = memo(() => {
 			avatar: "https://imgix.bustle.com/uploads/image/2021/6/7/2e03dd6b-4fa2-4d81-b929-f3d1e48d27ee-loki2.jpg?w=400&h=400&fit=crop&crop=faces&auto=format%2Ccompress",
 			city:Citys.Delhi,
 			lastname:"uiygb",
-			nikname:"Скрытный убийца 666",
+			nickname:"Скрытный убийца 666",
 			country:Country.Mexico,
 			currency:Currency.RUB,
 			name:"appolo"

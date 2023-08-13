@@ -30,7 +30,7 @@ export const Comment = memo((props:CommentProps) => {
 	return (<Flex direction={"column"} gap={8} className={classNames(clx.Comment,{},[className])}>
 		<Flex gap={8} align={"center"}>
 			<Avatar src={user.avatar} size={"xs"}/>
-			<Text size={TextSize.lg}>{user.nikname}</Text>
+			<Text size={TextSize.lg}>{user.nickname}</Text>
 		</Flex>
 		<Text>{text}</Text>
 	</Flex>)

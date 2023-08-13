@@ -23,7 +23,7 @@ describe("getProfile", () => {
 				currency: Currency.RUB,
 				lastname: "in76guyyuuykj",
 				name: "iu",
-				nikname: "kk",
+				nickname: "kk",
 			},
 		}
 		const thunk = getProfile(56)
@@ -49,7 +49,7 @@ describe("getProfile", () => {
 				currency: Currency.RUB,
 				lastname: "in76guyyuuykj",
 				name: "iu",
-				nikname: "kk",
+				nickname: "kk",
 			},
 		}
 

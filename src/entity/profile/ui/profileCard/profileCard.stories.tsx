@@ -22,7 +22,7 @@ export const Dark: Story = {
 		lastname: "pijuibjv",
 		age: 22,
 		city: Citys.Moscow,
-		nikname: "uui",
+		nickname: "uui",
 		country: Country.Russia,
 		avatar:"",
 		currency: Currency.USD,

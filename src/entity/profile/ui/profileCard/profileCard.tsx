@@ -33,7 +33,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		currency,
 		lastname,
 		name,
-		nikname,
+		nickname,
 	} = props
 
 	const { t } = useTranslation()
@@ -58,8 +58,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		handlerCange({ avatar: value })
 	}
 
-	const handlerChangeNikname = (value: string) => {
-		handlerCange({ nikname: value })
+	const handlerChangenickname = (value: string) => {
+		handlerCange({ nickname: value })
 	}
 
 	if (isLoading) {
@@ -95,11 +95,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					/>
 				</div>
 				<div className={style.item}>
-					<Text>{t("nikname")}</Text>
+					<Text>{t("nickname")}</Text>
 					<Input
 						readOnly={readOnly}
-						value={nikname}
-						onChange={handlerChangeNikname}
+						value={nickname}
+						onChange={handlerChangenickname}
 					/>
 				</div>
 				<div className={style.item}>

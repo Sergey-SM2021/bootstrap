@@ -1,3 +1,3 @@
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 
-export const niknameSelector = (state:StoreSchema) => state.profile?.data.editedProfile.nikname ?? ""
+export const nicknameSelector = (state:StoreSchema) => state.profile?.data.editedProfile.nickname ?? ""

@@ -23,8 +23,8 @@ export const validateProfile = (state:Profile) => {
 		errors.push(ProfileErrors.AgeError)
 	}
 	
-	if (!state.nikname) {
-		errors.push(ProfileErrors.NikNameError)
+	if (!state.nickname) {
+		errors.push(ProfileErrors.nicknameError)
 	}
 	
 	if (!state.currency) {

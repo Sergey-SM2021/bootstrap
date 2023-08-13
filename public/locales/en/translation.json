@@ -25,7 +25,7 @@
   "NameError" : "Incorrect name",
   "LastNameError": "Incorrect lastname",
   "CityError" : "Incorrect selected city",
-  "NikNameError" : "Incorrect nickname",
+  "nicknameError" : "Incorrect nickname",
   "CountryError" : "Incorrect country was selected",
   "AvatarError" : "Incorrect avatar",
   "CurrencyError" : "Incorrect currency was selected",
