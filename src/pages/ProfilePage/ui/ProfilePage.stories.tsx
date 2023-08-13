@@ -18,7 +18,7 @@ type Story = StoryObj<typeof ProfilePage>;
 
 export const Dark: Story = {
 	decorators: [
-		RouterDecorator,
+		RouterDecorator(),
 		ThemeDecorator(Theme.darkTheme),
 		ReduxDecorator({
 			profile: {

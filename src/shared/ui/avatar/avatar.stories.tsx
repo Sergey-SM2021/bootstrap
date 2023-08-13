@@ -12,9 +12,25 @@ export default meta
 type Story = StoryObj<typeof Avatar>;
 
 
-export const Primary: Story = {
+export const Default: Story = {
 	args: {
 		size:"md",
+		src
+	},
+	decorators: [],
+}
+
+export const Small: Story = {
+	args: {
+		size:"sm",
+		src
+	},
+	decorators: [],
+}
+
+export const ExtraSmall: Story = {
+	args: {
+		size:"xs",
 		src
 	},
 	decorators: [],

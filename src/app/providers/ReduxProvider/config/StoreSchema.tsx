@@ -4,13 +4,15 @@ import { UserSchema } from "entity/user"
 import { LoginSchema } from "features/login"
 import { $api } from "shared/api/api"
 import { ArticleSchema } from "entity/Article"
+import {ArticleDetalisPageSchema} from "pages/ArticleDetalisPage/model/types/ArticleDetalisPage"
 
 export interface StoreSchema {
   counter: CounterSchema
   login?: LoginSchema
   user: UserSchema
   profile?: ProfileSchema
-  ArticleReducer?: ArticleSchema 
+  ArticleReducer?: ArticleSchema
+  ArticleDetalisPage?: ArticleDetalisPageSchema
 }
 
 export interface thunkExtra {

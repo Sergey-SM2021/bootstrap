@@ -43,7 +43,7 @@ const ProfilePage = () => {
 
 	useEffect(() => {
 		if(__PROJECT__ === "frontend"){
-			dispatch(getProfile(13))
+			dispatch(getProfile(3))
 		}
 	}, [dispatch])
 

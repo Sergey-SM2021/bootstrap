@@ -4,7 +4,7 @@ import { Article } from "./Article"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
-import { ArticleType } from "entity/Article/model/types/Article"
+import { ArticleLabel, ArticleType } from "entity/Article/model/types/Article"
 
 const meta: Meta<typeof Article> = {
 	title: "Entity/Article",
@@ -50,7 +50,7 @@ export const Fulefilled: Story = {
 					img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
 					views: 1022,
 					createdAt: "26.02.2022",
-					type: ["IT"],
+					label: [ArticleLabel.MEDICINE, ArticleLabel.ECONOMICS],
 					blocks: [
 						{
 							id: 1,

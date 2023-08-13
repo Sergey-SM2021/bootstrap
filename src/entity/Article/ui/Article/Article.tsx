@@ -89,14 +89,14 @@ export const Article = memo(({ id }: ArticleProps) => {
 					</Icon>
 					{article?.createdAt}
 				</Flex>
-				{article?.blocks.map(renderArticleBlock)}
+				 {article?.blocks.map(renderArticleBlock)}
 			</>
 		)
 	}
 
 	return (
 		<AsyncComponent reducer={ArticleReducer} reducerName="ArticleReducer">
-			<div className={clx.article}>{content}</div>
+			<div>{content}</div>
 		</AsyncComponent>
 	)
 })

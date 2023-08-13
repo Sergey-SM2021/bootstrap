@@ -8,7 +8,7 @@ export const getProfile = createAsyncThunk<
   { extra: { api: typeof $api } }
 >("Profile/GetProfile", async (id, { extra: { api }, rejectWithValue }) => {
 	try {
-		const profile = await api.get(`profile?id=${id}`)
+		const profile = await api.get(`user/${id}`)
 		return profile.data
 	} catch (error) {
 		return rejectWithValue("can't get profile")

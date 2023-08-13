@@ -16,7 +16,7 @@ export const login_action = createAsyncThunk<
   { rejectValue: string, extra: thunkExtra}
 >("login/login", async ({ login, password }, thankAPI) => {
 	try {
-		const response = (await thankAPI.extra.api.post("login", { login, password })).data
+		const response = (await thankAPI.extra.api.post("auth/login", { login, password })).data
 		localStorage.setItem(USER_LOCALSTORAGE_NAME, JSON.stringify(response))
 		thankAPI.dispatch(setUser(response))
 		return response

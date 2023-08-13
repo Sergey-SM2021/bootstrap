@@ -3,7 +3,7 @@ import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 interface AvatarProps {
   src: string;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "xs";
   className?: string;
 }
 
@@ -13,8 +13,10 @@ export const Avatar = (props: AvatarProps) => {
 	let avatarSize
 	if (size === "md") {
 		avatarSize = 150
-	} else {
+	} else if (size === "sm") {
 		avatarSize = 100
+	} else {
+		avatarSize = 75
 	}
 
 	return (
