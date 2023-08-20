@@ -30,7 +30,7 @@ interface ArticleProps {
 const renderArticleBlock = (articleBlock: ArticleBlock) => {
 	switch (articleBlock.type) {
 	case ArticleType.CODE:
-		return <ArticleCode block={articleBlock}/>
+		return <ArticleCode block={articleBlock} />
 	case ArticleType.IMAGE:
 		return <ArticleImg block={articleBlock} />
 	case ArticleType.TEXT:
@@ -44,6 +44,7 @@ export const Article = memo(({ id }: ArticleProps) => {
 	const article = useSelector(getArticleDetalisData)
 	const error = useSelector(getArticleDetalisError)
 	const isLoading = useSelector(getArticleDetalisIsLoading)
+	console.log(article)
 
 	useEffect(() => {
 		if (__PROJECT__ === "frontend") {
@@ -89,7 +90,7 @@ export const Article = memo(({ id }: ArticleProps) => {
 					</Icon>
 					{article?.createdAt}
 				</Flex>
-				 {article?.blocks.map(renderArticleBlock)}
+				{article?.blocks.map(renderArticleBlock)}
 			</>
 		)
 	}

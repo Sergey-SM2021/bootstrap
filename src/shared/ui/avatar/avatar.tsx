@@ -1,3 +1,4 @@
+import { memo } from "react"
 import style from "./avatar.module.scss"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 
@@ -7,7 +8,7 @@ interface AvatarProps {
   className?: string;
 }
 
-export const Avatar = (props: AvatarProps) => {
+export const Avatar = memo((props: AvatarProps) => {
 	const { src, size = "md", className = "" } = props
 
 	let avatarSize
@@ -27,4 +28,4 @@ export const Avatar = (props: AvatarProps) => {
 			className={classNames(style.avatar, {}, [className])}
 		/>
 	)
-}
+})

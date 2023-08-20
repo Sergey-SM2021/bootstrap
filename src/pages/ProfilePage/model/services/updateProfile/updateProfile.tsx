@@ -21,7 +21,7 @@ export const updateProfile = createAsyncThunk<
 			return rejectWithValue(errors)
 		}
 		try {
-			const response = await api.put("profile/13", profile)
+			const response = await api.put("user/3", profile)
 			dispatch(toggleReadOnly())
 			return response
 		} catch (error) {
