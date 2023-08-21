@@ -5,12 +5,12 @@ import clx from "./CommentList.module.scss"
 import {classNames} from "shared/lib/helpers/classNames/classNames"
 import {Comment} from "../Comment/Comment"
 
-interface CommentList {
+interface CommentListProps {
     comments: CommentType[]
     isLoading: boolean
 }
 
-export const CommentList = (props: CommentList) => {
+export const CommentList = (props: CommentListProps) => {
 	const {comments, isLoading} = props
 	const {t} = useTranslation("articlePage")
 	return <div className={classNames(clx.CommentList, {}, [])}>
