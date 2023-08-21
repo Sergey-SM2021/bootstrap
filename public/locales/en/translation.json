@@ -29,5 +29,6 @@
   "CountryError" : "Incorrect country was selected",
   "AvatarError" : "Incorrect avatar",
   "CurrencyError" : "Incorrect currency was selected",
-  "ServerError" : "Something went wrong" 
+  "ServerError" : "Something went wrong",
+  "create coment": "Create comment"
 }

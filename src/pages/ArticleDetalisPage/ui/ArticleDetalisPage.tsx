@@ -9,6 +9,7 @@ import {AsyncComponent} from "shared/lib/AsyncComponent/AsyncComponent"
 import {commentsSelectors, reducer} from "../model/slice/ArticleDetalisComments"
 import {useSelector} from "react-redux"
 import { getComments } from "../model/services/getComments"
+import { CreateComment } from "features/createComment"
 
 const ArticleDetalisPage = memo(() => {
 	const {id} = useParams()
@@ -33,6 +34,7 @@ const ArticleDetalisPage = memo(() => {
 			<div className={clx.article}>
 				<Article id={Number(id)}/>
 				<CommentList comments={comments} isLoading={false}/>
+				<CreateComment />
 			</div>
 		</AsyncComponent>
 	)

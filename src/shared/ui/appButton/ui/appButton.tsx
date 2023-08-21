@@ -33,6 +33,7 @@ export const AppButton = memo((props: AppButtonProps) => {
 	} = props
 	return (
 		<button
+			disabled={disabled}
 			className={classNames(
 				clx.appButton,
 				{ [clx.square]: square, [clx.disabled]: disabled },
