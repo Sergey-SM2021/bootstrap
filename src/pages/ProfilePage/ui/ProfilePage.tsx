@@ -24,6 +24,7 @@ import { currencySelector } from "../model/selectors/CurrencySelector/CurrencySe
 import { useTranslation } from "react-i18next"
 import { ageSelector } from "../model/selectors/ageSelector/ageSelector"
 import { useParams } from "react-router-dom"
+import { getUser } from "entity/user/model/selector/getUserSelector"
 
 const ProfilePage = () => {
 	const { t } = useTranslation()
@@ -36,6 +37,7 @@ const ProfilePage = () => {
 	const nickname = useSelector(nicknameSelector)
 	const city = useSelector(citySelector)
 	const age = useSelector(ageSelector)
+	const userId = useSelector(getUser)?.id
 
 	const country = useSelector(countrySelector)
 	const currency = useSelector(currencySelector)
@@ -61,7 +63,7 @@ const ProfilePage = () => {
 	return (
 		<AsyncComponent reducer={ProfileReducer} reducerName="profile">
 			<div className={style.profile}>
-				<ProfileHeader />
+				{Number(userId) === Number(id) ? <ProfileHeader /> : null}
 				<ProfileCard
 					age={age}
 					avatar={avatar}
