@@ -22,7 +22,7 @@ const ArticleSlice = createSlice({
 			state.isLoading = false
 			state.error = payload
 		})
-	}
+	},
 })
 
 export const { actions: ArticleActions } = ArticleSlice

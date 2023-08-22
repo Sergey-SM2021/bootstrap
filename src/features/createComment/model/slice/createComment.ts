@@ -13,8 +13,13 @@ const createCommentSlice = createSlice({
 		handlerChange(state, payload: PayloadAction<string>) {
 			state.text = payload.payload
 		},
+		setError(state, payload: PayloadAction<string>) {
+			state.error = payload.payload
+		},
 	},
-	extraReducers(builder) {},
+	extraReducers(builder) {
+		builder
+	},
 })
 
 export const createCommentReducer = createCommentSlice.reducer

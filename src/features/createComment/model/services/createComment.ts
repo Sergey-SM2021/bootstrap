@@ -1,13 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
+import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { $api } from "shared/api/api"
 
 export const CreateCommentAsync = createAsyncThunk<
-  void,
+  Comment,
   string,
-  { extra: { api: typeof $api } }
->("Create comment slice", async (text, { extra: { api } }) => {
-	api.post("comment", {
-		articleId: 1,
-		text
-	})
+  { extra: { api: typeof $api }; state: StoreSchema }
+>("Create comment slice", async (text, { extra: { api }, getState }) => {
+	return (await api.post("comment", {
+		articleId: getState().ArticleReducer?.data?.id,
+		text,
+	})).data
 })

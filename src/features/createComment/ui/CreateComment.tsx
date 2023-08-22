@@ -22,10 +22,11 @@ export const CreateComment = () => {
 		dispatch(onChange(value))
 	}
 
-	const handlerAddComment = () => {
+	const handlerAddComment = async () => {
 		if (text) {
-			dispatch(CreateCommentAsync(text))
+			await dispatch(CreateCommentAsync(text))
 		}
+		dispatch(onChange(""))
 	}
 
 	return (
