@@ -14,7 +14,6 @@ import { getInited } from "entity/user/model/selector/getInited"
 export const App = () => {
 	const dispatch = useAppDispatch()
 	const inited = useSelector(getInited)
-
 	useEffect(() => {
 		dispatch(initAuthData())
 	}, [dispatch])
