@@ -23,6 +23,7 @@ import { countrySelector } from "../model/selectors/CountrySelector/countrySelec
 import { currencySelector } from "../model/selectors/CurrencySelector/CurrencySelector"
 import { useTranslation } from "react-i18next"
 import { ageSelector } from "../model/selectors/ageSelector/ageSelector"
+import { useParams } from "react-router-dom"
 
 const ProfilePage = () => {
 	const {t} = useTranslation()
@@ -40,12 +41,13 @@ const ProfilePage = () => {
 	const currency = useSelector(currencySelector)
 
 	const dispatch = useAppDispatch()
+	const params = useParams()
 
 	useEffect(() => {
 		if(__PROJECT__ === "frontend"){
-			dispatch(getProfile(3))
+			dispatch(getProfile(params.id))
 		}
-	}, [dispatch])
+	}, [dispatch, params.id])
 
 	const handlerChange = useCallback(
 		(data: Partial<Profile>) => {

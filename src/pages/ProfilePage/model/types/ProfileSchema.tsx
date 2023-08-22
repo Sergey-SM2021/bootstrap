@@ -2,25 +2,26 @@ import { Country, Currency } from "shared/const/common"
 import { Citys } from "entity/City/model/types/CitySchema"
 
 export interface Profile {
-  name: string
-  lastname: string
-  age: number
-  city: Citys
-  nickname: string
-  country: Country
-  avatar: string
-  currency: Currency
+  name: string;
+  lastname: string;
+  age: number;
+  city: Citys;
+  nickname: string;
+  country: Country;
+  avatar: string;
+  currency: Currency;
+  id?: number;
 }
 
 export interface ProfileSchema {
   data: {
     profile: Profile;
-    editedProfile: Profile
+    editedProfile: Profile;
   };
-  isLoading?: boolean
-  error: string
-  readOnly: boolean
-  profileValidateErrors: []
+  isLoading?: boolean;
+  error: string;
+  readOnly: boolean;
+  profileValidateErrors: [];
 }
 
 export enum ProfileErrors {
@@ -32,5 +33,5 @@ export enum ProfileErrors {
   CountryError = "CountryError",
   AvatarError = "AvatarError",
   CurrencyError = "CurrencyError",
-  ServerError = "ServerError"
+  ServerError = "ServerError",
 }

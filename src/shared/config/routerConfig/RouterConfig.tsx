@@ -23,7 +23,7 @@ export const RouterPaths: Record<RouterPages, string> = {
 	about: "/about",
 	home: "/",
 	not_found: "*",
-	profile: "/profile",
+	profile: "/profile/",
 	articles: "/articles", 
 	article_detalis: "/article/"
 }
@@ -47,7 +47,7 @@ export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 	profile: {
 		isPrivate: true,
 		element: <ProfilePage />,
-		path: RouterPaths.profile,
+		path: `${RouterPaths.profile}:id`,
 	},
 	articles: {
 		isPrivate: true,
