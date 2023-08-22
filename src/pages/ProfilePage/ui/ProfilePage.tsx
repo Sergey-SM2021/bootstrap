@@ -26,7 +26,7 @@ import { ageSelector } from "../model/selectors/ageSelector/ageSelector"
 import { useParams } from "react-router-dom"
 
 const ProfilePage = () => {
-	const {t} = useTranslation()
+	const { t } = useTranslation()
 	const name = useSelector(nameSelector)
 	const error = useSelector(errorSelector)
 	const isLoading = useSelector(isLoadingSelector)
@@ -41,13 +41,15 @@ const ProfilePage = () => {
 	const currency = useSelector(currencySelector)
 
 	const dispatch = useAppDispatch()
-	const params = useParams()
+	const id = useParams().id
 
 	useEffect(() => {
-		if(__PROJECT__ === "frontend"){
-			dispatch(getProfile(params.id))
+		if (__PROJECT__ === "frontend") {
+			if (id) {
+				dispatch(getProfile(Number(id)))
+			}
 		}
-	}, [dispatch, params.id])
+	}, [dispatch, id])
 
 	const handlerChange = useCallback(
 		(data: Partial<Profile>) => {

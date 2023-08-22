@@ -20,7 +20,7 @@ export const Authorized: Story = {
 	decorators: [
 		ThemeDecorator(Theme.darkTheme),
 		RouterDecorator(),
-		ReduxDecorator({ user: { authData: {id:8} } }),
+		ReduxDecorator({ user: { authData: {id:"9"} } }),
 	],
 }
 

@@ -7,9 +7,11 @@ import { LangSwitcher } from "widgets/langSwitcher"
 import { AppButtonSize } from "shared/ui/appButton/ui/appButton"
 import { useTranslation } from "react-i18next"
 import { SidebarItem } from "../SidebarItem/SidebarItem"
-import { links } from "../../model/SidebarLinks"
+import { useSelector } from "react-redux"
+import { LinksSelector } from "widgets/sidebar/model/selectors/linksSelector"
 
 export const Sidebar = () => {
+	const links = useSelector(LinksSelector)
 	const [rolledUp, setRolledUp] = useState<boolean>(true)
 	const { t } = useTranslation()
 

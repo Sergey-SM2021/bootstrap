@@ -39,7 +39,7 @@ const Comments = createSlice({
 		})
 		builder.addCase(
 			CreateCommentAsync.fulfilled,
-			(state, action) => {
+			(state, action: PayloadAction<Comment>) => {
 				commentsAdapter.addOne(state, action.payload)
 			}
 		)

@@ -18,20 +18,20 @@ describe("login action tests", () => {
 
 	it("success authtorization", async () => {
 		mockedAxios.post.mockReturnValue(
-			new Promise((resolve) => resolve({ data: { login: "123", id: 67 } }))
+			new Promise((resolve) => resolve({ data: "JWT_TOKEN" }))
 		)
 		const action = login_action({ login: "123", password: "123" })
 		const result = await action(dispatch, getState, {api: mockedAxios})
 		expect(mockedAxios.post).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe("fulfilled")
 		expect(dispatch).toHaveBeenCalledTimes(3)
-		expect(dispatch).toHaveBeenCalledWith(setUser({ login: "123", id: 67 }))
+		expect(dispatch).toHaveBeenCalledWith(setUser("JWT_TOKEN"))
 	})
 
 	it("filed authtorization", async () => {
 		mockedAxios.post.mockReturnValue(
 			new Promise((resolve, reject) =>
-				reject({ data: { login: "123", id: 67 } })
+				reject({ data: "JWT_TOKEN" })
 			)
 		)
 		const action = login_action({ login: "123", password: "123" })

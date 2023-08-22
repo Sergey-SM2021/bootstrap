@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { $api } from "shared/api/api"
+import { Comment } from "entity/Comment/model/types/Comment"
 
 export const CreateCommentAsync = createAsyncThunk<
   Comment,

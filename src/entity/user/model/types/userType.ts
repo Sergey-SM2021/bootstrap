@@ -1,9 +1,6 @@
-export interface User {
-    login: string
-    id: number
-}
-
 export interface UserSchema {
-  authData?: User
+  authData?: {
+    id: string
+  }
   _inited: boolean
 }
