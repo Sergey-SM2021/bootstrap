@@ -70,11 +70,13 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 					<p className={clx.labels}>{label.join(", ")}</p>
 				</Flex>
 				<div className={clx.img} style={{ backgroundImage: `URL(${img})` }} />
-				{text.paragraphs.map((el, index) => (
-					<p key={index} className={clx.paragraph}>
-						{el}
-					</p>
-				))}
+				<div className={clx.content}>
+					{text.paragraphs.map((el, index) => (
+						<p key={index} className={clx.paragraph}>
+							{el}
+						</p>
+					))}
+				</div>
 				<Flex justify="space-between" align="center" className={clx.footer}>
 					<AppButton onClick={handlerNavigate} theme={AppButtonTheme.primary}>
 						{t("read more")}
