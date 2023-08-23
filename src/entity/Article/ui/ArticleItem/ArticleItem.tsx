@@ -19,8 +19,6 @@ import { ArticleParagraph } from "../ArticleParagraph/ArticleParagraph"
 
 interface ArticleItemProps extends Article {
   mode: "big" | "small";
-  avatar: string;
-  username: string;
 }
 
 export const ArticleItem = memo((props: ArticleItemProps) => {
@@ -32,8 +30,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 		label,
 		views,
 		blocks,
-		avatar,
-		username,
+		user
 	} = props
 	const nav = useNavigate()
 	const { isHover, ...hover } = useHover()
@@ -62,8 +59,8 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 				<Flex direction="column" gap={8} className={clx.header}>
 					<Flex justify="space-between" align="center">
 						<Flex align="center" gap={16}>
-							<Avatar size="xs" src={avatar} />
-							<Text>{username}</Text>
+							<Avatar size="xs" src={user.avatar} />
+							<Text>{user.nickname}</Text>
 						</Flex>
 						<div>{createdAt}</div>
 					</Flex>

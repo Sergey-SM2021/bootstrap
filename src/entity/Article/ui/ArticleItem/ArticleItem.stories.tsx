@@ -57,8 +57,11 @@ export const Big: Story = {
 				],
 			},
 		],
-		username: "Sergeyuvbnb",
-		avatar: img
+		user: {
+			avatar: img,
+			nickname: "super-mega-user",
+			userId: 12,
+		},
 	},
 	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
