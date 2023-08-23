@@ -30,5 +30,6 @@
   "AvatarError" : "Incorrect avatar",
   "CurrencyError" : "Incorrect currency was selected",
   "ServerError" : "Something went wrong",
-  "create coment": "Create comment"
+  "create coment": "Create comment",
+  "read more": "Read more"
 }

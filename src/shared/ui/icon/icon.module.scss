@@ -1,3 +1,17 @@
 .Icon {
     fill: var(--primary-color);
 }
+
+.md {
+    svg {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.xs {
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+}

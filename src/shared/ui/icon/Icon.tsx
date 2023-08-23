@@ -1,8 +1,12 @@
 import { PropsWithChildren, memo } from "react"
 import clx from "./icon.module.scss"
+import {classNames} from "shared/lib/helpers/classNames/classNames"
 
-type IconProps = PropsWithChildren
+interface IconProps extends PropsWithChildren {
+  size: "md" | "xs";
+}
 
-export const Icon = memo(({children}:IconProps) => {
-	return <div className={clx.Icon}>{children}</div>
+export const Icon = memo((props: IconProps) => {
+	const { size = "md", children } = props
+	return <div className={classNames(clx.Icon, {}, [clx[size]])}>{children}</div>
 })

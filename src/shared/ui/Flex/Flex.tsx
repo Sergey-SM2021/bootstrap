@@ -6,7 +6,7 @@ interface FlexProps extends PropsWithChildren {
   gap?: number;
   direction?: "row" | "column";
   className?: string;
-  justify?: "space-beetwen" | "center" | "space-around";
+  justify?: "space-between" | "center" | "space-around";
   align?: "center";
   onClick?: VoidFunction;
 }
@@ -21,6 +21,7 @@ export const Flex = (props: FlexProps) => {
 		justify,
 		onClick,
 	} = props
+
 	return (
 		<div
 			onClick={onClick}
