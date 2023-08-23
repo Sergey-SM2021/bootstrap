@@ -28,4 +28,10 @@
         top: 8px;
         right: 8px;
     }
+
+    .labels {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }

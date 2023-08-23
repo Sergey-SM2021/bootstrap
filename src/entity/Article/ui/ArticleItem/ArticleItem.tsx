@@ -33,11 +33,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 			</div>
 			<div className={clx.footer}>
 				<Flex gap={16} align="center">
-					<Flex gap={8}>
-						{label.map((el, index) => (
-							<span key={index}>{el}</span>
-						))}
-					</Flex>
+					<p className={clx.labels}>{label.join(", ")}</p>
 					<Flex align="center" gap={8}>
 						{views}
 						<Icon size="xs">
