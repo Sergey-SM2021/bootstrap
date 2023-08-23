@@ -4,6 +4,7 @@ import { RouterDecorator } from "shared/config/storybook/decorators/routerDecora
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ArticleLabel } from "entity/Article/model/types/Article"
+import img from "shared/assets/avatar.jpg"
 
 const meta: Meta<typeof ArticleItem> = {
 	title: "Entity/ArticleItem",
@@ -26,7 +27,7 @@ export const Small: Story = {
 		label: [ArticleLabel.IT, ArticleLabel.ECONOMICS, ArticleLabel.MEDICINE, ArticleLabel.ECONOMICS],
 		mode: "small",
 		createdAt: "01.29.3210",
-		img: "https://upload.wikimedia.org/wikipedia/ru/2/26/AC_Valhalla_standard_edition.jpg",
+		img,
 		title: "Assasyn creed valhalla",
 		views: 210
 	},

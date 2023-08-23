@@ -27,7 +27,7 @@ export const Code = (props: CodeProps) => {
 						theme={AppButtonTheme.primary}
 						className={clx.copy}
 					>
-						<Icon>
+						<Icon size="xs">
 							<Copy className={clx.icon} />
 						</Icon>
 					</AppButton>
