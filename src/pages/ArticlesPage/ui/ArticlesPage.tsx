@@ -1,8 +1,8 @@
+import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
 import { memo } from "react"
 
 const ArticlesPage = memo(() => {
-	// eslint-disable-next-line i18next/no-literal-string
-	return (<div>ArticlesPage</div>)
+	return (<ArticleList articles={[]}/>)
 })
 
 export default ArticlesPage

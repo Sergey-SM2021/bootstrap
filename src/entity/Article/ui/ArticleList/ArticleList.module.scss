@@ -1,0 +1,10 @@
+.ArticleList-big {
+    display: grid;
+    gap: 16px;
+}
+
+.ArticleList-small {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 16px;
+}
