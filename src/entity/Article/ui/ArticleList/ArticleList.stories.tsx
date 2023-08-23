@@ -66,3 +66,21 @@ export const Small: Story = {
 	},
 	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
+
+export const isLoadingSmall: Story = {
+	args: {
+		mode: "small",
+		articles,
+		isLoading: true
+	},
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+}
+
+export const isLoadingBig: Story = {
+	args: {
+		mode: "big",
+		articles,
+		isLoading: true
+	},
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+}
