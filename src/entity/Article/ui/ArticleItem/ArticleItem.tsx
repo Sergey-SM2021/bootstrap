@@ -8,6 +8,7 @@ import { Text, TextSize } from "shared/ui/Text/Text"
 import Views from "shared/assets/views.svg"
 import { Icon } from "shared/ui/icon/Icon"
 import { useTranslation } from "react-i18next"
+import { useHover } from "shared/lib/hooks/useHover"
 
 interface ArticleItemProps extends Article {
   mode: "big" | "small";
@@ -16,6 +17,7 @@ interface ArticleItemProps extends Article {
 export const ArticleItem = memo((props: ArticleItemProps) => {
 	const { mode, createdAt, title, img, label, views } = props
 	const nav = useNavigate()
+	const { isHover, ...rest } = useHover()
 	const { t } = useTranslation()
 
 	const handlerNavigate = () => {
@@ -27,7 +29,10 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 	}
 
 	return (
-		<div className={classNames(clx.small, {}, [clx.card])}>
+		<div
+			className={classNames(clx.small, { [clx.hovered]: isHover }, [clx.card])}
+			{...rest}
+		>
 			<div className={clx.content} style={{ backgroundImage: `url(${img})` }}>
 				<div className={clx.createdAt}>{createdAt}</div>
 			</div>

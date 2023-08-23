@@ -1,5 +1,8 @@
 .small {
     width: 400px;
+    transition: 0.4s;
+    border-radius: 5px;
+    overflow: hidden;
 
     .content {
         width: 100%;
@@ -34,4 +37,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+}
+
+.hovered {
+    transform: scale(1.1);
 }
