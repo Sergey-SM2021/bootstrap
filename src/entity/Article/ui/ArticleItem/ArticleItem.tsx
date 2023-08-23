@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next"
 import { useHover } from "shared/lib/hooks/useHover"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Avatar } from "shared/ui/avatar/avatar"
+import { ArticleParagraph } from "../ArticleParagraph/ArticleParagraph"
 
 interface ArticleItemProps extends Article {
   mode: "big" | "small";
@@ -70,13 +71,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 					<p className={clx.labels}>{label.join(", ")}</p>
 				</Flex>
 				<div className={clx.img} style={{ backgroundImage: `URL(${img})` }} />
-				<div className={clx.content}>
-					{text.paragraphs.map((el, index) => (
-						<p key={index} className={clx.paragraph}>
-							{el}
-						</p>
-					))}
-				</div>
+				<ArticleParagraph block={text} className={clx.content} />
 				<Flex justify="space-between" align="center" className={clx.footer}>
 					<AppButton onClick={handlerNavigate} theme={AppButtonTheme.primary}>
 						{t("read more")}

@@ -4,15 +4,23 @@ import clx from "./ArticleParagraph.module.scss"
 
 interface IArticleParagraph {
   block: ArticleTextBlock;
+  className?: string;
 }
 
-export const ArticleParagraph = ({ block }: IArticleParagraph) => {
+export const ArticleParagraph = (props: IArticleParagraph) => {
+	const { block, className } = props
 	const { paragraphs, title } = block
 	return (
-		<div>
-			{title ? <Text size={TextSize.lg} className={clx.title}>{title}</Text> : null}
+		<div className={className}>
+			{title ? (
+				<Text size={TextSize.lg} className={clx.title}>
+					{title}
+				</Text>
+			) : null}
 			{paragraphs.map((el, index) => (
-				<Text className={clx.paragraph} key={index}>{el}</Text>
+				<Text className={clx.paragraph} key={index}>
+					{el}
+				</Text>
 			))}
 		</div>
 	)
