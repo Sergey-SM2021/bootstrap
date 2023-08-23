@@ -14,6 +14,15 @@ export default meta
 type Story = StoryObj<typeof ArticleItemSkeleton>;
 
 export const Small: Story = {
-	args: {},
+	args: {
+		mode: "small",
+	},
+	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+}
+
+export const Big: Story = {
+	args: {
+		mode: "big",
+	},
 	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }

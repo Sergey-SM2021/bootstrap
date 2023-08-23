@@ -31,5 +31,6 @@
   "CurrencyError" : "Incorrect currency was selected",
   "ServerError" : "Something went wrong",
   "create coment": "Create comment",
-  "read more": "Read more"
+  "read more": "Read more",
+  "empty articles": "Articles not found"
 }

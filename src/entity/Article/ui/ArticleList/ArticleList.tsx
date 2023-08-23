@@ -3,6 +3,8 @@ import { memo } from "react"
 import { ArticleItem } from "../ArticleItem/ArticleItem"
 import clx from "./ArticleList.module.scss"
 import { ArticleItemSkeleton } from "../ArticleItem/ArticleItemSkeleton"
+import { Text } from "shared/ui/Text/Text"
+import { useTranslation } from "react-i18next"
 
 interface ArticleListProps {
   articles: Article[];
@@ -12,6 +14,7 @@ interface ArticleListProps {
 
 export const ArticleList = memo((props: ArticleListProps) => {
 	const { articles, isLoading, mode } = props
+	const { t } = useTranslation()
 
 	if (isLoading) {
 		return (
@@ -21,11 +24,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
 		)
 	}
 
-	return (
+	return articles.length ? (
 		<div className={clx[`ArticleList-${mode}`]}>
 			{articles.map((el, index) => (
 				<ArticleItem mode={mode} key={index} {...el} />
 			))}
+		</div>
+	) : (
+		<div>
+			<Text>{t("empty articles")}</Text>
 		</div>
 	)
 })
