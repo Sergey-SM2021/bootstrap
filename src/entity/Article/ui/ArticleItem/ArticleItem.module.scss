@@ -1,5 +1,5 @@
 .big {
-    min-width: 100%;
+    width: 100%;
 
     .footer {
         padding: 8px;
@@ -10,12 +10,11 @@
     }
 
     .img {
-        height: 400px;
         width: 100%;
-        background-position: top;
+        min-height: 400px;
+        object-fit: contain;
         background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
+        background-position: center;
     }
 
     .content {
