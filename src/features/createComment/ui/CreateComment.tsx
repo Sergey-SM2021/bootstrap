@@ -33,6 +33,7 @@ export const CreateComment = () => {
 		<AsyncComponent reducer={createCommentReducer} reducerName="createComment">
 			<Flex gap={16}>
 				<Input
+					placeholder="Оставить комментарий"
 					onChange={handlerChange}
 					value={text ?? ""}
 					className={style.CreateComment}

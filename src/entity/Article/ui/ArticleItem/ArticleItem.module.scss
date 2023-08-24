@@ -35,6 +35,12 @@
             position: absolute;
         }
     }
+
+    .UserLink {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .small {

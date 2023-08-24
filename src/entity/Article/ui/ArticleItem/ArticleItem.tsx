@@ -40,6 +40,10 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 		</Flex>
 	)
 
+	const handlerNavigateOnUser = () => {
+		nav(`/profile/${user.id}`)
+	}
+
 	if (mode === "big") {
 		const text = blocks.find(
 			(el) => el.type === ArticleType.TEXT
@@ -49,7 +53,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 			<div className={classNames(clx.big, {}, [clx.card])}>
 				<Flex direction="column" gap={8} className={clx.header}>
 					<Flex justify="space-between" align="center">
-						<Flex align="center" gap={16}>
+						<Flex align="center" gap={16} className={clx.UserLink} onClick={handlerNavigateOnUser}>
 							<Avatar size="xs" src={user.avatar} />
 							<Text>{user.nickname}</Text>
 						</Flex>

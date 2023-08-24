@@ -44,7 +44,7 @@ export interface Article {
   label: ArticleLabel[];
   blocks: ArticleBlock[];
   user: {
-    userId: number
+    id: number
     nickname: string
     avatar: string
   }

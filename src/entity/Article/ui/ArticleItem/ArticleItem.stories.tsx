@@ -60,7 +60,7 @@ export const Big: Story = {
 		user: {
 			avatar: img,
 			nickname: "super-mega-user",
-			userId: 12,
+			id: 12,
 		},
 	},
 	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
