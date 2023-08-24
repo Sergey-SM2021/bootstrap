@@ -4,11 +4,11 @@ import { Comment } from "entity/Comment/model/types/Comment"
 
 export const getComments = createAsyncThunk<
   Comment[],
-  void,
+  number,
   { extra: { api: typeof $api }, rejectValue: string }
->("comments/get comments", async (params, { extra, rejectWithValue }) => {
+>("comments/get comments", async (id, { extra, rejectWithValue }) => {
 	try {
-		return (await extra.api.get("comment/1")).data        
+		return (await extra.api.get(`comment/${id}`)).data        
 	} catch (error) {
 		return rejectWithValue("Error")
 	}

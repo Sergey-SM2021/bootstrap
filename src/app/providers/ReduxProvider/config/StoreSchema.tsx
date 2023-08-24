@@ -6,6 +6,7 @@ import { $api } from "shared/api/api"
 import { ArticleSchema } from "entity/Article"
 import { ArticleDetalisCommentsSchema } from "pages/ArticleDetalisPage/model/types/ArticleDetalisPage"
 import { CreateCommentSchema } from "features/createComment/model/types/createCommentSchema"
+import { ArticlePageSchema } from "pages/ArticlesPage/model/types/articleSchema"
 
 export interface StoreSchema {
   counter: CounterSchema;
@@ -13,6 +14,7 @@ export interface StoreSchema {
   user: UserSchema;
   profile?: ProfileSchema;
   ArticleReducer?: ArticleSchema;
+  ArticlesPageReducer?: ArticlePageSchema;
   comments?: ArticleDetalisCommentsSchema;
   createComment?: CreateCommentSchema;
 }

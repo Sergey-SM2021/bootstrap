@@ -22,22 +22,13 @@ interface ArticleItemProps extends Article {
 }
 
 export const ArticleItem = memo((props: ArticleItemProps) => {
-	const {
-		mode,
-		createdAt,
-		title,
-		img,
-		label,
-		views,
-		blocks,
-		user
-	} = props
+	const { mode, createdAt, title, img, label, views, blocks, user, id } = props
 	const nav = useNavigate()
 	const { isHover, ...hover } = useHover()
 	const { t } = useTranslation()
 
 	const handlerNavigate = () => {
-		nav("/")
+		nav(`/article/${id}`)
 	}
 
 	const ViewsCount = (

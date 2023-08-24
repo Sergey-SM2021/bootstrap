@@ -1,4 +1,4 @@
-import { Article } from "entity/Article/model/types/Article"
+import { Article, ArticleLabel } from "entity/Article/model/types/Article"
 import { memo } from "react"
 import { ArticleItem } from "../ArticleItem/ArticleItem"
 import clx from "./ArticleList.module.scss"
@@ -27,7 +27,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 	return articles.length ? (
 		<div className={clx[`ArticleList-${mode}`]}>
 			{articles.map((el, index) => (
-				<ArticleItem mode={mode} key={index} {...el} />
+				<ArticleItem mode={mode} key={index} {...el} label={[ArticleLabel.ECONOMICS]}/>
 			))}
 		</div>
 	) : (

@@ -6,7 +6,7 @@ interface FlexProps extends PropsWithChildren {
   gap?: number;
   direction?: "row" | "column";
   className?: string;
-  justify?: "space-between" | "center" | "space-around";
+  justify?: "space-between" | "center" | "space-around" | "flex-end";
   align?: "center";
   onClick?: VoidFunction;
 }

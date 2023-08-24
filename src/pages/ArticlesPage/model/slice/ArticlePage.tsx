@@ -1,18 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import { Article } from "entity/Article/model/types/Article"
+import { getArticles } from "../services/getArticles"
+import { ArticlePageSchema } from "../types/articleSchema"
+import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 
-const initialState = {
-	value: 0,
-}
+const articleAdapter = createEntityAdapter<Article>()
+
+const initialState: ArticlePageSchema = articleAdapter.getInitialState({
+	isLoading: false,
+	view: "small",
+})
 
 const ArticlePageSlice = createSlice({
 	name: "ArticlePage",
-	initialState,
 	reducers: {
-		test(state, payload) {
-			state = payload.payload
-		}
-	}
+		setSmallView(state) {
+			state.view = "small"
+		},
+		setBigView(state) {
+			state.view = "big"
+		},
+	},
+	initialState,
+	extraReducers(builder) {
+		builder.addCase(getArticles.fulfilled, (state, payload) => {
+			articleAdapter.setMany(state, payload)
+		})
+	},
 })
 
-export const {actions: ArticlePageActions} = ArticlePageSlice
-export const {reducer: ArticlePageReducer} = ArticlePageSlice
+export const ArticlePageReducer = ArticlePageSlice.reducer
+export const { setBigView, setSmallView } = ArticlePageSlice.actions
+export const articlesSelectors = articleAdapter.getSelectors<StoreSchema>(
+	(state) => state.ArticlesPageReducer || articleAdapter.getInitialState()
+)
