@@ -26,6 +26,7 @@ const Comments = createSlice({
 		builder.addCase(
 			getComments.fulfilled,
 			(state, action: PayloadAction<Comment[]>) => {
+				commentsAdapter.removeAll(state)
 				commentsAdapter.setMany(state, action.payload)
 				state.isLoading = false
 			}
