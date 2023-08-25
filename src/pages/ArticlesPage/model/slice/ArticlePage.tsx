@@ -9,6 +9,7 @@ const articleAdapter = createEntityAdapter<Article>()
 const initialState: ArticlePageSchema = articleAdapter.getInitialState({
 	isLoading: false,
 	view: "small",
+	page: 1,
 })
 
 const ArticlePageSlice = createSlice({
@@ -20,17 +21,21 @@ const ArticlePageSlice = createSlice({
 		setBigView(state) {
 			state.view = "big"
 		},
+		incrementPage(state) {
+			state.page += 1
+		},
 	},
 	initialState,
 	extraReducers(builder) {
 		builder.addCase(getArticles.fulfilled, (state, payload) => {
-			articleAdapter.setMany(state, payload)
+			articleAdapter.addMany(state, payload)
 		})
 	},
 })
 
 export const ArticlePageReducer = ArticlePageSlice.reducer
-export const { setBigView, setSmallView } = ArticlePageSlice.actions
+export const { setBigView, incrementPage, setSmallView } =
+  ArticlePageSlice.actions
 export const articlesSelectors = articleAdapter.getSelectors<StoreSchema>(
 	(state) => state.ArticlesPageReducer || articleAdapter.getInitialState()
 )

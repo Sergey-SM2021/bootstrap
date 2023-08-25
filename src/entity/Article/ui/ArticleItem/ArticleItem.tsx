@@ -3,7 +3,7 @@ import {
 	ArticleTextBlock,
 	ArticleType,
 } from "entity/Article/model/types/Article"
-import { memo } from "react"
+import { memo, useMemo } from "react"
 import clx from "./ArticleItem.module.scss"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 import { useNavigate } from "react-router-dom"
@@ -31,13 +31,16 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 		nav(`/article/${id}`)
 	}
 
-	const ViewsCount = (
-		<Flex align="center" gap={8}>
-			{views}
-			<Icon size="xs">
-				<Views />
-			</Icon>
-		</Flex>
+	const ViewsCount = useMemo(
+		() => (
+			<Flex align="center" gap={8}>
+				{views}
+				<Icon size="xs">
+					<Views />
+				</Icon>
+			</Flex>
+		),
+		[views]
 	)
 
 	const handlerNavigateOnUser = () => {
@@ -53,7 +56,12 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 			<div className={classNames(clx.big, {}, [clx.card])}>
 				<Flex direction="column" gap={8} className={clx.header}>
 					<Flex justify="space-between" align="center">
-						<Flex align="center" gap={16} className={clx.UserLink} onClick={handlerNavigateOnUser}>
+						<Flex
+							align="center"
+							gap={16}
+							className={clx.UserLink}
+							onClick={handlerNavigateOnUser}
+						>
 							<Avatar size="xs" src={user.avatar} />
 							<Text>{user.nickname}</Text>
 						</Flex>

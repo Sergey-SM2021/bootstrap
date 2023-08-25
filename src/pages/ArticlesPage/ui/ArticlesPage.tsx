@@ -1,5 +1,5 @@
 import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
-import { memo, useEffect } from "react"
+import { memo, useCallback, useRef } from "react"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import {
 	ArticlePageReducer,
@@ -12,24 +12,38 @@ import { useSelector } from "react-redux"
 import { articlesSelectors } from "../model/slice/ArticlePage"
 import { ChangeArticleView } from "features/changeArticlesView/changeArticlesView"
 import { Flex } from "shared/ui/Flex/Flex"
-import { getView } from "../model/selectors/ArticlePageSelectors"
+import { getPage, getView } from "../model/selectors/ArticlePageSelectors"
+import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
 
 const ArticlesPage = memo(() => {
+	const page = useSelector(getPage)
 	const dispatch = useAppDispatch()
+
+	const elementForObserv = useRef<HTMLDivElement>(null)
+
 	const articles = useSelector(articlesSelectors.selectAll)
-	const handlerChangeView = (view: "big" | "small") => () => {
-		if (view === "big") {
-			dispatch(setBigView())
-		} else {
-			dispatch(setSmallView())
-		}
-	}
+
+	const handlerChangeView = useCallback(
+		(view: "big" | "small") => () => {
+			if (view === "big") {
+				dispatch(setBigView())
+			} else {
+				dispatch(setSmallView())
+			}
+		},
+		[dispatch]
+	)
+
 	const view = useSelector(getView)
 
-	useEffect(() => {
-		dispatch(getArticles())
-		// eslint-disable-next-line
-  }, []);
+	const onIntersecting = async () => {
+		await dispatch(getArticles(page))
+	}
+
+	useIntersectionObserver({
+		elementForObserv: elementForObserv.current,
+		onIntersecting,
+	})
 
 	return (
 		<AsyncComponent
@@ -38,11 +52,13 @@ const ArticlesPage = memo(() => {
 		>
 			<Flex direction="column" gap={16}>
 				<ChangeArticleView
+					activeView={view}
 					articlesLength={articles.length}
 					handlerChange={handlerChangeView}
 				/>
 				<ArticleList articles={articles} isLoading={false} mode={view} />
 			</Flex>
+			<div ref={elementForObserv}></div>
 		</AsyncComponent>
 	)
 })
