@@ -1,5 +1,5 @@
 import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
-import { memo, useCallback, useRef } from "react"
+import { memo, useCallback, useEffect, useRef } from "react"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import {
 	ArticlePageReducer,
@@ -14,6 +14,7 @@ import { ChangeArticleView } from "features/changeArticlesView/changeArticlesVie
 import { Flex } from "shared/ui/Flex/Flex"
 import { getPage, getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
+import { SaveScroll } from "shared/lib/SaveScroll"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
@@ -50,15 +51,19 @@ const ArticlesPage = memo(() => {
 			reducer={ArticlePageReducer}
 			reducerName="ArticlesPageReducer"
 		>
-			<Flex direction="column" gap={16}>
-				<ChangeArticleView
-					activeView={view}
-					articlesLength={articles.length}
-					handlerChange={handlerChangeView}
-				/>
-				<ArticleList articles={articles} isLoading={false} mode={view} />
-			</Flex>
-			<div ref={elementForObserv}></div>
+			<SaveScroll>
+				<>
+					<Flex direction="column" gap={16}>
+						<ChangeArticleView
+							activeView={view}
+							articlesLength={articles.length}
+							handlerChange={handlerChangeView}
+						/>
+						<ArticleList articles={articles} isLoading={false} mode={view} />
+					</Flex>
+					<div ref={elementForObserv}></div>
+				</>
+			</SaveScroll>
 		</AsyncComponent>
 	)
 })

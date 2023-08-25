@@ -7,6 +7,7 @@ import { ArticleSchema } from "entity/Article"
 import { ArticleDetalisCommentsSchema } from "pages/ArticleDetalisPage/model/types/ArticleDetalisPage"
 import { CreateCommentSchema } from "features/createComment/model/types/createCommentSchema"
 import { ArticlePageSchema } from "pages/ArticlesPage/model/types/articleSchema"
+import { SaveScrollSchema } from "shared/lib/SaveScroll"
 
 export interface StoreSchema {
   counter: CounterSchema;
@@ -17,6 +18,7 @@ export interface StoreSchema {
   ArticlesPageReducer?: ArticlePageSchema;
   comments?: ArticleDetalisCommentsSchema;
   createComment?: CreateCommentSchema;
+  scroll: SaveScrollSchema;
 }
 
 export interface thunkExtra {

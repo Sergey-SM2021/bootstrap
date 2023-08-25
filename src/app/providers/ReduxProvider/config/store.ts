@@ -3,6 +3,7 @@ import { StoreSchema } from "./StoreSchema"
 import { counterSliceReducer } from "entity/counter/model/slice/counterSlice"
 import { userSliceReducer } from "entity/user"
 import { $api } from "shared/api/api"
+import { SaveScrollReducer } from "shared/lib/SaveScroll"
 
 const staticReducers = {
 	counter: counterSliceReducer,
@@ -22,6 +23,7 @@ export const createStore = (preloadedState?: DeepPartial<StoreSchema>) => {
 		reducer: {
 			counter: counterSliceReducer,
 			user: userSliceReducer,
+			scroll: SaveScrollReducer
 		},
 		preloadedState: preloadedState as StoreSchema,
 		devTools: __IS_DEV__,
