@@ -17,7 +17,6 @@ export const SaveScroll = ({ children }: SaveScrollProps) => {
 
 	const onScroll = useThrottle(
 		(event: UIEvent<HTMLDivElement, globalThis.UIEvent>) => {
-			console.log("Pidors")
 			dispatch(
 				setScrollPosition({
 					path: loc.pathname,
