@@ -4,7 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector"
 import Backend from "i18next-http-backend"
 
 i18n.use(LanguageDetector).use(initReactI18next).use(Backend).init({
-	debug: __IS_DEV__,
+	debug: false,
 	fallbackLng: "en",
 })
 
