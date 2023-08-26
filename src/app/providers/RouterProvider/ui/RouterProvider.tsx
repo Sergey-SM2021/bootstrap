@@ -13,15 +13,7 @@ export const RouterProvider = () => {
 				{routes.map(({ element, path, isPrivate }) => (
 					<Route
 						key={path}
-						element={
-							isPrivate ? (
-								<RouteGuard>
-									<div className="page">{element}</div>
-								</RouteGuard>
-							) : (
-								<div className="page">{element}</div>
-							)
-						}
+						element={isPrivate ? <RouteGuard>{element}</RouteGuard> : element}
 						path={path}
 					/>
 				))}

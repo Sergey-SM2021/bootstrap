@@ -8,7 +8,7 @@ const articleAdapter = createEntityAdapter<Article>()
 
 const initialState: ArticlePageSchema = articleAdapter.getInitialState({
 	isLoading: false,
-	view: "small",
+	view: "big",
 	page: 1,
 })
 
