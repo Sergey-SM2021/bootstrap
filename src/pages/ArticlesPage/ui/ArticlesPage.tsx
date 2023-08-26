@@ -14,7 +14,7 @@ import { ChangeArticleView } from "features/changeArticlesView/changeArticlesVie
 import { Flex } from "shared/ui/Flex/Flex"
 import { getPage, getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
-import { SaveScroll } from "shared/lib/SaveScroll"
+import { SaveScroll } from "features/SaveScroll"
 import { Layout } from "shared/ui/Layout/Layout"
 
 const ArticlesPage = memo(() => {
@@ -52,7 +52,7 @@ const ArticlesPage = memo(() => {
 			reducer={ArticlePageReducer}
 			reducerName="ArticlesPageReducer"
 		>
-			<Layout>
+			<SaveScroll>
 				<Flex direction="column" gap={16}>
 					<ChangeArticleView
 						activeView={view}
@@ -62,7 +62,7 @@ const ArticlesPage = memo(() => {
 					<ArticleList articles={articles} isLoading={false} mode={view} />
 				</Flex>
 				<div ref={elementForObserv}></div>
-			</Layout>
+			</SaveScroll>
 		</AsyncComponent>
 	)
 })

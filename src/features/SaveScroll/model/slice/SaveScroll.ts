@@ -1,15 +1,17 @@
-import { SaveScroll } from "../type/SaveScroll"
 import { type SaveScrollSchema } from "../type/SaveScrollSchema"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
-const initialState: SaveScrollSchema = []
+const initialState: SaveScrollSchema = {}
 
 const SaveScroll = createSlice({
 	name: "SaveScroll",
 	initialState,
 	reducers: {
-		setScrollPosition: (state, payload: PayloadAction<SaveScroll>) => {
-			state = [{ path: "L:L:L:", top: 879 }]
+		setScrollPosition: (
+			state,
+			payload: PayloadAction<{ top: number; path: string }>
+		) => {
+			state[payload.payload.path] = payload.payload.top
 		},
 	},
 })

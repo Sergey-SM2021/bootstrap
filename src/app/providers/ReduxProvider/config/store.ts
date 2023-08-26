@@ -3,11 +3,12 @@ import { StoreSchema } from "./StoreSchema"
 import { counterSliceReducer } from "entity/counter/model/slice/counterSlice"
 import { userSliceReducer } from "entity/user"
 import { $api } from "shared/api/api"
-import { SaveScrollReducer } from "shared/lib/SaveScroll"
+import { SaveScrollReducer } from "features/SaveScroll"
 
 const staticReducers = {
 	counter: counterSliceReducer,
 	user: userSliceReducer,
+	scroll: SaveScrollReducer
 }
 
 // @ts-ignore
