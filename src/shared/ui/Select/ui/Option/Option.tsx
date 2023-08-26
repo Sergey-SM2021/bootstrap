@@ -1,19 +1,19 @@
-import { useContext } from "react"
+import { memo, useContext } from "react"
 import { SelectContext } from "../../lib/SelectContext"
 import style from "./Option.module.scss"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 interface OptionProps {
-  label: string;
   value: string;
+  children: string
 }
 
-export const Option = ({ label, value }: OptionProps) => {
+export const Option = memo(({ value, children }: OptionProps) => {
 	const { active, handlerChange } = useContext(SelectContext)
 	const isActive = active.value === value
 
 	const handlerClick = () => {
-		handlerChange({ label, value })
+		handlerChange({ value, label: children })
 	}
 
 	return (
@@ -23,7 +23,7 @@ export const Option = ({ label, value }: OptionProps) => {
 			})}
 			onClick={handlerClick}
 		>
-			{label}
+			{children}
 		</div>
 	)
-}
+})

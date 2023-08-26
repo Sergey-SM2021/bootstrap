@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next"
 import { Option } from "./Option/Option"
 import { Select } from "./Select/Select"
 
@@ -6,15 +7,16 @@ interface SelectStorybookProps {
 }
 
 export const SelectStorybook = ({ disable = true }: SelectStorybookProps) => {
+	const { t } = useTranslation()
 	return (
 		<Select
+			value={{ label: "uuu", value: "7878" }}
 			disabled={disable}
 			onChange={() => {}}
-			initialValue={{ label: "label", value: "value" }}
 		>
-			<Option label="Москва" value="01"></Option>
-			<Option label="Киров" value="02"></Option>
-			<Option label="Владимир" value="03"></Option>
+			<Option value="01">{t("Москва")}</Option>
+			<Option value="02">{t("Киров")}</Option>
+			<Option value="03">{t("Владимир")}</Option>
 		</Select>
 	)
 }

@@ -6,18 +6,17 @@ import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 export interface SelectProviderProps extends PropsWithChildren {
   onChange: (value: string) => void;
-  initialValue: StateType;
+  value: StateType;
   disabled?: boolean;
 }
 
 export const Select = memo((props: SelectProviderProps) => {
 	const {
 		children,
-		initialValue = { label: "", value: "" },
+		value = { label: "", value: "" },
 		onChange,
 		disabled = false,
 	} = props
-	const [active, setActive] = useState<StateType>(initialValue)
 	const [isOpen, setIsOpen] = useState(false)
 
 	const handlerOpen = () => {
@@ -29,7 +28,6 @@ export const Select = memo((props: SelectProviderProps) => {
 	}
 
 	const handlerChange = (option: StateType) => {
-		setActive(option)
 		onChange(option.value)
 		handlerClose()
 	}
@@ -40,13 +38,13 @@ export const Select = memo((props: SelectProviderProps) => {
 	useOutsideClick(ref, handlerClose, trigger)
 
 	return (
-		<SelectContext.Provider value={{ active, handlerChange }}>
+		<SelectContext.Provider value={{ active: value, handlerChange }}>
 			<div
 				ref={trigger}
 				className={classNames(style.select, { [style.disabled]: disabled })}
 				onClick={!disabled && !isOpen ? handlerOpen : handlerClose}
 			>
-				{active.value}
+				{value.label}
 				{isOpen ? (
 					<div ref={ref} className={style.list}>
 						{children}
