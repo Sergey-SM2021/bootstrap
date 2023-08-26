@@ -7,7 +7,7 @@ import { classNames } from "shared/lib/helpers/classNames/classNames"
 export interface SelectProviderProps extends PropsWithChildren {
   onChange: (value: string) => void;
   initialValue: StateType;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 export const Select = memo((props: SelectProviderProps) => {

@@ -1,5 +1,5 @@
 import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
-import { memo, useCallback, useEffect, useRef } from "react"
+import { memo, useCallback, useRef } from "react"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import {
 	ArticlePageReducer,
@@ -10,12 +10,11 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { getArticles } from "../model/services/getArticles"
 import { useSelector } from "react-redux"
 import { articlesSelectors } from "../model/slice/ArticlePage"
-import { ChangeArticleView } from "features/changeArticlesView/changeArticlesView"
+import { Filters } from "features/filters"
 import { Flex } from "shared/ui/Flex/Flex"
 import { getPage, getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
 import { SaveScroll } from "features/SaveScroll"
-import { Layout } from "shared/ui/Layout/Layout"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
@@ -54,7 +53,7 @@ const ArticlesPage = memo(() => {
 		>
 			<SaveScroll>
 				<Flex direction="column" gap={16}>
-					<ChangeArticleView
+					<Filters
 						activeView={view}
 						articlesLength={articles.length}
 						handlerChange={handlerChangeView}
