@@ -115,11 +115,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					<Select
 						disabled={readOnly}
 						onChange={handlerChangeCity}
-						initialValue={{ label: country, value: country }}
+						value={country}
 					>
-						<Option label="Россия" value="Россия"></Option>
-						<Option label="Монголия" value="Монголия"></Option>
-						<Option label="Канада" value="Канада"></Option>
+						<Option value="Россия">{t("Россия")}</Option>
+						<Option value="Монголия">{t("Монголия")}</Option>
+						<Option value="Канада">{t("Канада")}</Option>
 					</Select>
 				</div>
 				<div className={style.item}>
@@ -127,18 +127,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					<Select
 						disabled={readOnly}
 						onChange={handlerChangeCity}
-						initialValue={{ label: currency, value: currency }}
+						value={currency}
 					>
-						<Option label="Доллар США" value="Доллар США"></Option>
-						<Option label="Россий рубль" value="Россий рубль"></Option>
-						<Option label="Японская иена" value="Японская иена"></Option>
+						<Option value="Доллар США">{t("Доллар США")}</Option>
+						<Option value="Россий рубль">{t("Россий рубль")}</Option>
+						<Option value="Японская иена">{t("Японская иена")}</Option>
 					</Select>
 				</div>
 				<div className={style.item}>
 					<Text>{t("city")}</Text>
 					<City
 						onChange={handlerChangeCity}
-						initialValue={{ label: city, value: city }}
+						value={ city }
 						disabled={readOnly}
 					/>
 				</div>

@@ -5,15 +5,15 @@ import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 interface OptionProps {
   value: string;
-  children: string
+  children: string;
 }
 
 export const Option = memo(({ value, children }: OptionProps) => {
-	const { active, handlerChange } = useContext(SelectContext)
-	const isActive = active.value === value
+	const { value: contextValue, handlerChange } = useContext(SelectContext)
+	const isActive = contextValue === value
 
 	const handlerClick = () => {
-		handlerChange({ value, label: children })
+		handlerChange(value, children)
 	}
 
 	return (

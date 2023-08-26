@@ -1,23 +1,20 @@
 import { PropsWithChildren, memo, useRef, useState } from "react"
-import { SelectContext, StateType } from "../../lib/SelectContext"
+import { SelectContext } from "../../lib/SelectContext"
 import style from "./Select.module.scss"
 import { useOutsideClick } from "shared/lib/hooks/useOutsideClick"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 export interface SelectProviderProps extends PropsWithChildren {
   onChange: (value: string) => void;
-  value: StateType;
+  value: string;
   disabled?: boolean;
+  placeholder?: string;
 }
 
 export const Select = memo((props: SelectProviderProps) => {
-	const {
-		children,
-		value = { label: "", value: "" },
-		onChange,
-		disabled = false,
-	} = props
+	const { children, value, placeholder = "", onChange, disabled = false } = props
 	const [isOpen, setIsOpen] = useState(false)
+	const [label, setLabel] = useState(placeholder)
 
 	const handlerOpen = () => {
 		setIsOpen(true)
@@ -27,8 +24,9 @@ export const Select = memo((props: SelectProviderProps) => {
 		setIsOpen(false)
 	}
 
-	const handlerChange = (option: StateType) => {
-		onChange(option.value)
+	const handlerChange = (value: string, label: string) => {
+		setLabel(label)
+		onChange(value)
 		handlerClose()
 	}
 
@@ -38,13 +36,13 @@ export const Select = memo((props: SelectProviderProps) => {
 	useOutsideClick(ref, handlerClose, trigger)
 
 	return (
-		<SelectContext.Provider value={{ active: value, handlerChange }}>
+		<SelectContext.Provider value={{ value, handlerChange, label }}>
 			<div
 				ref={trigger}
 				className={classNames(style.select, { [style.disabled]: disabled })}
 				onClick={!disabled && !isOpen ? handlerOpen : handlerClose}
 			>
-				{value.label}
+				{label}
 				{isOpen ? (
 					<div ref={ref} className={style.list}>
 						{children}

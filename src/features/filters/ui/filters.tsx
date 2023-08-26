@@ -1,4 +1,5 @@
 import { memo } from "react"
+import { useTranslation } from "react-i18next"
 import ViewGrid from "shared/assets/view-grid.svg"
 import ViewList from "shared/assets/view-list.svg"
 import { Flex } from "shared/ui/Flex/Flex"
@@ -18,6 +19,7 @@ const views = ["small", "big"] as const
 
 export const Filters = memo((props: FiltersProps) => {
 	const { handlerChange, articlesLength } = props
+	const { t } = useTranslation()
 
 	if (!articlesLength) {
 		return null
@@ -26,13 +28,10 @@ export const Filters = memo((props: FiltersProps) => {
 	return (
 		<Flex direction="column" gap={16}>
 			<Flex justify="space-between">
-				<Select
-					onChange={() => {}}
-					initialValue={{ label: "без сортировки", value: "без сортировки" }}
-				>
-					<Option label="По названию" value="ByName" />
-					<Option label="По дате" value="ByDate" />
-					<Option label="По просмотрам" value="ByViews" />
+				<Select onChange={() => {}} value={""}>
+					<Option value="ByName">{t("По названию")}</Option>
+					<Option value="ByDate">{t("По дате")}</Option>
+					<Option value="ByViews">{t("По просмотрам")}</Option>
 				</Select>
 				<Flex>
 					{views.map((view, index) => (
@@ -48,9 +47,9 @@ export const Filters = memo((props: FiltersProps) => {
 			</Flex>
 			<Input onChange={() => {}} value="" />
 			<Flex gap={24}>
-				<Label></Label>
-				<Label></Label>
-				<Label></Label>
+				<Label>{t("It")}</Label>
+				<Label>{t("Наука")}</Label>
+				<Label>{t("Медицина")}</Label>
 			</Flex>
 		</Flex>
 	)

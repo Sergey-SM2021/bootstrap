@@ -14,5 +14,8 @@ export default meta
 type Story = StoryObj<typeof SelectStorybook>;
 
 export const Primary: Story = {
+	args:{
+		placeholder: "Select"
+	},
 	decorators: [ThemeDecorator(Theme.lightTheme)],
 }

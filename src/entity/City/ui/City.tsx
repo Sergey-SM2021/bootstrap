@@ -8,7 +8,7 @@ export const City = (props: SelectProviderProps) => {
 	return (
 		<Select {...props}>
 			{citys.map((city) => (
-				<Option label={city} value={city} key={city} />
+				<Option value={city} key={city} >{city}</Option>
 			))}
 		</Select>
 	)
