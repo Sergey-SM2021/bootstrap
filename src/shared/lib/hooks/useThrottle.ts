@@ -1,7 +1,7 @@
 import { useRef } from "react"
 
 export const useThrottle = (callback: (...args:any[]) => void, delay: number) => {
-	const canInvoke = useRef<boolean>(false)
+	const canInvoke = useRef<boolean>(true)
 
 	return (...args:any[]) => {
 		if (canInvoke.current) {
