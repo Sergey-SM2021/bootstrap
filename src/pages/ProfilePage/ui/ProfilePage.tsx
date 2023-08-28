@@ -25,6 +25,7 @@ import { useTranslation } from "react-i18next"
 import { ageSelector } from "../model/selectors/ageSelector/ageSelector"
 import { useParams } from "react-router-dom"
 import { getUser } from "entity/user/model/selector/getUserSelector"
+import { Layout } from "shared/ui/Layout/Layout"
 
 const ProfilePage = () => {
 	const { t } = useTranslation()
@@ -62,23 +63,25 @@ const ProfilePage = () => {
 
 	return (
 		<AsyncComponent reducer={ProfileReducer} reducerName="profile">
-			<div className={style.profile}>
-				{Number(userId) === Number(id) ? <ProfileHeader /> : null}
-				<ProfileCard
-					age={age}
-					avatar={avatar}
-					city={city}
-					country={country}
-					currency={currency}
-					lastname={lastname}
-					name={name}
-					nickname={nickname}
-					handlerCange={handlerChange}
-					error={t(error)}
-					isLoading={isLoading}
-					readOnly={readOnly}
-				/>
-			</div>
+			<Layout>
+				<div className={style.profile}>
+					{Number(userId) === Number(id) ? <ProfileHeader /> : null}
+					<ProfileCard
+						age={age}
+						avatar={avatar}
+						city={city}
+						country={country}
+						currency={currency}
+						lastname={lastname}
+						name={name}
+						nickname={nickname}
+						handlerCange={handlerChange}
+						error={t(error)}
+						isLoading={isLoading}
+						readOnly={readOnly}
+					/>
+				</div>
+			</Layout>
 		</AsyncComponent>
 	)
 }
