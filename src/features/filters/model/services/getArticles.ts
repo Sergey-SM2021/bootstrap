@@ -29,7 +29,7 @@ export const getArticles = createAsyncThunk<
 
 	try {
 		const responce = (
-			await extra.api.get(`article?page=${page}&limit=3&search=${search}`)
+			await extra.api.get(`article?page=${page}&limit=3&search=${search}&sortBy=${sortBy}&strategy=${strategy}`)
 		).data
 		dispatch(incrementPage())
 		return responce

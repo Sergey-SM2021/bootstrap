@@ -1,12 +1,12 @@
 export enum SortBy {
-    "Views" = "Views",
-    "Date" = "Date",
-    "Title" = "Title",
+    "Views" = "views",
+    "Date" = "createdAt",
+    "Title" = "title",
 }
 
 export enum StrategyType {
-    "asc" = "asc",
-    "desc" = "desc",
+    "asc" = "ASC",
+    "desc" = "DESC",
 }
 
 export interface FilterSchema {

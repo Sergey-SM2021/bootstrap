@@ -5,7 +5,7 @@ import { getArticles } from "../services/getArticles"
 const initialState: FilterSchema = {
 	search: "",
 	page: 1,
-	sortBy: SortBy.Views,
+	sortBy: SortBy.Date,
 	strategy: StrategyType.asc,
 	tegs: ["It", "Авиация", "Гонки"],
 }

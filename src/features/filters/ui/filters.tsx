@@ -82,8 +82,8 @@ export const Filters = memo((props: FiltersProps) => {
 							value={strategy}
 							placeholder="По"
 						>
-							<Option value={SortBy.Date}>{t("По возрастанию")}</Option>
-							<Option value={SortBy.Views}>{t("По убыванию")}</Option>
+							<Option value={StrategyType.asc}>{t("По возрастанию")}</Option>
+							<Option value={StrategyType.desc}>{t("По убыванию")}</Option>
 						</Select>
 					</Flex>
 					<Flex>
