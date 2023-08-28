@@ -6,10 +6,11 @@ import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 
 const articleAdapter = createEntityAdapter<Article>()
 
-const initialState: ArticlePageSchema = articleAdapter.getInitialState({
+const initialState: ArticlePageSchema = {
 	isLoading: false,
 	view: "big",
-})
+	articles: articleAdapter.getInitialState(),
+}
 
 const ArticlePageSlice = createSlice({
 	name: "ArticlePage",
@@ -25,9 +26,9 @@ const ArticlePageSlice = createSlice({
 	extraReducers(builder) {
 		builder.addCase(getArticles.fulfilled, (state, payload) => {
 			if (payload.meta.arg.reset) {
-				articleAdapter.setAll(state, payload)
+				articleAdapter.setAll(state.articles, payload.payload.articles)
 			} else {
-				articleAdapter.addMany(state, payload)
+				articleAdapter.addMany(state.articles, payload.payload.articles)
 			}
 		})
 	},
@@ -37,5 +38,6 @@ export const ArticlePageReducer = ArticlePageSlice.reducer
 export const { setBigView, setSmallView } = ArticlePageSlice.actions
 
 export const articlesSelectors = articleAdapter.getSelectors<StoreSchema>(
-	(state) => state.ArticlesPageReducer || articleAdapter.getInitialState()
+	(state) =>
+		state.ArticlesPageReducer?.articles || articleAdapter.getInitialState()
 )

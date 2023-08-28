@@ -15,4 +15,5 @@ export interface FilterSchema {
     strategy?: StrategyType
     tegs?: string[]
     page: number
+    hasMore?: boolean
 }

@@ -15,8 +15,13 @@ interface Params {
   reset: boolean;
 }
 
+interface getArticlesRes {
+  articles: Array<Article>;
+  hasMore: boolean;
+}
+
 export const getArticles = createAsyncThunk<
-  Article[],
+  getArticlesRes,
   Params,
   { extra: { api: typeof $api }; state: StoreSchema }
 >("ArticlePage/getArticles", async ({ page, reset }, thunkAPI) => {
@@ -29,7 +34,9 @@ export const getArticles = createAsyncThunk<
 
 	try {
 		const responce = (
-			await extra.api.get(`article?page=${page}&limit=3&search=${search}&sortBy=${sortBy}&strategy=${strategy}`)
+			await extra.api.get(
+				`article?page=${page}&limit=3&search=${search}&sortBy=${sortBy}&strategy=${strategy}`
+			)
 		).data
 		dispatch(incrementPage())
 		return responce

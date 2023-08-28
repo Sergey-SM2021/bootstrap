@@ -4,6 +4,7 @@ import { getArticles } from "../services/getArticles"
 
 const initialState: FilterSchema = {
 	search: "",
+	hasMore: true,
 	page: 1,
 	sortBy: SortBy.Date,
 	strategy: StrategyType.asc,
@@ -32,6 +33,7 @@ const Filter = createSlice({
 			if (action.meta.arg.reset) {
 				state.page = 1
 			}
+			state.hasMore = action.payload.hasMore
 		})
 	},
 })

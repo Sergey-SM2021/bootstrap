@@ -15,10 +15,11 @@ import { Flex } from "shared/ui/Flex/Flex"
 import { getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
 import { SaveScroll } from "features/SaveScroll"
-import { getPage } from "features/filters/model/selectors/selectors"
+import { getHasMore, getPage } from "features/filters/model/selectors/selectors"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
+	const hasMore = useSelector(getHasMore)
 	const dispatch = useAppDispatch()
 
 	const elementForObserv = useRef<HTMLDivElement>(null)
@@ -40,7 +41,9 @@ const ArticlesPage = memo(() => {
 
 	const onIntersecting = async () => {
 		setTimeout(async () => {
-			await dispatch(getArticles({ page, reset: false }))
+			if (hasMore) {
+				await dispatch(getArticles({ page, reset: false }))				
+			}
 		}, 500)
 	}
 
