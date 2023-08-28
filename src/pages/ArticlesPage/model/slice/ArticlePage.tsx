@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 import { Article } from "entity/Article/model/types/Article"
-import { getArticles } from "../services/getArticles"
+import { getArticles } from "features/filters/model/services/getArticles"
 import { ArticlePageSchema } from "../types/articleSchema"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 
@@ -9,7 +9,6 @@ const articleAdapter = createEntityAdapter<Article>()
 const initialState: ArticlePageSchema = articleAdapter.getInitialState({
 	isLoading: false,
 	view: "big",
-	page: 1,
 })
 
 const ArticlePageSlice = createSlice({
@@ -21,21 +20,22 @@ const ArticlePageSlice = createSlice({
 		setBigView(state) {
 			state.view = "big"
 		},
-		incrementPage(state) {
-			state.page += 1
-		},
 	},
 	initialState,
 	extraReducers(builder) {
 		builder.addCase(getArticles.fulfilled, (state, payload) => {
-			articleAdapter.addMany(state, payload)
+			if (payload.meta.arg.reset) {
+				articleAdapter.setAll(state, payload)
+			} else {
+				articleAdapter.addMany(state, payload)
+			}
 		})
 	},
 })
 
 export const ArticlePageReducer = ArticlePageSlice.reducer
-export const { setBigView, incrementPage, setSmallView } =
-  ArticlePageSlice.actions
+export const { setBigView, setSmallView } = ArticlePageSlice.actions
+
 export const articlesSelectors = articleAdapter.getSelectors<StoreSchema>(
 	(state) => state.ArticlesPageReducer || articleAdapter.getInitialState()
 )

@@ -1,17 +1,18 @@
-enum SortBy {
+export enum SortBy {
     "Views" = "Views",
     "Date" = "Date",
     "Title" = "Title",
 }
 
-enum StrategyType {
+export enum StrategyType {
     "asc" = "asc",
     "desc" = "desc",
 }
 
 export interface FilterSchema {
     sortBy?: SortBy
-    search?: string[]
+    search?: string
     strategy?: StrategyType
     tegs?: string[]
+    page: number
 }

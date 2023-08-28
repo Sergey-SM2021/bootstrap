@@ -7,14 +7,15 @@ import {
 	setSmallView,
 } from "../model/slice/ArticlePage"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
-import { getArticles } from "../model/services/getArticles"
+import { getArticles } from "../../../features/filters/model/services/getArticles"
 import { useSelector } from "react-redux"
 import { articlesSelectors } from "../model/slice/ArticlePage"
 import { Filters } from "features/filters"
 import { Flex } from "shared/ui/Flex/Flex"
-import { getPage, getView } from "../model/selectors/ArticlePageSelectors"
+import { getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
 import { SaveScroll } from "features/SaveScroll"
+import { getPage } from "features/filters/model/selectors/selectors"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
@@ -38,7 +39,9 @@ const ArticlesPage = memo(() => {
 	const view = useSelector(getView)
 
 	const onIntersecting = async () => {
-		await dispatch(getArticles(page))
+		setTimeout(async () => {
+			await dispatch(getArticles({ page, reset: false }))
+		}, 500)
 	}
 
 	useIntersectionObserver({
@@ -55,8 +58,7 @@ const ArticlesPage = memo(() => {
 				<Flex direction="column" gap={16}>
 					<Filters
 						activeView={view}
-						articlesLength={articles.length}
-						handlerChange={handlerChangeView}
+						handlerChangeView={handlerChangeView}
 					/>
 					<ArticleList articles={articles} isLoading={false} mode={view} />
 				</Flex>
