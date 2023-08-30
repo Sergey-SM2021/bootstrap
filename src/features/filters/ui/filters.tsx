@@ -71,16 +71,16 @@ export const Filters = memo((props: FiltersProps) => {
 						<Select
 							onChange={handlerSetSortBy}
 							value={sortBy}
-							placeholder="Сортировать по"
+							placeholder={t("sort by")}
 						>
-							<Option value={SortBy.Title}>{t("По названию")}</Option>
-							<Option value={SortBy.Date}>{t("По дате")}</Option>
-							<Option value={SortBy.Views}>{t("По просмотрам")}</Option>
+							<Option value={SortBy.Likes}>{t("by likes")}</Option>
+							<Option value={SortBy.Date}>{t("by date")}</Option>
+							<Option value={SortBy.Views}>{t("by views")}</Option>
 						</Select>
 						<Select
 							onChange={handlerChangeStrategy}
 							value={strategy}
-							placeholder="По"
+							placeholder={t("sort by")}
 						>
 							<Option value={StrategyType.asc}>{t("По возрастанию")}</Option>
 							<Option value={StrategyType.desc}>{t("По убыванию")}</Option>

@@ -32,5 +32,9 @@
   "ServerError" : "Something went wrong",
   "create coment": "Create comment",
   "read more": "Read more",
-  "empty articles": "Articles not found"
+  "empty articles": "Articles not found",
+  "by likes": "By likes",
+  "by views": "By views",
+  "by date": "By date",
+  "sort by": "Sort by"
 }

@@ -3,7 +3,7 @@ import { Tag } from "entity/Tag"
 export enum SortBy {
   "Views" = "views",
   "Date" = "createdAt",
-  "Title" = "title",
+  "Likes" = "likes",
 }
 
 export enum StrategyType {

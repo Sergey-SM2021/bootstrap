@@ -30,5 +30,9 @@
   "ServerError": "Что-то пошло не так",
   "create coment": "Создать коментарий",
   "read more": "Читать полностью",
-  "empty articles": "Тут нет статей"
+  "empty articles": "Тут нет статей",
+  "by likes": "По лайкам",
+  "by views": "По просмотрам",
+  "by date": "По дате",
+  "sort by": "Сортировать по"
 }
