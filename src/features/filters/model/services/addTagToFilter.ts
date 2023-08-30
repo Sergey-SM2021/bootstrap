@@ -7,11 +7,11 @@ export const AddTagToFilter = createAsyncThunk<
   void,
   number,
   { state: StoreSchema }
->("filter", async (tagID, { getState, dispatch }) => {
+>("filter", (tagID, { getState, dispatch }) => {
 	const tags = getTags(getState())
 	if (tags.includes(tagID)) {
-		dispatch(setTag(tagID))
-	} else {
 		dispatch(removeTag(tagID))
+	} else {
+		dispatch(setTag(tagID))
 	}
 })

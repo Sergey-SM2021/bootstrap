@@ -30,7 +30,7 @@ export const getArticles = createAsyncThunk<
 	const search = getSearch(getState())
 	const sortBy = getSortBy(getState())
 	const strategy = getStrategy(getState())
-	const tags = getTags(getState()).join("")
+	const tags = getTags(getState()).join(",")
 
 	try {
 		const responce = (

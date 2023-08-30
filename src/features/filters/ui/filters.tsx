@@ -19,6 +19,7 @@ import {
 	getSearch,
 	getSortBy,
 	getStrategy,
+	getTags,
 } from "../model/selectors/selectors"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { SortBy, StrategyType } from "../model/types/FiltersSchema"
@@ -38,6 +39,7 @@ export const Filters = memo((props: FiltersProps) => {
 	const searchValue = useSelector(getSearch)
 	const sortBy = useSelector(getSortBy)
 	const strategy = useSelector(getStrategy)
+	const tags = useSelector(getTags)
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const timer = useRef<NodeJS.Timeout>(null)
@@ -64,6 +66,7 @@ export const Filters = memo((props: FiltersProps) => {
 
 	const handlerSortByTag = (tagID: number) => () => {
 		dispatch(AddTagToFilter(tagID))
+		dispatch(getArticles({ reset: true, page: 1 }))
 	}
 
 	return (
@@ -102,7 +105,7 @@ export const Filters = memo((props: FiltersProps) => {
 					</Flex>
 				</Flex>
 				<Input onChange={handlerInputType} value={searchValue} />
-				<TagsOnFilters handlerSelectTeg={handlerSortByTag} />
+				<TagsOnFilters handlerSelectTeg={handlerSortByTag} listOfActive={tags}/>
 			</Flex>
 		</AsyncComponent>
 	)

@@ -27,7 +27,11 @@ const Filter = createSlice({
 			state.page += 1
 		},
 		setTag(state, payload: PayloadAction<number>) {
-			state.tags?.push(payload.payload)
+			if (state.tags) {
+				state.tags = [...state.tags, payload.payload]
+			} else {
+				state.tags = [payload.payload]
+			}
 		},
 		removeTag(state, payload: PayloadAction<number>) {
 			state.tags = state.tags?.filter((el) => el !== payload.payload)
@@ -44,5 +48,11 @@ const Filter = createSlice({
 })
 
 export const FilterReducer = Filter.reducer
-export const { setSearch, setSortBy, setTag, removeTag, setStrategy, incrementPage } =
-  Filter.actions
+export const {
+	setSearch,
+	setSortBy,
+	setTag,
+	removeTag,
+	setStrategy,
+	incrementPage,
+} = Filter.actions

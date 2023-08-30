@@ -7,10 +7,11 @@ import { useSelector } from "react-redux"
 
 interface TagsOnFiltersProps {
   handlerSelectTeg: (id: number) => () => void;
+  listOfActive: number[];
 }
 
 export const TagsOnFilters = memo((props: TagsOnFiltersProps) => {
-	const { handlerSelectTeg } = props
+	const { handlerSelectTeg, listOfActive } = props
 	const dispatch = useAppDispatch()
 	const tags = useSelector(getTagsSelector)
 
@@ -18,5 +19,11 @@ export const TagsOnFilters = memo((props: TagsOnFiltersProps) => {
 		dispatch(getTags())
 	}, [dispatch])
 
-	return <TagList list={tags} onClick={handlerSelectTeg} />
+	return (
+		<TagList
+			listOfActive={listOfActive}
+			list={tags}
+			onClick={handlerSelectTeg}
+		/>
+	)
 })
