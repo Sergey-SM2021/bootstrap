@@ -6,7 +6,6 @@ import {
 	getSearch,
 	getSortBy,
 	getStrategy,
-	getTegs,
 } from "../selectors/selectors"
 import { incrementPage } from "../slice/Filters"
 
@@ -30,7 +29,6 @@ export const getArticles = createAsyncThunk<
 	const search = getSearch(getState())
 	const sortBy = getSortBy(getState())
 	const strategy = getStrategy(getState())
-	const tegs = getTegs(getState())
 
 	try {
 		const responce = (

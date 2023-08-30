@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { FilterSchema, SortBy, StrategyType } from "../types/FiltersSchema"
 import { getArticles } from "../services/getArticles"
+import { getTags } from "../../../../entity/Tag/model/service/getTags"
 
 const initialState: FilterSchema = {
 	search: "",
@@ -8,7 +9,6 @@ const initialState: FilterSchema = {
 	page: 1,
 	sortBy: SortBy.Date,
 	strategy: StrategyType.asc,
-	tegs: ["It", "Авиация", "Гонки"],
 }
 
 const Filter = createSlice({
@@ -29,12 +29,16 @@ const Filter = createSlice({
 		},
 	},
 	extraReducers(builder) {
-		builder.addCase(getArticles.fulfilled, (state, action) => {
-			if (action.meta.arg.reset) {
-				state.page = 1
-			}
-			state.hasMore = action.payload.hasMore
-		})
+		builder
+			.addCase(getArticles.fulfilled, (state, action) => {
+				if (action.meta.arg.reset) {
+					state.page = 1
+				}
+				state.hasMore = action.payload.hasMore
+			})
+			.addCase(getTags.fulfilled, (state, payload) => {
+				state.tags = payload.payload
+			})
 	},
 })
 

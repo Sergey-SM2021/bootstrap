@@ -1,8 +1,15 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, memo } from "react"
 import clx from "./Label.module.scss"
 
-type LabelProps = PropsWithChildren;
-
-export const Label = ({ children }: LabelProps) => {
-	return <div className={clx.Label}>{children}</div>
+interface LabelProps extends PropsWithChildren {
+  onClick?: VoidFunction;
 }
+
+export const Label = memo((props: LabelProps) => {
+	const { children, onClick } = props
+	return (
+		<div onClick={onClick} className={clx.Label}>
+			{children}
+		</div>
+	)
+})

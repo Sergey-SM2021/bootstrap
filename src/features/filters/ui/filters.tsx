@@ -1,11 +1,10 @@
-import { memo, useRef } from "react"
+import { memo, useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import ViewGrid from "shared/assets/view-grid.svg"
 import ViewList from "shared/assets/view-list.svg"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { Flex } from "shared/ui/Flex/Flex"
 import { Input } from "shared/ui/Input/Input"
-import { Label } from "shared/ui/Label/Label"
 import { Option, Select } from "shared/ui/Select"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Icon } from "shared/ui/icon/Icon"
@@ -20,11 +19,11 @@ import {
 	getSearch,
 	getSortBy,
 	getStrategy,
-	getTegs,
 } from "../model/selectors/selectors"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { SortBy, StrategyType } from "../model/types/FiltersSchema"
 import { getArticles } from "../model/services/getArticles"
+import { TagsOnFilters } from "entity/Tag/ui/TagsOnFilters/TagsOnFilters"
 
 interface FiltersProps {
   handlerChangeView: (mode: "small" | "big") => () => void;
@@ -38,7 +37,6 @@ export const Filters = memo((props: FiltersProps) => {
 	const searchValue = useSelector(getSearch)
 	const sortBy = useSelector(getSortBy)
 	const strategy = useSelector(getStrategy)
-	const tegs = useSelector(getTegs)
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const timer = useRef<NodeJS.Timeout>(null)
@@ -62,6 +60,8 @@ export const Filters = memo((props: FiltersProps) => {
 		dispatch(setStrategy(strategy as StrategyType))
 		dispatch(getArticles({ reset: true, page: 1 }))
 	}
+
+	const handlerSortByTag = (tagID: string) => () => {}
 
 	return (
 		<AsyncComponent reducer={FilterReducer} reducerName="filter">
@@ -99,11 +99,7 @@ export const Filters = memo((props: FiltersProps) => {
 					</Flex>
 				</Flex>
 				<Input onChange={handlerInputType} value={searchValue} />
-				<Flex gap={24}>
-					{tegs.map((el, index) => (
-						<Label key={index}>{t(el)}</Label>
-					))}
-				</Flex>
+				<TagsOnFilters handlerSelectTeg={handlerSortByTag} />
 			</Flex>
 		</AsyncComponent>
 	)

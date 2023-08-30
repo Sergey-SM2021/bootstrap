@@ -1,19 +1,21 @@
+import { Tag } from "entity/Tag"
+
 export enum SortBy {
-    "Views" = "views",
-    "Date" = "createdAt",
-    "Title" = "title",
+  "Views" = "views",
+  "Date" = "createdAt",
+  "Title" = "title",
 }
 
 export enum StrategyType {
-    "asc" = "ASC",
-    "desc" = "DESC",
+  "asc" = "ASC",
+  "desc" = "DESC",
 }
 
 export interface FilterSchema {
-    sortBy?: SortBy
-    search?: string
-    strategy?: StrategyType
-    tegs?: string[]
-    page: number
-    hasMore?: boolean
+  sortBy?: SortBy;
+  search?: string;
+  strategy?: StrategyType;
+  tags?: Tag[];
+  page: number;
+  hasMore?: boolean;
 }

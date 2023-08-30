@@ -6,6 +6,5 @@ export const getSortBy = (state: StoreSchema) =>
 	state.filter?.sortBy ?? SortBy.Date
 export const getStrategy = (state: StoreSchema) =>
 	state.filter?.strategy ?? StrategyType.asc
-export const getTegs = (state: StoreSchema) => state.filter?.tegs ?? []
 export const getPage = (state: StoreSchema) => state.filter?.page || 1
 export const getHasMore = (state: StoreSchema) => state.filter?.hasMore ?? true
