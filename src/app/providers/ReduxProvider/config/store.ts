@@ -4,11 +4,13 @@ import { counterSliceReducer } from "entity/counter/model/slice/counterSlice"
 import { userSliceReducer } from "entity/user"
 import { $api } from "shared/api/api"
 import { SaveScrollReducer } from "features/SaveScroll"
+import { TagSliceReducer } from "entity/Tag"
 
 const staticReducers = {
 	counter: counterSliceReducer,
 	user: userSliceReducer,
-	scroll: SaveScrollReducer
+	scroll: SaveScrollReducer,
+	tags: TagSliceReducer,
 }
 
 // @ts-ignore
@@ -24,7 +26,8 @@ export const createStore = (preloadedState?: DeepPartial<StoreSchema>) => {
 		reducer: {
 			counter: counterSliceReducer,
 			user: userSliceReducer,
-			scroll: SaveScrollReducer
+			scroll: SaveScrollReducer,
+			tags: TagSliceReducer,
 		},
 		preloadedState: preloadedState as StoreSchema,
 		devTools: __IS_DEV__,

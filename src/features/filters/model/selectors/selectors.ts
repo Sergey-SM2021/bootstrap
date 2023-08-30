@@ -8,3 +8,4 @@ export const getStrategy = (state: StoreSchema) =>
 	state.filter?.strategy ?? StrategyType.asc
 export const getPage = (state: StoreSchema) => state.filter?.page || 1
 export const getHasMore = (state: StoreSchema) => state.filter?.hasMore ?? true
+export const getTags = (state: StoreSchema) => state.filter?.tags ?? []

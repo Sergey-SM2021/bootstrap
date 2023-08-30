@@ -5,7 +5,7 @@ import { Label } from "shared/ui/Label/Label"
 
 interface TagListProps {
   list: Tag[];
-  onClick?: (tagID: string) => () => void;
+  onClick?: (tagID: number) => () => void;
 }
 
 export const TagList = memo((props: TagListProps) => {

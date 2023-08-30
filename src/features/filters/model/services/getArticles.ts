@@ -6,6 +6,7 @@ import {
 	getSearch,
 	getSortBy,
 	getStrategy,
+	getTags,
 } from "../selectors/selectors"
 import { incrementPage } from "../slice/Filters"
 
@@ -29,11 +30,12 @@ export const getArticles = createAsyncThunk<
 	const search = getSearch(getState())
 	const sortBy = getSortBy(getState())
 	const strategy = getStrategy(getState())
+	const tags = getTags(getState()).join("")
 
 	try {
 		const responce = (
 			await extra.api.get(
-				`article?page=${page}&limit=3&search=${search}&sortBy=${sortBy}&strategy=${strategy}`
+				`article?page=${page}&limit=3&search=${search}&sortBy=${sortBy}&strategy=${strategy}&tags=${tags}`
 			)
 		).data
 		dispatch(incrementPage())

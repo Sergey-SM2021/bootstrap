@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from "react"
+import { memo, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import ViewGrid from "shared/assets/view-grid.svg"
 import ViewList from "shared/assets/view-list.svg"
@@ -24,6 +24,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { SortBy, StrategyType } from "../model/types/FiltersSchema"
 import { getArticles } from "../model/services/getArticles"
 import { TagsOnFilters } from "entity/Tag/ui/TagsOnFilters/TagsOnFilters"
+import { AddTagToFilter } from "../model/services/addTagToFilter"
 
 interface FiltersProps {
   handlerChangeView: (mode: "small" | "big") => () => void;
@@ -61,7 +62,9 @@ export const Filters = memo((props: FiltersProps) => {
 		dispatch(getArticles({ reset: true, page: 1 }))
 	}
 
-	const handlerSortByTag = (tagID: string) => () => {}
+	const handlerSortByTag = (tagID: number) => () => {
+		dispatch(AddTagToFilter(tagID))
+	}
 
 	return (
 		<AsyncComponent reducer={FilterReducer} reducerName="filter">

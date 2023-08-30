@@ -22,7 +22,7 @@ export interface StoreSchema {
   createComment?: CreateCommentSchema;
   scroll: SaveScrollSchema;
   filter?: FilterSchema;
-  tags?: TagSchema
+  tags: TagSchema
 }
 
 export interface thunkExtra {

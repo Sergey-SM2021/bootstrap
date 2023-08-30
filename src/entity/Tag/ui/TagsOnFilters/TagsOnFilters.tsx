@@ -3,12 +3,10 @@ import { TagList } from "../TagList/TagList"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { getTags } from "../../model/service/getTags"
 import { getTagsSelector } from "../../model/selectors/tag"
-import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
-import { TagSliceReducer } from "../../model/slice/Tag"
 import { useSelector } from "react-redux"
 
 interface TagsOnFiltersProps {
-  handlerSelectTeg: (id: string) => () => void;
+  handlerSelectTeg: (id: number) => () => void;
 }
 
 export const TagsOnFilters = memo((props: TagsOnFiltersProps) => {
@@ -20,9 +18,5 @@ export const TagsOnFilters = memo((props: TagsOnFiltersProps) => {
 		dispatch(getTags())
 	}, [dispatch])
 
-	return (
-		<AsyncComponent reducer={TagSliceReducer} reducerName="tags">
-			<TagList list={tags} onClick={handlerSelectTeg} />
-		</AsyncComponent>
-	)
+	return <TagList list={tags} onClick={handlerSelectTeg} />
 })

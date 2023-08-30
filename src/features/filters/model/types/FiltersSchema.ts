@@ -1,5 +1,3 @@
-import { Tag } from "entity/Tag"
-
 export enum SortBy {
   "Views" = "views",
   "Date" = "createdAt",
@@ -15,7 +13,7 @@ export interface FilterSchema {
   sortBy?: SortBy;
   search?: string;
   strategy?: StrategyType;
-  tags?: Tag[];
+  tags?: number[];
   page: number;
   hasMore?: boolean;
 }
