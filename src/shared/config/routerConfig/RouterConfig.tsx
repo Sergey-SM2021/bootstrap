@@ -1,5 +1,5 @@
 import { AboutPage } from "pages/AboutPage"
-import ArticleDetalisPage from "pages/ArticleDetalisPage/ui/ArticleDetalisPage"
+import { ArticlePageAsync } from "pages/ArticleDetalisPage"
 import { ArticlesPage } from "pages/ArticlesPage"
 import { MainPage } from "pages/MainPage"
 import { NotFoundPage } from "pages/NotFoundPage/ui/NotFoundPage"
@@ -24,8 +24,8 @@ export const RouterPaths: Record<RouterPages, string> = {
 	home: "/",
 	not_found: "*",
 	profile: "/profile/",
-	articles: "/articles", 
-	article_detalis: "/article/"
+	articles: "/articles",
+	article_detalis: "/article/",
 }
 
 export const RouterConfig: Record<RouterPages, RoutePropsType> = {
@@ -56,7 +56,7 @@ export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 	},
 	article_detalis: {
 		isPrivate: true,
-		element: <ArticleDetalisPage />,
-		path: `${RouterPaths.article_detalis}:id`
+		element: <ArticlePageAsync />,
+		path: `${RouterPaths.article_detalis}:id`,
 	},
 }

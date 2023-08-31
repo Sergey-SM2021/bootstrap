@@ -1,1 +1,1 @@
-export { ArticlePageAsync } from "./ui/ArticleDetailsPage.async"
+export { ArticlePageAsync } from "./ui/ArticleDetalis/ArticleDetailsPage.async"

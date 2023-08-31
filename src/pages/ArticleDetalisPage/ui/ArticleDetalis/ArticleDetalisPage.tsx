@@ -9,12 +9,13 @@ import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import {
 	commentsSelectors,
 	reducer,
-} from "../model/slice/ArticleDetalisComments"
+} from "../../model/slice/ArticleDetalisComments"
 import { useSelector } from "react-redux"
-import { getComments } from "../model/services/getComments"
+import { getComments } from "../../model/services/getComments"
 import { CreateComment } from "features/createComment"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Layout } from "shared/ui/Layout/Layout"
+import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
 
 const ArticleDetalisPage = memo(() => {
 	const { id } = useParams()
@@ -39,14 +40,13 @@ const ArticleDetalisPage = memo(() => {
 	return (
 		<AsyncComponent reducerName={"comments"} reducer={reducer}>
 			<Layout>
-				<div className={clx.article}>
-					<AppButton theme={AppButtonTheme.primary} onClick={handlerBack}>
-						{t("back")}
-					</AppButton>
-					<Article id={Number(id)} />
-					<CreateComment className={clx.createComment}/>
-					<CommentList comments={comments} isLoading={false} />
-				</div>
+				<AppButton theme={AppButtonTheme.primary} onClick={handlerBack}>
+					{t("back")}
+				</AppButton>
+				<Article id={Number(id)} />
+				<ArticleList articles={[]} isLoading={false} mode="small" />
+				<CreateComment className={clx.createComment} />
+				<CommentList comments={comments} isLoading={false} />
 			</Layout>
 		</AsyncComponent>
 	)
