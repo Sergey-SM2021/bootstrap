@@ -1,5 +1,5 @@
 import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
-import { memo, useCallback, useRef } from "react"
+import { memo, useCallback, useEffect, useRef } from "react"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import {
 	ArticlePageReducer,
@@ -15,12 +15,23 @@ import { Flex } from "shared/ui/Flex/Flex"
 import { getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
 import { SaveScroll } from "features/SaveScroll"
-import { getHasMore, getPage } from "features/filters/model/selectors/selectors"
+import {
+	getHasMore,
+	getPage,
+} from "features/filters/model/selectors/selectors"
+import { useSearchParams } from "react-router-dom"
+import { InitSearchParams } from "../model/services/InitSearchParams"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
 	const hasMore = useSelector(getHasMore)
 	const dispatch = useAppDispatch()
+	const [searchParams] = useSearchParams()
+
+	useEffect(() => {
+		dispatch(InitSearchParams(searchParams))
+		// eslint-disable-next-line
+	}, [])
 
 	const elementForObserv = useRef<HTMLDivElement>(null)
 
@@ -42,7 +53,7 @@ const ArticlesPage = memo(() => {
 	const onIntersecting = async () => {
 		setTimeout(async () => {
 			if (hasMore) {
-				await dispatch(getArticles({ page, reset: false }))				
+				await dispatch(getArticles({ page, reset: false }))
 			}
 		}, 500)
 	}
@@ -59,10 +70,7 @@ const ArticlesPage = memo(() => {
 		>
 			<SaveScroll>
 				<Flex direction="column" gap={16}>
-					<Filters
-						activeView={view}
-						handlerChangeView={handlerChangeView}
-					/>
+					<Filters activeView={view} handlerChangeView={handlerChangeView} />
 					<ArticleList articles={articles} isLoading={false} mode={view} />
 				</Flex>
 				<div ref={elementForObserv}></div>

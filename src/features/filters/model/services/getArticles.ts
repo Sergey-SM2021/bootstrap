@@ -24,7 +24,7 @@ export const getArticles = createAsyncThunk<
   getArticlesRes,
   Params,
   { extra: { api: typeof $api }; state: StoreSchema }
->("ArticlePage/getArticles", async ({ page, reset }, thunkAPI) => {
+>("ArticlePage/getArticles", async ({ page }, thunkAPI) => {
 	const { extra, dispatch, rejectWithValue, getState } = thunkAPI
 
 	const search = getSearch(getState())
@@ -32,12 +32,12 @@ export const getArticles = createAsyncThunk<
 	const strategy = getStrategy(getState())
 	const tags = getTags(getState()).join(",")
 
+	const path = `articles?search=${search}&sortBy=${sortBy}&strategy=${strategy}&tags=${tags}`
+
+	window.history.pushState(undefined, "", path)
+
 	try {
-		const responce = (
-			await extra.api.get(
-				`article?page=${page}&limit=3&search=${search}&sortBy=${sortBy}&strategy=${strategy}&tags=${tags}`
-			)
-		).data
+		const responce = (await extra.api.get(`${path}&page=${page}&limit=3`)).data
 		dispatch(incrementPage())
 		return responce
 	} catch (error) {

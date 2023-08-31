@@ -9,7 +9,7 @@ export const getArticle = createAsyncThunk<
 >("article/getArticle", async (id, { extra , rejectWithValue}) => {
 	try {
 		const { api } = extra
-		const data = (await api.get(`/article/${id}`)).data
+		const data = (await api.get(`/articles/${id}`)).data
 		return data
 	} catch (error) {
 		return rejectWithValue("error")

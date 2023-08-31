@@ -14,6 +14,7 @@ import { useSelector } from "react-redux"
 import { getComments } from "../model/services/getComments"
 import { CreateComment } from "features/createComment"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
+import { Layout } from "shared/ui/Layout/Layout"
 
 const ArticleDetalisPage = memo(() => {
 	const { id } = useParams()
@@ -37,14 +38,16 @@ const ArticleDetalisPage = memo(() => {
 
 	return (
 		<AsyncComponent reducerName={"comments"} reducer={reducer}>
-			<div className={clx.article}>
-				<AppButton theme={AppButtonTheme.primary} onClick={handlerBack}>
-					{t("back")}
-				</AppButton>
-				<Article id={Number(id)} />
-				<CommentList comments={comments} isLoading={false} />
-				<CreateComment />
-			</div>
+			<Layout>
+				<div className={clx.article}>
+					<AppButton theme={AppButtonTheme.primary} onClick={handlerBack}>
+						{t("back")}
+					</AppButton>
+					<Article id={Number(id)} />
+					<CreateComment className={clx.createComment}/>
+					<CommentList comments={comments} isLoading={false} />
+				</div>
+			</Layout>
 		</AsyncComponent>
 	)
 })

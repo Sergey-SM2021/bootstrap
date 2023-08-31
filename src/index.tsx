@@ -3,6 +3,7 @@ import { App } from "./app/App"
 import { ThemeProvider } from "./app/providers/ThemeProvider/ui/ThemeProvider"
 import "./app/style/index.scss"
 import { ReduxProvider } from "app/providers/ReduxProvider"
+import { BrowserRouter } from "react-router-dom"
 
 const Root = document.getElementById("root")
 
@@ -11,7 +12,9 @@ if (Root instanceof HTMLElement) {
 	root.render(
 		<ReduxProvider>
 			<ThemeProvider>
-				<App />
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
 			</ThemeProvider>
 		</ReduxProvider>
 	)

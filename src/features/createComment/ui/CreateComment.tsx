@@ -13,7 +13,12 @@ import style from "./CreateComment.module.scss"
 import { Flex } from "shared/ui/Flex/Flex"
 import { CreateCommentAsync } from "../model/services/createComment"
 
-export const CreateComment = () => {
+interface CreateCommentProps {
+  className?: string;
+}
+
+export const CreateComment = (props: CreateCommentProps) => {
+	const { className } = props
 	const { t } = useTranslation()
 	const text = useSelector(getTextSelector)
 	const dispatch = useAppDispatch()
@@ -31,7 +36,7 @@ export const CreateComment = () => {
 
 	return (
 		<AsyncComponent reducer={createCommentReducer} reducerName="createComment">
-			<Flex gap={16}>
+			<Flex gap={16} className={className}>
 				<Input
 					placeholder="Оставить комментарий"
 					onChange={handlerChange}

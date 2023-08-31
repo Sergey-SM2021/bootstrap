@@ -35,7 +35,7 @@ const Filter = createSlice({
 		},
 		removeTag(state, payload: PayloadAction<number>) {
 			state.tags = state.tags?.filter((el) => el !== payload.payload)
-		},
+		}
 	},
 	extraReducers(builder) {
 		builder.addCase(getArticles.fulfilled, (state, action) => {
