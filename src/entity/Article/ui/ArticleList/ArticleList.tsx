@@ -5,29 +5,36 @@ import clx from "./ArticleList.module.scss"
 import { ArticleItemSkeleton } from "../ArticleItem/ArticleItemSkeleton"
 import { Text } from "shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
+import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 interface ArticleListProps {
   articles: Article[];
   mode: "big" | "small";
   isLoading: boolean;
+  className?: string;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-	const { articles, isLoading, mode } = props
+	const { articles, isLoading, mode, className = "" } = props
 	const { t } = useTranslation()
 
 	if (isLoading) {
 		return (
-			<div className={clx[`ArticleList-${mode}`]}>
+			<div className={className}>
 				{new Array(10).fill(<ArticleItemSkeleton mode={mode} />)}
 			</div>
 		)
 	}
 
 	return articles.length ? (
-		<div className={clx[`ArticleList-${mode}`]}>
+		<div className={classNames(clx[`ArticleList-${mode}`], {}, [className])}>
 			{articles.map((el, index) => (
-				<ArticleItem mode={mode} key={index} {...el} label={[ArticleLabel.ECONOMICS]}/>
+				<ArticleItem
+					mode={mode}
+					key={index}
+					{...el}
+					label={[ArticleLabel.ECONOMICS]}
+				/>
 			))}
 		</div>
 	) : (

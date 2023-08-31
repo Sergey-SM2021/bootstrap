@@ -6,13 +6,13 @@ import {
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { Comment } from "entity/Comment/model/types/Comment"
 import { getComments } from "../services/getComments"
-import { ArticleDetalisCommentsSchema } from "../types/ArticleDetalisPage"
+import { ArticleDetalisCommentsSchema } from "../types/ArticleDetalisCommentsSchema"
 import { CreateCommentAsync } from "features/createComment"
 
 export const commentsAdapter = createEntityAdapter<Comment>()
 
 export const commentsSelectors = commentsAdapter.getSelectors<StoreSchema>(
-	(state) => state.comments || commentsAdapter.getInitialState()
+	(state) => state.comments?.comments || commentsAdapter.getInitialState()
 )
 
 const initialState: ArticleDetalisCommentsSchema =

@@ -21,6 +21,7 @@ import {
 } from "features/filters/model/selectors/selectors"
 import { useSearchParams } from "react-router-dom"
 import { InitSearchParams } from "../model/services/InitSearchParams"
+import clx from "./ArticlesPage.module.scss"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
@@ -71,7 +72,7 @@ const ArticlesPage = memo(() => {
 			<SaveScroll>
 				<Flex direction="column" gap={16}>
 					<Filters activeView={view} handlerChangeView={handlerChangeView} />
-					<ArticleList articles={articles} isLoading={false} mode={view} />
+					<ArticleList className={clx.articles} articles={articles} isLoading={false} mode={view} />
 				</Flex>
 				<div ref={elementForObserv}></div>
 			</SaveScroll>

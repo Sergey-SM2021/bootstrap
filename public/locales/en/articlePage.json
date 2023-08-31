@@ -1,7 +1,8 @@
 {
-    "article not found": "Article not found",
-    "can't get the article": "Can't get the article",
-    "comments" : "Comments",
-    "comments not found" : "Comments not found",
-    "back":"Back"
+  "article not found": "Article not found",
+  "can't get the article": "Can't get the article",
+  "comments": "Comments",
+  "comments not found": "Comments not found",
+  "back": "Back",
+  "same": "The same articles"
 }

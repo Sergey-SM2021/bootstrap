@@ -4,12 +4,12 @@ import { UserSchema } from "entity/user"
 import { LoginSchema } from "features/login"
 import { $api } from "shared/api/api"
 import { ArticleSchema } from "entity/Article"
-import { ArticleDetalisCommentsSchema } from "pages/ArticleDetalisPage/model/types/ArticleDetalisPage"
 import { CreateCommentSchema } from "features/createComment/model/types/createCommentSchema"
 import { ArticlePageSchema } from "pages/ArticlesPage/model/types/articleSchema"
 import { SaveScrollSchema } from "features/SaveScroll"
 import { FilterSchema } from "features/filters/model/types/FiltersSchema"
 import { TagSchema } from "entity/Tag/model/type/TagSchema"
+import { ArticleDetalisPageSchema } from "pages/ArticleDetalisPage/model/types/ArticleDetalisPageSchema"
 
 export interface StoreSchema {
   counter: CounterSchema;
@@ -18,11 +18,11 @@ export interface StoreSchema {
   profile?: ProfileSchema;
   ArticleReducer?: ArticleSchema;
   ArticlesPageReducer?: ArticlePageSchema;
-  comments?: ArticleDetalisCommentsSchema;
+  comments?: ArticleDetalisPageSchema;
   createComment?: CreateCommentSchema;
   scroll: SaveScrollSchema;
   filter?: FilterSchema;
-  tags: TagSchema
+  tags: TagSchema;
 }
 
 export interface thunkExtra {

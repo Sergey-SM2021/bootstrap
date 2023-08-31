@@ -1,7 +1,8 @@
 {
-    "article not found": "Статья не найдена",
-    "can't get the article" : "Не удалось получить статью",
-    "comments" : "Комментарии",
-    "comments not found" : "Здесь пока нет комментариев",
-    "back":"Назад"
+  "article not found": "Статья не найдена",
+  "can't get the article": "Не удалось получить статью",
+  "comments": "Комментарии",
+  "comments not found": "Здесь пока нет комментариев",
+  "back": "Назад",
+  "same": "Похожие статьи"
 }
