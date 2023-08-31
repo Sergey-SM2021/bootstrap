@@ -7,6 +7,8 @@ import { LoginModal } from "features/login"
 import { useDispatch, useSelector } from "react-redux"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { logout } from "entity/user/model/slice/userSlice"
+import { Logo } from "shared/ui/Logo/Logo"
+import { useNavigate } from "react-router-dom"
 
 interface NavbarProps {
   className?: string;
@@ -17,6 +19,7 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const dispatch = useDispatch()
 	const { t } = useTranslation()
+	const nav = useNavigate()
 
 	const logoutHandler = useCallback(async () => {
 		dispatch(logout())
@@ -26,9 +29,17 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 		setIsOpen((prev) => !prev)
 	}, [])
 
+	const handlerCreatePost = () => {
+		nav("/create-post")
+	}
+
 	if (selector) {
 		return (
 			<div className={classNames(className, {}, [cls.navbar])}>
+				<Logo />
+				<AppButton onClick={handlerCreatePost} theme={AppButtonTheme.primary}>
+					{t("create post")}
+				</AppButton>
 				<div className={cls.links}></div>
 				<AppButton onClick={logoutHandler} theme={AppButtonTheme.clear}>
 					{t("logout")}
@@ -40,12 +51,11 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 	return (
 		<div className={classNames(className, {}, [cls.navbar])}>
 			{isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null}
-			<div className={cls.links}></div>	
+			<Logo />
+			<div className={cls.links}></div>
 			<AppButton onClick={onToggle} theme={AppButtonTheme.clear}>
 				{t("login")}
 			</AppButton>
 		</div>
 	)
 })
-
-Navbar.displayName = "Navbar"

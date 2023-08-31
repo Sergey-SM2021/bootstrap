@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next"
+import { Layout } from "shared/ui/Layout/Layout"
 
 const AboutPage = () => {
 	const { t } = useTranslation("aboutPage")
-	return <div>{t("about")}</div>
+	return <Layout>{t("about")}</Layout>
 }
 
 export default AboutPage
