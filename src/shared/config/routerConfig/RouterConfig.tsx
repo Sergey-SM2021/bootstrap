@@ -1,6 +1,7 @@
 import { AboutPage } from "pages/AboutPage"
 import { ArticlePageAsync } from "pages/ArticleDetalisPage"
 import { ArticlesPage } from "pages/ArticlesPage"
+import { CreateArticle } from "pages/CreateArticle/CreateArticle"
 import { MainPage } from "pages/MainPage"
 import { NotFoundPage } from "pages/NotFoundPage/ui/NotFoundPage"
 import { ProfilePage } from "pages/ProfilePage"
@@ -17,6 +18,8 @@ enum RouterPages {
   PROFILE = "profile",
   ARTICLES = "articles",
   ARTICLE_DETALIS = "article_detalis",
+  ARTICLE_CREATE = "article_create",
+  ARTICLE_EDIT = "article_edit",
 }
 
 export const RouterPaths: Record<RouterPages, string> = {
@@ -26,6 +29,8 @@ export const RouterPaths: Record<RouterPages, string> = {
 	profile: "/profile/",
 	articles: "/articles",
 	article_detalis: "/article/",
+	article_create: "/article/new",
+	article_edit: "/article/:id/edit",
 }
 
 export const RouterConfig: Record<RouterPages, RoutePropsType> = {
@@ -59,4 +64,14 @@ export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 		element: <ArticlePageAsync />,
 		path: `${RouterPaths.article_detalis}:id`,
 	},
+	article_create: {
+		isPrivate: true,
+		element: <CreateArticle />,
+		path: RouterPaths.article_create
+	},
+	article_edit: {
+		isPrivate: true,
+		element: <CreateArticle />,
+		path: RouterPaths.article_edit
+	}
 }

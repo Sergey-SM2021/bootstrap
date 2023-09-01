@@ -9,6 +9,7 @@ import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { logout } from "entity/user/model/slice/userSlice"
 import { Logo } from "shared/ui/Logo/Logo"
 import { useNavigate } from "react-router-dom"
+import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 
 interface NavbarProps {
   className?: string;
@@ -30,7 +31,7 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 	}, [])
 
 	const handlerCreatePost = () => {
-		nav("/create-post")
+		nav(RouterPaths.article_create)
 	}
 
 	if (selector) {
