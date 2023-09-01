@@ -6,6 +6,20 @@ on:
       - "src/**"
   workflow_dispatch:
 jobs:
+  ui-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone project
+        uses: actions/checkout@v3
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: install dep
+        run: yarn install
+      - name: test ui view screen
+        run: npm run loki:ci
   jest-test:
     runs-on: ubuntu-latest
     steps:
