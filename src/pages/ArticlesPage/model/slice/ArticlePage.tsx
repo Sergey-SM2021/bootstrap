@@ -24,13 +24,21 @@ const ArticlePageSlice = createSlice({
 	},
 	initialState,
 	extraReducers(builder) {
-		builder.addCase(getArticles.fulfilled, (state, payload) => {
-			if (payload.meta.arg.reset) {
-				articleAdapter.setAll(state.articles, payload.payload.articles)
-			} else {
-				articleAdapter.addMany(state.articles, payload.payload.articles)
-			}
-		})
+		builder
+			.addCase(getArticles.fulfilled, (state, payload) => {
+				if (payload.meta.arg.reset) {
+					articleAdapter.setAll(state.articles, payload.payload.articles)
+				} else {
+					articleAdapter.addMany(state.articles, payload.payload.articles)
+				}
+				state.isLoading = false
+			})
+			.addCase(getArticles.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(getArticles.pending, (state) => {
+				state.isLoading = true
+			})
 	},
 })
 

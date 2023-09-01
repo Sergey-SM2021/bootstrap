@@ -12,7 +12,7 @@ import { useSelector } from "react-redux"
 import { articlesSelectors } from "../model/slice/ArticlePage"
 import { Filters } from "features/filters"
 import { Flex } from "shared/ui/Flex/Flex"
-import { getView } from "../model/selectors/ArticlePageSelectors"
+import { getIsLoading, getView } from "../model/selectors/ArticlePageSelectors"
 import { useIntersectionObserver } from "shared/lib/hooks/useIntersectionObserver"
 import { SaveScroll } from "features/SaveScroll"
 import {
@@ -26,13 +26,14 @@ import clx from "./ArticlesPage.module.scss"
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)
 	const hasMore = useSelector(getHasMore)
+	const isLoading = useSelector(getIsLoading)
 	const dispatch = useAppDispatch()
 	const [searchParams] = useSearchParams()
 
 	useEffect(() => {
 		dispatch(InitSearchParams(searchParams))
 		// eslint-disable-next-line
-	}, [])
+  }, []);
 
 	const elementForObserv = useRef<HTMLDivElement>(null)
 
@@ -72,7 +73,12 @@ const ArticlesPage = memo(() => {
 			<SaveScroll>
 				<Flex direction="column" gap={16}>
 					<Filters activeView={view} handlerChangeView={handlerChangeView} />
-					<ArticleList className={clx.articles} articles={articles} isLoading={false} mode={view} />
+					<ArticleList
+						className={clx.articles}
+						articles={articles}
+						isLoading={isLoading}
+						mode={view}
+					/>
 				</Flex>
 				<div ref={elementForObserv}></div>
 			</SaveScroll>
