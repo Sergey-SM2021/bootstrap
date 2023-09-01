@@ -41,10 +41,8 @@ describe("uptate profile", () => {
 
 	it("update profile success", async () => {
 		AxiosInstance.put.mockReturnValue(
-			new Promise((resolve) => {
-				resolve({
-					data: responce,
-				})
+			Promise.resolve({
+				data: responce,
 			})
 		)
 		const thunk = updateProfile()
@@ -58,11 +56,7 @@ describe("uptate profile", () => {
 	})
 
 	it("update profile failed", async () => {
-		AxiosInstance.put.mockReturnValue(
-			new Promise((resolve, reject) => {
-				reject("update profile failed")
-			})
-		)
+		AxiosInstance.put.mockReturnValue(Promise.reject("update profile failed"))
 		const thunk = updateProfile()
 		await thunk(dispatch, getState as () => StoreSchema, {
 			api: AxiosInstance,
