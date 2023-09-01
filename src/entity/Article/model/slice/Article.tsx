@@ -15,9 +15,11 @@ const ArticleSlice = createSlice({
 			state.isLoading = false
 			state.data = payload
 		})
+
 		builder.addCase(getArticle.pending, (state) => {
 			state.isLoading = true
 		})
+
 		builder.addCase(getArticle.rejected, (state, { payload }) => {
 			state.isLoading = false
 			state.error = payload
