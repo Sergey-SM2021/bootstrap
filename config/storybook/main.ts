@@ -62,7 +62,8 @@ const config: StorybookConfig = {
 
 		webpackConfig.plugins?.push(new webpack.DefinePlugin({
 			__IS_DEV__: true,
-			__PROJECT__: JSON.stringify("storybok") 
+			__PROJECT__: JSON.stringify("storybok"),
+			__API__: JSON.stringify("path/to/api"),
 		}))
 
 		return webpackConfig

@@ -1,8 +1,9 @@
 export default {
 	clearMocks: true,
 
-	globals : {
-		__IS_DEV__:true
+	globals: {
+		__IS_DEV__: true,
+		__API__: "path/to/backend",
 	},
 
 	moduleDirectories: ["node_modules", "src"],
@@ -26,7 +27,8 @@ export default {
 
 	moduleNameMapper: {
 		"\\.(scss)$": "identity-obj-proxy",
-		"\\.svg": "<rootDir>/__mocks__/svg.ts"
+		"\\.svg": "<rootDir>/__mocks__/svg.ts",
 	},
-	setupFilesAfterEnv: ["<rootDir>/setupTest.ts"]
+
+	setupFilesAfterEnv: ["<rootDir>/setupTest.ts"],
 }
