@@ -12,6 +12,7 @@ import { Option, Select } from "shared/ui/Select"
 import { City } from "entity/City"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 import { Citys } from "entity/City/model/types/CitySchema"
+import { Flex } from "shared/ui/Flex/Flex"
 
 type profileType = Omit<ProfileSchema, "data" | "profileValidateErrors"> &
   Profile;
@@ -136,11 +137,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 				</div>
 				<div className={style.item}>
 					<Text>{t("city")}</Text>
-					<City
-						onChange={handlerChangeCity}
-						value={ city }
-						disabled={readOnly}
-					/>
+					<City onChange={handlerChangeCity} value={city} disabled={readOnly} />
 				</div>
 				<div className={style.item}>
 					<Text>{t("avatar")}</Text>

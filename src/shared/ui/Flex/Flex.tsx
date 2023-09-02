@@ -34,7 +34,7 @@ const FlexAlign = {
 }
 
 const FlexJustify = {
-	center: clx.center,
+	center: clx["justify-center"],
 	"space-around": clx["justify-space-around"],
 	"space-between": clx["justify-space-between"],
 	start: clx["justify-start"],

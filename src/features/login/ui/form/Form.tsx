@@ -1,5 +1,4 @@
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
-import s from "./form.module.scss"
 import { useTranslation } from "react-i18next"
 import { Text, ThemeEnum } from "shared/ui/Text/Text"
 import { Input } from "shared/ui/Input/Input"
@@ -19,9 +18,10 @@ import {
 } from "features/login/model/selectors/loginSelector"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
+import { Flex } from "shared/ui/Flex/Flex"
 
 interface FormProps {
-  onSuccess: VoidFunction
+  onSuccess: VoidFunction;
 }
 
 const Form = memo(({ onSuccess }: FormProps) => {
@@ -55,7 +55,7 @@ const Form = memo(({ onSuccess }: FormProps) => {
 
 	return (
 		<AsyncComponent reducer={loginSliceReducer} reducerName="login">
-			<div className={s.form}>
+			<Flex direction="column" gap={16}>
 				{error ? <Text theme={ThemeEnum.Error}>{error}</Text> : null}
 				<div>
 					<Text>{t("login")}</Text>
@@ -63,7 +63,11 @@ const Form = memo(({ onSuccess }: FormProps) => {
 				</div>
 				<div>
 					<Text>{t("password")}</Text>
-					<Input data-testid="password" value={password} onChange={onChangePassword} />
+					<Input
+						data-testid="password"
+						value={password}
+						onChange={onChangePassword}
+					/>
 				</div>
 				<AppButton
 					data-testid="signin"
@@ -73,7 +77,7 @@ const Form = memo(({ onSuccess }: FormProps) => {
 				>
 					{t("signin")}
 				</AppButton>
-			</div>
+			</Flex>
 		</AsyncComponent>
 	)
 })

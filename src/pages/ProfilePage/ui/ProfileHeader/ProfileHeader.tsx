@@ -13,6 +13,7 @@ import {
 import { updateProfile } from "pages/ProfilePage/model/services/updateProfile/updateProfile"
 import { validationErrorSelector } from "pages/ProfilePage/model/selectors/ValidationErrorSelector/ValidationErrorSelector"
 import { errorSelector } from "pages/ProfilePage/model/selectors/ErrorSelector/ErrorSelector"
+import { Flex } from "shared/ui/Flex/Flex"
 
 export const ProfileHeader = memo(() => {
 	const { t } = useTranslation()
@@ -35,7 +36,7 @@ export const ProfileHeader = memo(() => {
 	}
 
 	return (
-		<div className={style.header}>
+		<Flex justify="space-between" align="center">
 			<Text>{t("profile")}</Text>
 			{errors.map((el) => (
 				<div key={el}>{t(el)}</div>
@@ -59,6 +60,6 @@ export const ProfileHeader = memo(() => {
 					</div>
 				)
 			) : null}
-		</div>
+		</Flex>
 	)
 })

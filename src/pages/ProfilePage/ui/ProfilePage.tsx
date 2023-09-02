@@ -26,6 +26,7 @@ import { ageSelector } from "../model/selectors/ageSelector/ageSelector"
 import { useParams } from "react-router-dom"
 import { getUser } from "entity/user/model/selector/getUserSelector"
 import { Layout } from "shared/ui/Layout/Layout"
+import { Flex } from "shared/ui/Flex/Flex"
 
 const ProfilePage = () => {
 	const { t } = useTranslation()
@@ -64,7 +65,7 @@ const ProfilePage = () => {
 	return (
 		<AsyncComponent reducer={ProfileReducer} reducerName="profile">
 			<Layout>
-				<div className={style.profile}>
+				<Flex direction="column" gap={16}>
 					{Number(userId) === Number(id) ? <ProfileHeader /> : null}
 					<ProfileCard
 						age={age}
@@ -80,7 +81,7 @@ const ProfilePage = () => {
 						isLoading={isLoading}
 						readOnly={readOnly}
 					/>
-				</div>
+				</Flex>
 			</Layout>
 		</AsyncComponent>
 	)
