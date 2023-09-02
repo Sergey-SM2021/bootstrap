@@ -10,6 +10,7 @@ import { logout } from "entity/user/model/slice/userSlice"
 import { Logo } from "shared/ui/Logo/Logo"
 import { useNavigate } from "react-router-dom"
 import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
+import { Flex } from "shared/ui/Flex/Flex"
 
 interface NavbarProps {
   className?: string;
@@ -36,7 +37,7 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 
 	if (selector) {
 		return (
-			<div className={classNames(className, {}, [cls.navbar])}>
+			<Flex align="center" gap={32} className={classNames(className, {}, [cls.navbar])}>
 				<Logo />
 				<AppButton onClick={handlerCreatePost} theme={AppButtonTheme.primary}>
 					{t("create post")}
@@ -45,18 +46,18 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 				<AppButton onClick={logoutHandler} theme={AppButtonTheme.clear}>
 					{t("logout")}
 				</AppButton>
-			</div>
+			</Flex>
 		)
 	}
 
 	return (
-		<div className={classNames(className, {}, [cls.navbar])}>
-			{isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null}
+		<Flex align="center" gap={32} className={classNames(className, {}, [cls.navbar])}>
+			{/* {isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null} */}
 			<Logo />
 			<div className={cls.links}></div>
 			<AppButton onClick={onToggle} theme={AppButtonTheme.clear}>
 				{t("login")}
 			</AppButton>
-		</div>
+		</Flex>
 	)
 })
