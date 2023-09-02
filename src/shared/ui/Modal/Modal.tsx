@@ -9,6 +9,7 @@ import {
 } from "react"
 import styles from "./Modal.module.scss"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
+import { Flex } from "../Flex/Flex"
 
 interface ModalProps extends PropsWithChildren {
   className?: string;
@@ -18,8 +19,8 @@ interface ModalProps extends PropsWithChildren {
 
 const ANIMATION_DELAY = 300
 
-export const Modal = memo((props : ModalProps) => {
-	const {children, className = "", isOpen = false, onClose} = props
+export const Modal = memo((props: ModalProps) => {
+	const { children, className = "", isOpen = false, onClose } = props
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -31,7 +32,7 @@ export const Modal = memo((props : ModalProps) => {
 		setIsClosing(true)
 		timerRef.current = setTimeout(() => {
 			if (onClose) {
-				onClose()				
+				onClose()
 			}
 			setIsClosing(false)
 		}, ANIMATION_DELAY)
@@ -65,11 +66,16 @@ export const Modal = memo((props : ModalProps) => {
 			)}
 			data-testid="Modal"
 		>
-			<div className={styles.Overlay} onClick={CloseHandler}>
+			<Flex
+				justify="center"
+				align="center"
+				className={styles.Overlay}
+				onClick={CloseHandler}
+			>
 				<div className={styles.Content} onClick={handlerClick}>
 					{children}
 				</div>
-			</div>
+			</Flex>
 		</div>
 	)
 })

@@ -1,6 +1,5 @@
 import { Text } from "shared/ui/Text/Text"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
-import style from "./ProfileHeader.module.scss"
 import { useTranslation } from "react-i18next"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { useSelector } from "react-redux"
@@ -50,7 +49,7 @@ export const ProfileHeader = memo(() => {
 						{t("edit")}
 					</AppButton>
 				) : (
-					<div className={style.buttons}>
+					<div>
 						<AppButton theme={AppButtonTheme.dangerous} onClick={handlerSave}>
 							{t("save")}
 						</AppButton>

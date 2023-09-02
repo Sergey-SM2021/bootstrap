@@ -52,7 +52,7 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 
 	return (
 		<Flex align="center" gap={32} className={classNames(className, {}, [cls.navbar])}>
-			{/* {isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null} */}
+			{isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null}
 			<Logo />
 			<div className={cls.links}></div>
 			<AppButton onClick={onToggle} theme={AppButtonTheme.clear}>
