@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next"
 import { SidebarItem } from "../SidebarItem/SidebarItem"
 import { useSelector } from "react-redux"
 import { LinksSelector } from "widgets/sidebar/model/selectors/linksSelector"
+import { Flex } from "shared/ui/Flex/Flex"
 
 export const Sidebar = () => {
 	const links = useSelector(LinksSelector)
@@ -20,7 +21,8 @@ export const Sidebar = () => {
 	}, [])
 
 	return (
-		<div
+		<Flex
+			direction="column"
 			className={classNames(clx.sidebar, { [clx.rolledUp]: rolledUp }, [])}
 			data-testid="sidebar"
 		>
@@ -34,8 +36,8 @@ export const Sidebar = () => {
 			>
 				{rolledUp ? ">" : "<"}
 			</AppButton>
-			<div className={clx.inner}>
-				<div className={clx.links}>
+			<Flex className={clx.inner} justify="center">
+				<Flex direction="column" className={clx.links} full={false}>
 					{links.map((el) => (
 						<SidebarItem
 							{...el}
@@ -44,12 +46,12 @@ export const Sidebar = () => {
 							rolledUp={rolledUp}
 						/>
 					))}
-				</div>
-			</div>
-			<div className={clx.switchers}>
+				</Flex>
+			</Flex>
+			<Flex className={clx.switchers}>
 				<ThemeSwitcher />
 				<LangSwitcher short={!rolledUp} />
-			</div>
-		</div>
+			</Flex>
+		</Flex>
 	)
 }

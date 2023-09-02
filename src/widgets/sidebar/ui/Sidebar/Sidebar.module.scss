@@ -3,7 +3,6 @@
     width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
     transition: width .3s;
-    display: flex;
     flex-direction: column;
     position: relative;
     box-sizing: border-box;
@@ -16,7 +15,6 @@
 }
 
 .switchers {
-    display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -28,9 +26,6 @@
 
 .inner {
     flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-    width: 100%;
 }
 
 .buttonRolledUp {
@@ -40,13 +35,11 @@
 }
 
 .links {
-    display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .link {
-    display: flex;
     align-items: center;
     flex-direction: row-reverse;
     gap: 10px;
