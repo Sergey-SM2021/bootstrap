@@ -13,7 +13,7 @@ export const TagList = memo((props: TagListProps) => {
 	const { list, onClick, listOfActive } = props
 
 	return (
-		<Flex gap={24}>
+		<Flex gap={16}>
 			{list.map((el: Tag) => (
 				<Label isActive={listOfActive.includes(el.id)} onClick={onClick?.(el.id)} key={el.id}>
 					{el.name}

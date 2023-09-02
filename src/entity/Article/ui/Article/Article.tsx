@@ -58,7 +58,7 @@ export const Article = memo(({ id }: ArticleProps) => {
 		content = <div>{t("can't get the article")}</div>
 	} else if (isLoading) {
 		content = (
-			<Flex gap={10} direction="column">
+			<Flex gap={8} direction="column">
 				<Skeleton
 					className={clx.avatar}
 					radius="50%"

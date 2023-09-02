@@ -73,7 +73,7 @@ export const Filters = memo((props: FiltersProps) => {
 		<AsyncComponent reducer={FilterReducer} reducerName="filter">
 			<Flex direction="column" gap={16}>
 				<Flex justify="space-between">
-					<Flex gap={24}>
+					<Flex gap={16}>
 						<Select
 							onChange={handlerSetSortBy}
 							value={sortBy}
