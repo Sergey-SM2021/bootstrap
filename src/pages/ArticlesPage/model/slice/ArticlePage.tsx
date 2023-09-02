@@ -26,12 +26,12 @@ const ArticlePageSlice = createSlice({
 	extraReducers(builder) {
 		builder
 			.addCase(getArticles.fulfilled, (state, payload) => {
+				state.isLoading = false
 				if (payload.meta.arg.reset) {
 					articleAdapter.setAll(state.articles, payload.payload.articles)
 				} else {
 					articleAdapter.addMany(state.articles, payload.payload.articles)
 				}
-				state.isLoading = false
 			})
 			.addCase(getArticles.rejected, (state) => {
 				state.isLoading = false

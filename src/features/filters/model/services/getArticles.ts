@@ -37,7 +37,7 @@ export const getArticles = createAsyncThunk<
 	window.history.pushState(undefined, "", path)
 
 	try {
-		const responce = (await extra.api.get(`${path}&page=${page}&limit=3`)).data
+		const responce = (await extra.api.get(`${path}&page=${page}&limit=10`)).data
 		dispatch(incrementPage())
 		return responce
 	} catch (error) {

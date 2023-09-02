@@ -1,45 +1,90 @@
 import { Article, ArticleLabel } from "entity/Article/model/types/Article"
 import { memo } from "react"
-import { ArticleItem } from "../ArticleItem/ArticleItem"
-import clx from "./ArticleList.module.scss"
 import { ArticleItemSkeleton } from "../ArticleItem/ArticleItemSkeleton"
 import { Text } from "shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
-import { classNames } from "shared/lib/helpers/classNames/classNames"
+import { Virtuoso, VirtuosoGrid } from "react-virtuoso"
+import { ArticleItem } from "../ArticleItem/ArticleItem"
+import clx from "./ArticleList.module.scss"
 
 interface ArticleListProps {
   articles: Article[];
   mode: "big" | "small";
   isLoading: boolean;
   className?: string;
+  endReached?: VoidFunction;
+  hasMore?: boolean;
+  virtual?: boolean;
+  saveScroll?: boolean;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-	const { articles, isLoading, mode, className = "" } = props
+	const { articles, mode, endReached, isLoading } = props
 	const { t } = useTranslation()
 
-	if (isLoading) {
+	if (!articles.length) {
 		return (
-			<div className={className}>
-				{new Array(10).fill(<ArticleItemSkeleton mode={mode} />)}
+			<div>
+				<Text>{t("empty articles")}</Text>
 			</div>
 		)
 	}
 
-	return articles.length ? (
-		<div className={classNames(clx[`ArticleList-${mode}`], {}, [className])}>
-			{articles.map((el, index) => (
-				<ArticleItem
-					mode={mode}
-					key={index}
-					{...el}
-					label={[ArticleLabel.ECONOMICS]}
-				/>
-			))}
-		</div>
-	) : (
-		<div>
-			<Text>{t("empty articles")}</Text>
-		</div>
+	if (mode === "small") {
+		return (
+			<VirtuosoGrid
+				style={{ height: "100%", width: "100%" }}
+				data={articles}
+				endReached={endReached}
+				itemClassName={clx.Item}
+				listClassName={clx.List}
+				components={{
+					Footer: () => (
+						<div className={clx.List}>
+							{isLoading
+								? new Array(3).fill(<ArticleItemSkeleton mode={mode} />)
+								: null}
+						</div>
+					),
+				}}
+				itemContent={(index, element) => (
+					<div style={{ paddingBottom: "16px" }}>
+						<ArticleItem
+							mode={mode}
+							key={index}
+							{...element}
+							label={[ArticleLabel.ECONOMICS]}
+						/>
+					</div>
+				)}
+			/>
+		)
+	}
+
+	return (
+		<Virtuoso
+			style={{ height: "100%", width: "100%" }}
+			data={articles}
+			endReached={endReached}
+			itemContent={(index, element) => (
+				<div style={{ paddingBottom: "16px" }}>
+					<ArticleItem
+						mode={mode}
+						key={index}
+						{...element}
+						label={[ArticleLabel.ECONOMICS]}
+					/>
+				</div>
+			)}
+			components={{
+				Footer: () =>
+					isLoading ? (
+						<ArticleItemSkeleton mode={mode} />
+					) : (
+					// eslint-disable-next-line
+            <div>Больше нет статей</div>
+					),
+			}}
+		/>
 	)
 })

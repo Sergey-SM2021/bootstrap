@@ -19,6 +19,7 @@ import { ArticleParagraph } from "../ArticleParagraph/ArticleParagraph"
 
 interface ArticleItemProps extends Article {
   mode: "big" | "small";
+  className?: string
 }
 
 export const ArticleItem = memo((props: ArticleItemProps) => {
@@ -84,7 +85,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 
 	return (
 		<div
-			className={classNames(clx.small, { [clx.hovered]: isHover }, [clx.card])}
+			className={classNames(clx.small, { }, [clx.card])}
 			{...hover}
 		>
 			<div className={clx.content} style={{ backgroundImage: `url(${img})` }}>

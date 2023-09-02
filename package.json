@@ -87,6 +87,7 @@
     "react-i18next": "^13.0.1",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.0",
+    "react-virtuoso": "^4.5.0",
     "reg-cli": "^0.17.7",
     "style-loader": "^3.3.3",
     "webpack-bundle-analyzer": "^4.9.0"
