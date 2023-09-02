@@ -72,7 +72,7 @@ export const Filters = memo((props: FiltersProps) => {
 	return (
 		<AsyncComponent reducer={FilterReducer} reducerName="filter">
 			<Flex direction="column" gap={16}>
-				<Flex justify="space-between">
+				<Flex justify="space-between" align="center">
 					<Flex gap={16}>
 						<Select
 							onChange={handlerSetSortBy}
@@ -92,7 +92,7 @@ export const Filters = memo((props: FiltersProps) => {
 							<Option value={StrategyType.desc}>{t("По убыванию")}</Option>
 						</Select>
 					</Flex>
-					<Flex>
+					<Flex full={false}>
 						{views.map((view, index) => (
 							<AppButton
 								key={index}

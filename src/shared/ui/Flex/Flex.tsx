@@ -4,10 +4,11 @@ import { classNames } from "shared/lib/helpers/classNames/classNames"
 
 interface FlexProps extends PropsWithChildren {
   gap?: 0 | 4 | 8 | 16 | 32 | 64;
-  direction?: "row" | "column";
+  direction?: "row" | "column" | "row-reverse";
   className?: string;
   justify?: "center" | "space-around" | "end" | "start" | "space-between";
   align?: "center" | "start" | "end";
+  full?: boolean;
   onClick?: VoidFunction;
 }
 
@@ -23,20 +24,21 @@ const FlexGap = {
 const FlexDirection = {
 	row: clx.row,
 	column: clx.column,
+	"row-reverse": clx["row-reverse"],
 }
 
 const FlexAlign = {
-	center: clx.center,
-	start: clx.start,
-	end: clx.end,
+	center: clx["align-center"],
+	start: clx["align-start"],
+	end: clx["align-end"],
 }
 
 const FlexJustify = {
 	center: clx.center,
 	"space-around": clx["justify-space-around"],
 	"space-between": clx["justify-space-between"],
-	start: clx.start,
-	end: clx.end,
+	start: clx["justify-start"],
+	end: clx["justify-end"],
 }
 
 export const Flex = (props: FlexProps) => {
@@ -47,12 +49,13 @@ export const Flex = (props: FlexProps) => {
 		className = "",
 		justify = "start",
 		children,
+		full = true,
 		...rest
 	} = props
 
 	return (
 		<div
-			className={classNames(clx.flex, {}, [
+			className={classNames(clx.flex, { [clx.full]: full }, [
 				className,
 				FlexDirection[direction],
 				FlexAlign[align],

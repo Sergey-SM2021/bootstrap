@@ -3,13 +3,14 @@ import clx from "./SidebarItem.module.scss"
 import { memo } from "react"
 import { useSelector } from "react-redux"
 import { getUser } from "entity/user/model/selector/getUserSelector"
+import { Flex } from "shared/ui/Flex/Flex"
 
 interface SidebarItemProps {
   path: string;
   rolledUp: boolean;
   text: string;
   Icon: React.FC;
-  priv: boolean
+  priv: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
@@ -24,9 +25,11 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 	return (
 		<div key={path}>
 			<AppLink to={path} className={clx.link}>
-				{!rolledUp ? <div>{text}</div> : null}
-				{/* @ts-ignore */}
-				<Icon className={clx.icon} />
+				<Flex gap={8} align="center" justify="start" direction="row-reverse">
+					{!rolledUp ? <div>{text}</div> : null}
+					{/* @ts-ignore */}
+					<Icon className={clx.icon} />
+				</Flex>
 			</AppLink>
 		</div>
 	)
