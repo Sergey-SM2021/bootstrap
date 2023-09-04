@@ -1,25 +1,26 @@
 import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
 import { memo, useCallback, useEffect } from "react"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
+import { getArticles } from "../../model/services/getArticles"
+import { useSelector } from "react-redux"
+import { Filters } from "../filters/filters"
+import { Flex } from "shared/ui/Flex/Flex"
+import { useSearchParams } from "react-router-dom"
+import clx from "./ArticlesPage.module.scss"
 import {
 	ArticlePageReducer,
+	articlesSelectors,
 	setBigView,
 	setSmallView,
-} from "../model/slice/ArticlePage"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
-import { getArticles } from "features/filters/model/services/getArticles"
-import { useSelector } from "react-redux"
-import { articlesSelectors } from "../model/slice/ArticlePage"
-import { getIsLoading, getView } from "../model/selectors/ArticlePageSelectors"
-import { Filters } from "features/filters"
-import { Flex } from "shared/ui/Flex/Flex"
+} from "pages/ArticlesPage/model/slice/ArticlePage"
 import {
 	getHasMore,
+	getIsLoading,
 	getPage,
-} from "features/filters/model/selectors/selectors"
-import { useSearchParams } from "react-router-dom"
-import { InitSearchParams } from "../model/services/InitSearchParams"
-import clx from "./ArticlesPage.module.scss"
+	getView,
+} from "pages/ArticlesPage/model/selectors/ArticlePageSelectors"
+import { InitSearchParams } from "pages/ArticlesPage/model/services/InitSearchParams"
 
 const ArticlesPage = memo(() => {
 	const page = useSelector(getPage)

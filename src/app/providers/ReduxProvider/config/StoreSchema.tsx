@@ -6,7 +6,6 @@ import { $api } from "shared/api/api"
 import { ArticleSchema } from "entity/Article"
 import { ArticlePageSchema } from "pages/ArticlesPage/model/types/articleSchema"
 import { SaveScrollSchema } from "features/SaveScroll"
-import { FilterSchema } from "features/filters/model/types/FiltersSchema"
 import { TagSchema } from "entity/Tag/model/type/TagSchema"
 import { ArticleCommentsSchema } from "features/ArticleComments/model/types/ArticleCommentsSchema"
 
@@ -18,7 +17,6 @@ export interface StoreSchema {
   ArticleReducer?: ArticleSchema;
   ArticlesPageReducer?: ArticlePageSchema;
   scroll: SaveScrollSchema;
-  filter?: FilterSchema;
   tags: TagSchema;
   articleComments?: ArticleCommentsSchema;
 }

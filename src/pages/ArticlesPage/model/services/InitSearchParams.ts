@@ -1,14 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import {
-	setSearch,
-	setSortBy,
-	setStrategy,
-	setTag,
-} from "features/filters/model/slice/Filters"
-import {
-	SortBy,
-	StrategyType,
-} from "features/filters/model/types/FiltersSchema"
+import { setSearch, setSortBy, setStrategy, setTag } from "../slice/ArticlePage"
+import { SortBy, StrategyType } from "../types/articleSchema"
 
 export const InitSearchParams = createAsyncThunk<void, URLSearchParams>(
 	"ArticlePage/InitSearchParams",

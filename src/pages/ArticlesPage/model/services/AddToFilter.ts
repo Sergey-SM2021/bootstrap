@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
-import { getTags } from "../selectors/selectors"
-import { removeTag, setTag } from "../slice/Filters"
+import { getTags } from "../selectors/ArticlePageSelectors"
+import { removeTag, setTag } from "../slice/ArticlePage"
 
 export const AddTagToFilter = createAsyncThunk<
   void,

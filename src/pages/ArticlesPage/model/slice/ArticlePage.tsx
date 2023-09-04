@@ -1,7 +1,15 @@
-import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import {
+	PayloadAction,
+	createEntityAdapter,
+	createSlice,
+} from "@reduxjs/toolkit"
 import { Article } from "entity/Article/model/types/Article"
-import { getArticles } from "features/filters/model/services/getArticles"
-import { ArticlePageSchema } from "../types/articleSchema"
+import { getArticles } from "../services/getArticles"
+import {
+	ArticlePageSchema,
+	SortBy,
+	StrategyType,
+} from "../types/articleSchema"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 
 const articleAdapter = createEntityAdapter<Article>()
@@ -10,6 +18,7 @@ const initialState: ArticlePageSchema = {
 	isLoading: false,
 	view: "big",
 	articles: articleAdapter.getInitialState(),
+	page: 1,
 }
 
 const ArticlePageSlice = createSlice({
@@ -20,6 +29,28 @@ const ArticlePageSlice = createSlice({
 		},
 		setBigView(state) {
 			state.view = "big"
+		},
+		setSearch(state, action: PayloadAction<string>) {
+			state.search = action.payload
+		},
+		setSortBy(state, action: PayloadAction<SortBy>) {
+			state.sortBy = action.payload
+		},
+		setStrategy(state, action: PayloadAction<StrategyType>) {
+			state.strategy = action.payload
+		},
+		incrementPage(state) {
+			state.page += 1
+		},
+		setTag(state, payload: PayloadAction<number>) {
+			if (state.tags) {
+				state.tags = [...state.tags, payload.payload]
+			} else {
+				state.tags = [payload.payload]
+			}
+		},
+		removeTag(state, payload: PayloadAction<number>) {
+			state.tags = state.tags?.filter((el) => el !== payload.payload)
 		},
 	},
 	initialState,
@@ -43,7 +74,16 @@ const ArticlePageSlice = createSlice({
 })
 
 export const ArticlePageReducer = ArticlePageSlice.reducer
-export const { setBigView, setSmallView } = ArticlePageSlice.actions
+export const {
+	setBigView,
+	setSmallView,
+	incrementPage,
+	removeTag,
+	setSearch,
+	setSortBy,
+	setStrategy,
+	setTag,
+} = ArticlePageSlice.actions
 
 export const articlesSelectors = articleAdapter.getSelectors<StoreSchema>(
 	(state) =>
