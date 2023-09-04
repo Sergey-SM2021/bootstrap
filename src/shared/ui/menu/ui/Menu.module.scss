@@ -25,6 +25,8 @@
 }
 
 .item {
+    color: var(--inverted-bg-color);
+
     &:hover {
         cursor: pointer;
     }
