@@ -2,39 +2,28 @@ import { Text } from "shared/ui/Text/Text"
 import style from "./profileCard.module.scss"
 import { Input } from "shared/ui/Input/Input"
 import { useTranslation } from "react-i18next"
-import {
-	Profile,
-	ProfileSchema,
-} from "pages/ProfilePage/model/types/ProfileSchema"
 import { Spinner } from "shared/ui/spinner"
 import { Avatar } from "shared/ui/avatar/avatar"
 import { Option, Select } from "shared/ui/Select"
 import { City } from "entity/City"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 import { Citys } from "entity/City/model/types/CitySchema"
+import { memo } from "react"
+import { Profile } from "pages/ProfilePage/model/types/ProfileSchema"
 
-type profileType = Omit<ProfileSchema, "data" | "profileValidateErrors"> &
-  Profile;
-
-interface ProfileCardProps extends profileType {
+interface ProfileCardProps {
+  profile: Partial<Profile>;
+  readOnly: boolean;
+  error: string;
+  isLoading: boolean;
   handlerCange: (value: Partial<Profile>) => void;
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
-	const {
-		error,
-		isLoading,
-		readOnly,
-		handlerCange,
-		age,
-		avatar,
-		city,
-		country,
-		currency,
-		lastname,
-		name,
-		nickname,
-	} = props
+export const ProfileCard = memo((props: ProfileCardProps) => {
+	const { error, isLoading, readOnly, handlerCange, profile } = props
+
+	const { age, avatar, city, country, currency, lastname, name, nickname } =
+    profile
 
 	const { t } = useTranslation()
 
@@ -81,72 +70,96 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	return (
 		<div className={classNames(style.profileCard, { [style.edit]: !readOnly })}>
 			<div className={style.body}>
-				<Avatar className={style.avatar} src={avatar} />
-				<div className={style.item}>
-					<Text>{t("name")}</Text>
-					<Input readOnly={readOnly} value={name} onChange={handlerCangeName} />
-				</div>
-				<div className={style.item}>
-					<Text>{t("lastname")}</Text>
-					<Input
-						readOnly={readOnly}
-						value={lastname}
-						onChange={handlerCangeLastName}
-					/>
-				</div>
-				<div className={style.item}>
-					<Text>{t("nickname")}</Text>
-					<Input
-						readOnly={readOnly}
-						value={nickname}
-						onChange={handlerChangenickname}
-					/>
-				</div>
-				<div className={style.item}>
-					<Text>{t("age")}</Text>
-					<Input
-						readOnly={readOnly}
-						value={age.toString()}
-						onChange={handlerCangeAge}
-					/>
-				</div>
-				<div className={style.item}>
-					<Text>{t("country")}</Text>
-					<Select
-						disabled={readOnly}
-						onChange={handlerChangeCity}
-						value={country}
-					>
-						<Option value="Россия">{t("Россия")}</Option>
-						<Option value="Монголия">{t("Монголия")}</Option>
-						<Option value="Канада">{t("Канада")}</Option>
-					</Select>
-				</div>
-				<div className={style.item}>
-					<Text>{t("currency")}</Text>
-					<Select
-						disabled={readOnly}
-						onChange={handlerChangeCity}
-						value={currency}
-					>
-						<Option value="USD">{t("Доллар США")}</Option>
-						<Option value="Россий рубль">{t("Россий рубль")}</Option>
-						<Option value="Японская иена">{t("Японская иена")}</Option>
-					</Select>
-				</div>
-				<div className={style.item}>
-					<Text>{t("city")}</Text>
-					<City onChange={handlerChangeCity} value={city} disabled={readOnly} />
-				</div>
-				<div className={style.item}>
-					<Text>{t("avatar")}</Text>
-					<Input
-						readOnly={readOnly}
-						value={avatar}
-						onChange={handlerChangeAvatar}
-					/>
-				</div>
+				{avatar ? <Avatar className={style.avatar} src={avatar} /> : null}
+				{name ? (
+					<div className={style.item}>
+						<Text>{t("name")}</Text>
+						<Input
+							readOnly={readOnly}
+							value={name}
+							onChange={handlerCangeName}
+						/>
+					</div>
+				) : null}
+				{lastname ? (
+					<div className={style.item}>
+						<Text>{t("lastname")}</Text>
+						<Input
+							readOnly={readOnly}
+							value={lastname}
+							onChange={handlerCangeLastName}
+						/>
+					</div>
+				) : null}
+				{nickname ? (
+					<div className={style.item}>
+						<Text>{t("nickname")}</Text>
+						<Input
+							readOnly={readOnly}
+							value={nickname}
+							onChange={handlerChangenickname}
+						/>
+					</div>
+				) : null}
+				{age ? (
+					<div className={style.item}>
+						<Text>{t("age")}</Text>
+						<Input
+							readOnly={readOnly}
+							value={age.toString()}
+							onChange={handlerCangeAge}
+						/>
+					</div>
+				) : null}
+				{country ? (
+					<div className={style.item}>
+						<Text>{t("country")}</Text>
+						<Select
+							disabled={readOnly}
+							onChange={handlerChangeCity}
+							value={country}
+						>
+							<Option value="Россия">{t("Россия")}</Option>
+							<Option value="Монголия">{t("Монголия")}</Option>
+							<Option value="Канада">{t("Канада")}</Option>
+						</Select>
+					</div>
+				) : null}
+				{currency ? (
+					<div className={style.item}>
+						<Text>{t("currency")}</Text>
+						<Select
+							disabled={readOnly}
+							onChange={handlerChangeCity}
+							value={currency}
+						>
+							<Option value="USD">{t("Доллар США")}</Option>
+							<Option value="Россий рубль">{t("Россий рубль")}</Option>
+							<Option value="Японская иена">{t("Японская иена")}</Option>
+						</Select>
+					</div>
+				) : null}
+				{city ? (
+					<div className={style.item}>
+						<Text>{t("city")}</Text>
+						<City
+							onChange={handlerChangeCity}
+							value={city}
+							disabled={readOnly}
+						/>
+					</div>
+				) : null}
+				{avatar ? (
+					<div className={style.item}>
+						<Text>{t("avatar")}</Text>
+						<Input
+							readOnly={readOnly}
+							value={avatar}
+							onChange={handlerChangeAvatar}
+						/>
+					</div>
+				) : null}
 			</div>
 		</div>
 	)
-}
+})

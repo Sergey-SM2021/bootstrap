@@ -8,27 +8,25 @@ import { Citys } from "entity/City/model/types/CitySchema"
 const initialState: ProfileSchema = {
 	error: "",
 	readOnly: true,
-	data: {
-		profile: {
-			name: "",
-			lastname: "",
-			age: 22,
-			city: Citys.Moscow,
-			nickname: "",
-			country: Country.Russia,
-			avatar: "",
-			currency: Currency.USD,
-		},
-		editedProfile: {
-			name: "",
-			lastname: "",
-			age: 22,
-			city: Citys.Moscow,
-			nickname: "",
-			country: Country.Russia,
-			avatar: "",
-			currency: Currency.USD,
-		},
+	profile: {
+		name: "",
+		lastname: "",
+		age: 22,
+		city: Citys.Moscow,
+		nickname: "",
+		country: Country.Russia,
+		avatar: "",
+		currency: Currency.USD,
+	},
+	editedProfile: {
+		name: "",
+		lastname: "",
+		age: 22,
+		city: Citys.Moscow,
+		nickname: "",
+		country: Country.Russia,
+		avatar: "",
+		currency: Currency.USD,
 	},
 	profileValidateErrors: [],
 	isLoading: false,
@@ -43,22 +41,22 @@ const profileSlice = createSlice({
 		},
 		editProfile(
 			state,
-			payload: PayloadAction<Partial<ProfileSchema["data"]["editedProfile"]>>
+			payload: PayloadAction<Partial<ProfileSchema["editedProfile"]>>
 		) {
-			state.data.editedProfile = {
-				...state.data.editedProfile,
+			state.editedProfile = {
+				...state.editedProfile,
 				...payload.payload,
 			}
 		},
 		cancleEdit(state) {
-			state.data.editedProfile = state.data.profile
+			state.editedProfile = state.profile
 		},
 	},
 	extraReducers(builder) {
 		builder
 			.addCase(getProfile.fulfilled, (state, payload: PayloadAction<any>) => {
-				state.data.profile = payload.payload
-				state.data.editedProfile = payload.payload
+				state.profile = payload.payload
+				state.editedProfile = payload.payload
 				state.isLoading = false
 			})
 			.addCase(getProfile.rejected, (state, payload: PayloadAction<any>) => {
@@ -75,13 +73,10 @@ const profileSlice = createSlice({
 				state.isLoading = false
 				state.error = ""
 			})
-			.addCase(
-				updateProfile.rejected,
-				(state, payload: PayloadAction<any>) => {
-					state.isLoading = false
-					state.profileValidateErrors = payload.payload
-				}
-			)
+			.addCase(updateProfile.rejected, (state, payload: PayloadAction<any>) => {
+				state.isLoading = false
+				state.profileValidateErrors = payload.payload
+			})
 	},
 })
 

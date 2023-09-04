@@ -3,7 +3,7 @@ import { $api } from "shared/api/api"
 import { ProfileSchema } from "../../types/ProfileSchema"
 
 export const getProfile = createAsyncThunk<
-  ProfileSchema["data"],
+  ProfileSchema,
   number,
   { extra: { api: typeof $api } }
 >("Profile/GetProfile", async (id, { extra: { api }, rejectWithValue }) => {

@@ -13,17 +13,15 @@ describe("uptate profile", () => {
 	const dispatch: jest.Mock<Dispatch> = jest.fn()
 	const getState: () => DeepPartial<StoreSchema> = () => ({
 		profile: {
-			data: {
-				editedProfile: {
-					age: 783,
-					avatar: "profile999.jpg",
-					city: Citys.Shanghai,
-					country: Country.Russia,
-					currency: Currency.RUB,
-					lastname: "ikjnkn76guyyuuykj",
-					name: "ijnkku",
-					nickname: "k768hyk",
-				},
+			editedProfile: {
+				age: 783,
+				avatar: "profile999.jpg",
+				city: Citys.Shanghai,
+				country: Country.Russia,
+				currency: Currency.RUB,
+				lastname: "ikjnkn76guyyuuykj",
+				name: "ijnkku",
+				nickname: "k768hyk",
 			},
 		},
 	})

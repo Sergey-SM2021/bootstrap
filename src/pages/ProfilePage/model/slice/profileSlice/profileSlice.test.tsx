@@ -48,19 +48,17 @@ describe("Profile reducer", () => {
 		}
 
 		const state: DeepPartial<ProfileSchema> = {
-			data: {
-				editedProfile: {
-					age: 89,
-					avatar: "https://",
-					city: Citys.Delhi,
-					country: Country.Mexico,
-					currency: Currency.USD,
-					lastname: "inkj",
-					name: "54ddfgvh",
-					nickname: "90jnhyvtr5ex",
-				},
-				profile,
+			editedProfile: {
+				age: 89,
+				avatar: "https://",
+				city: Citys.Delhi,
+				country: Country.Mexico,
+				currency: Currency.USD,
+				lastname: "inkj",
+				name: "54ddfgvh",
+				nickname: "90jnhyvtr5ex",
 			},
+			profile,
 		}
 
 		expect(ProfileReducer(state as ProfileSchema, cancleEdit())).toEqual({
@@ -73,17 +71,15 @@ describe("Profile reducer", () => {
 
 	it("профиль редактируется", () => {
 		const state: DeepPartial<ProfileSchema> = {
-			data: {
-				editedProfile: {
-					age: 89,
-					avatar: "https://",
-					city: Citys.Delhi,
-					country: Country.Mexico,
-					currency: Currency.USD,
-					lastname: "inkj",
-					name: "54ddfgvh",
-					nickname: "90jnhyvtr5ex",
-				},
+			editedProfile: {
+				age: 89,
+				avatar: "https://",
+				city: Citys.Delhi,
+				country: Country.Mexico,
+				currency: Currency.USD,
+				lastname: "inkj",
+				name: "54ddfgvh",
+				nickname: "90jnhyvtr5ex",
 			},
 		}
 
