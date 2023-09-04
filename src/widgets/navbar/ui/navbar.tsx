@@ -7,10 +7,10 @@ import { LoginModal } from "features/login"
 import { useDispatch, useSelector } from "react-redux"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { logout } from "entity/user/model/slice/userSlice"
-import { Logo } from "shared/ui/Logo/Logo"
 import { useNavigate } from "react-router-dom"
 import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 import { Flex } from "shared/ui/Flex/Flex"
+import { Logo } from "widgets/Logo"
 
 interface NavbarProps {
   className?: string;
@@ -37,7 +37,11 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 
 	if (selector) {
 		return (
-			<Flex align="center" gap={32} className={classNames(className, {}, [cls.navbar])}>
+			<Flex
+				align="center"
+				gap={32}
+				className={classNames(className, {}, [cls.navbar])}
+			>
 				<Logo />
 				<AppButton onClick={handlerCreatePost} theme={AppButtonTheme.primary}>
 					{t("create post")}
@@ -51,7 +55,11 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 	}
 
 	return (
-		<Flex align="center" gap={32} className={classNames(className, {}, [cls.navbar])}>
+		<Flex
+			align="center"
+			gap={32}
+			className={classNames(className, {}, [cls.navbar])}
+		>
 			{isOpen ? <LoginModal isOpen={isOpen} onClose={onToggle} /> : null}
 			<Logo />
 			<div className={cls.links}></div>
