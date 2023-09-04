@@ -1,4 +1,4 @@
-import { memo, useRef } from "react"
+import { memo, useCallback, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import ViewGrid from "shared/assets/view-grid.svg"
 import ViewList from "shared/assets/view-list.svg"
@@ -17,19 +17,21 @@ import {
 	getStrategy,
 	getTags,
 } from "pages/ArticlesPage/model/selectors/ArticlePageSelectors"
-import { setSearch, setSortBy, setStrategy } from "pages/ArticlesPage/model/slice/ArticlePage"
-import { SortBy, StrategyType } from "pages/ArticlesPage/model/types/articleSchema"
+import {
+	setSearch,
+	setSortBy,
+	setStrategy,
+	toggleView,
+} from "pages/ArticlesPage/model/slice/ArticlePage"
+import {
+	SortBy,
+	StrategyType,
+} from "pages/ArticlesPage/model/types/articleSchema"
 import { AddTagToFilter } from "pages/ArticlesPage/model/services/AddToFilter"
-
-interface FiltersProps {
-  handlerChangeView: (mode: "small" | "big") => () => void;
-  activeView: "small" | "big";
-}
 
 const views = ["small", "big"] as const
 
-export const Filters = memo((props: FiltersProps) => {
-	const { handlerChangeView } = props
+export const Filters = memo(() => {
 	const searchValue = useSelector(getSearch)
 	const sortBy = useSelector(getSortBy)
 	const strategy = useSelector(getStrategy)
@@ -38,7 +40,11 @@ export const Filters = memo((props: FiltersProps) => {
 	const dispatch = useAppDispatch()
 	const timer = useRef<NodeJS.Timeout>(null)
 
-	const handlerInputType = (value: string) => {
+	const handlerChangeView = useCallback(() => {
+		dispatch(toggleView())
+	}, [dispatch])
+
+	const handlerInputType = useCallback((value: string) => {
 		dispatch(setSearch(value))
 		if (timer.current) {
 			clearTimeout(timer.current)
@@ -46,7 +52,7 @@ export const Filters = memo((props: FiltersProps) => {
 		setTimeout(() => {
 			dispatch(getArticles({ reset: true, page: 1 }))
 		}, 1500)
-	}
+	},[dispatch])
 
 	const handlerSetSortBy = (value: string) => {
 		dispatch(setSortBy(value as SortBy))
@@ -90,7 +96,7 @@ export const Filters = memo((props: FiltersProps) => {
 						<AppButton
 							key={index}
 							theme={AppButtonTheme.clear}
-							onClick={handlerChangeView(view)}
+							onClick={handlerChangeView}
 						>
 							<Icon>{view === "big" ? <ViewList /> : <ViewGrid />}</Icon>
 						</AppButton>

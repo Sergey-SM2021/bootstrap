@@ -24,12 +24,6 @@ const initialState: ArticlePageSchema = {
 const ArticlePageSlice = createSlice({
 	name: "ArticlePage",
 	reducers: {
-		setSmallView(state) {
-			state.view = "small"
-		},
-		setBigView(state) {
-			state.view = "big"
-		},
 		setSearch(state, action: PayloadAction<string>) {
 			state.search = action.payload
 		},
@@ -51,6 +45,13 @@ const ArticlePageSlice = createSlice({
 		},
 		removeTag(state, payload: PayloadAction<number>) {
 			state.tags = state.tags?.filter((el) => el !== payload.payload)
+		},
+		toggleView(state) {
+			if (state.view === "big") {
+				state.view = "small"
+			} else {
+				state.view = "big"
+			}
 		},
 	},
 	initialState,
@@ -75,14 +76,13 @@ const ArticlePageSlice = createSlice({
 
 export const ArticlePageReducer = ArticlePageSlice.reducer
 export const {
-	setBigView,
-	setSmallView,
 	incrementPage,
 	removeTag,
 	setSearch,
 	setSortBy,
 	setStrategy,
 	setTag,
+	toggleView,
 } = ArticlePageSlice.actions
 
 export const articlesSelectors = articleAdapter.getSelectors<StoreSchema>(
