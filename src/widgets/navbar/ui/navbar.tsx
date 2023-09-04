@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom"
 import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 import { Flex } from "shared/ui/Flex/Flex"
 import { Logo } from "widgets/Logo"
+import { MyDropdown } from "shared/ui/menu"
+import Profile from "shared/assets/profile.svg"
 
 interface NavbarProps {
   className?: string;
@@ -35,6 +37,10 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 		nav(RouterPaths.article_create)
 	}
 
+	const handlerNavgate = () => {
+		nav(RouterPaths.profile)
+	}
+
 	if (selector) {
 		return (
 			<Flex
@@ -47,9 +53,15 @@ export const Navbar = memo(({ className = "" }: NavbarProps) => {
 					{t("create post")}
 				</AppButton>
 				<div className={cls.links}></div>
-				<AppButton onClick={logoutHandler} theme={AppButtonTheme.clear}>
-					{t("logout")}
-				</AppButton>
+				<MyDropdown
+					Trigger={<Profile />}
+					items={[
+						{ onClick: logoutHandler, text: t("logout") },
+						{ onClick: handlerNavgate, text: t("profile") },
+					]}
+					top={"100%"}
+					right={0}
+				/>
 			</Flex>
 		)
 	}

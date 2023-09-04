@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { useSelector } from "react-redux"
 import { readOnlySelector } from "../../model/selectors/readOnlySelector/readOnlySelector"
-import { memo } from "react"
+import { memo, useCallback } from "react"
 import {
 	cancleEdit,
 	toggleReadOnly,
@@ -21,18 +21,18 @@ export const ProfileHeader = memo(() => {
 	const errors = useSelector(validationErrorSelector)
 	const isProfileReceived = useSelector(errorSelector)
 
-	const handlerCancle = () => {
+	const handlerCancle = useCallback(() => {
 		dispatch(toggleReadOnly())
 		dispatch(cancleEdit())
-	}
+	}, [dispatch])
 
-	const handlerSave = async () => {
+	const handlerSave = useCallback(async () => {
 		dispatch(updateProfile())
-	}
+	}, [dispatch])
 
-	const handlerEditProfile = () => {
+	const handlerEditProfile = useCallback(() => {
 		dispatch(toggleReadOnly())
-	}
+	}, [dispatch])
 
 	return (
 		<Flex justify="space-between" align="center">
@@ -49,14 +49,14 @@ export const ProfileHeader = memo(() => {
 						{t("edit")}
 					</AppButton>
 				) : (
-					<div>
+					<Flex gap={8} justify="end">
 						<AppButton theme={AppButtonTheme.dangerous} onClick={handlerSave}>
 							{t("save")}
 						</AppButton>
 						<AppButton theme={AppButtonTheme.primary} onClick={handlerCancle}>
 							{t("cancle")}
 						</AppButton>
-					</div>
+					</Flex>
 				)
 			) : null}
 		</Flex>

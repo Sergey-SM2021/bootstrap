@@ -12,7 +12,6 @@ import { Option, Select } from "shared/ui/Select"
 import { City } from "entity/City"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
 import { Citys } from "entity/City/model/types/CitySchema"
-import { Flex } from "shared/ui/Flex/Flex"
 
 type profileType = Omit<ProfileSchema, "data" | "profileValidateErrors"> &
   Profile;
@@ -130,7 +129,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 						onChange={handlerChangeCity}
 						value={currency}
 					>
-						<Option value="Доллар США">{t("Доллар США")}</Option>
+						<Option value="USD">{t("Доллар США")}</Option>
 						<Option value="Россий рубль">{t("Россий рубль")}</Option>
 						<Option value="Японская иена">{t("Японская иена")}</Option>
 					</Select>

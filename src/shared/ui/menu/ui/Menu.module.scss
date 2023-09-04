@@ -1,0 +1,31 @@
+.wrapper {
+    width: max-content;
+    max-height: max-content;
+    position: relative;
+}
+
+.trigger {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.list {
+    position: absolute;
+    background-color: var(--menu-bg);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.item {
+    &:hover {
+        cursor: pointer;
+    }
+}
