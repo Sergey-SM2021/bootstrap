@@ -3,7 +3,6 @@ import {
 	createEntityAdapter,
 	createSlice,
 } from "@reduxjs/toolkit"
-import { Article } from "entity/Article/model/types/Article"
 import { getArticles } from "../services/getArticles"
 import {
 	ArticlePageSchema,
@@ -11,6 +10,7 @@ import {
 	StrategyType,
 } from "../types/articleSchema"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
+import { Article } from "entity/ArticleDetalis/model/types/Article"
 
 const articleAdapter = createEntityAdapter<Article>()
 

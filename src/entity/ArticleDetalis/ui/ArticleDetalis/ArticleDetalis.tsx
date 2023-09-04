@@ -1,9 +1,3 @@
-import {
-	getArticleDetalisData,
-	getArticleDetalisError,
-	getArticleDetalisIsLoading,
-} from "entity/Article/model/selector/Article/ArticleDataSelector"
-import { getArticle } from "entity/Article/model/services/getArticle/getArticle"
 import { ArticleReducer } from "../../model/slice/Article"
 import { memo, useEffect } from "react"
 import { useSelector } from "react-redux"
@@ -18,10 +12,12 @@ import { Text, TextSize } from "shared/ui/Text/Text"
 import Calendar from "shared/assets/calendar.svg"
 import Views from "shared/assets/views.svg"
 import { Icon } from "shared/ui/icon/Icon"
-import { ArticleBlock, ArticleType } from "entity/Article/model/types/Article"
 import { ArticleCode } from "../ArticleCode/ArticleCode"
 import { ArticleImg } from "../ArticleImg/ArticleImg"
-import { ArticleParagraph } from "../ArticleParagraph/ArticleParagraph"
+import { ArticleParagraph } from "../../../Article/ui/ArticleParagraph/ArticleParagraph"
+import { getArticleDetalisData, getArticleDetalisError, getArticleDetalisIsLoading } from "entity/ArticleDetalis/model/selector/Article/ArticleDataSelector"
+import { ArticleBlock, ArticleType } from "entity/ArticleDetalis/model/types/Article"
+import { getArticle } from "entity/ArticleDetalis/model/services/getArticle/getArticle"
 
 interface ArticleProps {
   id: number;
@@ -38,7 +34,7 @@ const renderArticleBlock = (articleBlock: ArticleBlock) => {
 	}
 }
 
-export const Article = memo(({ id }: ArticleProps) => {
+export const ArticleDetalis = memo(({ id }: ArticleProps) => {
 	const dispatch = useAppDispatch()
 	const { t } = useTranslation()
 	const article = useSelector(getArticleDetalisData)

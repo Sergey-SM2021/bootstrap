@@ -1,11 +1,11 @@
-import { Article, ArticleLabel } from "entity/Article/model/types/Article"
 import { memo } from "react"
-import { ArticleItemSkeleton } from "../ArticleItem/ArticleItemSkeleton"
 import { Text } from "shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso"
-import { ArticleItem } from "../ArticleItem/ArticleItem"
 import clx from "./ArticleList.module.scss"
+import { Article, ArticleLabel } from "entity/ArticleDetalis/model/types/Article"
+import { ArticleItemSkeleton } from "entity/ArticleDetalis/ui/ArticleItem/ArticleItemSkeleton"
+import { ArticleItem } from "entity/ArticleDetalis/ui/ArticleItem/ArticleItem"
 
 interface ArticleListProps {
   articles: Article[];

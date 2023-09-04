@@ -1,7 +1,7 @@
-import { ArticleCodeBlock } from "entity/Article/model/types/Article"
 import { memo } from "react"
 import { Code } from "shared/ui/code/Code"
 import clx from "./ArticleCode.module.scss"
+import { ArticleCodeBlock } from "entity/ArticleDetalis/model/types/Article"
 
 interface IArticleCode {
   block: ArticleCodeBlock;

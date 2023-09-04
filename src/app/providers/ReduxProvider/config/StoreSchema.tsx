@@ -3,11 +3,11 @@ import { ProfileSchema } from "pages/ProfilePage/model/types/ProfileSchema"
 import { UserSchema } from "entity/user"
 import { LoginSchema } from "features/login"
 import { $api } from "shared/api/api"
-import { ArticleSchema } from "entity/Article"
 import { ArticlePageSchema } from "pages/ArticlesPage/model/types/articleSchema"
 import { SaveScrollSchema } from "features/SaveScroll"
 import { TagSchema } from "entity/Tag/model/type/TagSchema"
 import { ArticleCommentsSchema } from "features/ArticleComments/model/types/ArticleCommentsSchema"
+import { ArticleSchema } from "entity/ArticleDetalis"
 
 export interface StoreSchema {
   counter: CounterSchema;

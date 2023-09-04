@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Article } from "./Article"
+import { ArticleDetalis } from "./ArticleDetalis"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
-import { ArticleLabel, ArticleType } from "entity/Article/model/types/Article"
+import { ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
-const meta: Meta<typeof Article> = {
+const meta: Meta<typeof ArticleDetalis> = {
 	title: "Entity/Article",
-	component: Article,
+	component: ArticleDetalis,
 	tags: ["autodocs"],
 }
 
 export default meta
-type Story = StoryObj<typeof Article>;
+type Story = StoryObj<typeof ArticleDetalis>;
 
 export const Error: Story = {
 	args: {

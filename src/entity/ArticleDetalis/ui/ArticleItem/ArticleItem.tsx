@@ -1,8 +1,3 @@
-import {
-	Article,
-	ArticleTextBlock,
-	ArticleType,
-} from "entity/Article/model/types/Article"
 import { memo, useMemo } from "react"
 import clx from "./ArticleItem.module.scss"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
@@ -15,7 +10,8 @@ import { useTranslation } from "react-i18next"
 import { useHover } from "shared/lib/hooks/useHover"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Avatar } from "shared/ui/avatar/avatar"
-import { ArticleParagraph } from "../ArticleParagraph/ArticleParagraph"
+import { ArticleParagraph } from "../../../Article/ui/ArticleParagraph/ArticleParagraph"
+import { Article, ArticleTextBlock, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
 interface ArticleItemProps extends Article {
   mode: "big" | "small";

@@ -5,7 +5,7 @@ import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorato
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
-import { ArticleLabel, ArticleType } from "entity/Article/model/types/Article"
+import { ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleDetalisPage> = {
 	title: "Pages/ArticleDetalisPage",

@@ -1,7 +1,7 @@
-import { ArticleImageBlock } from "entity/Article/model/types/Article"
 import { memo } from "react"
 import { Text } from "shared/ui/Text/Text"
 import clx from "./ArticleImage.module.scss"
+import { ArticleImageBlock } from "entity/ArticleDetalis/model/types/Article"
 
 interface ArticleImgProps {
   block: ArticleImageBlock

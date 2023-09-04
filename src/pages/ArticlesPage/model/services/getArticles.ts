@@ -1,9 +1,9 @@
 import { $api } from "shared/api/api"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { Article } from "entity/Article/model/types/Article"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import { getSearch, getSortBy, getStrategy, getTags } from "../selectors/ArticlePageSelectors"
 import { incrementPage } from "../slice/ArticlePage"
+import { Article } from "entity/ArticleDetalis/model/types/Article"
 
 interface Params {
   page: number;

@@ -3,12 +3,8 @@ import { ArticleList } from "./ArticleList"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
-import {
-	ArticleBlock,
-	ArticleLabel,
-	ArticleType,
-} from "entity/Article/model/types/Article"
 import img from "shared/assets/assasyn.jpg"
+import { ArticleBlock, ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleList> = {
 	title: "Entity/ArticleList",
