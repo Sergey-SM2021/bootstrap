@@ -44,7 +44,6 @@ export const Article = memo(({ id }: ArticleProps) => {
 	const article = useSelector(getArticleDetalisData)
 	const error = useSelector(getArticleDetalisError)
 	const isLoading = useSelector(getArticleDetalisIsLoading)
-	console.log(article)
 
 	useEffect(() => {
 		if (__PROJECT__ === "frontend") {
