@@ -1,15 +1,17 @@
-import { Option, Select } from "shared/ui/Select"
-import { SelectProviderProps } from "shared/ui/Select/ui/Select/Select"
-import { Citys } from "../model/types/CitySchema"
+import { MyListbox } from "shared/ui/listbox/ui/Listbox"
 
-const citys = [Citys.Delhi, Citys.Moscow, Citys.Shanghai, Citys.Tokyo]
+interface CityType {
+  id: number;
+  name: string;
+}
 
-export const City = (props: SelectProviderProps) => {
-	return (
-		<Select {...props}>
-			{citys.map((city) => (
-				<Option value={city} key={city} >{city}</Option>
-			))}
-		</Select>
-	)
+interface CityProps {
+  onChange: (value: CityType) => void;
+  value: CityType;
+  citys: CityType[];
+}
+
+export const City = (props: CityProps) => {
+	const { citys, onChange, value } = props
+	return <MyListbox items={citys} onSelect={onChange} value={value} />
 }
