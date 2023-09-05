@@ -7,7 +7,7 @@ import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorato
 import { ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleDetalis> = {
-	title: "Entity/Article",
+	title: "Entity/ArticleDetalis",
 	component: ArticleDetalis,
 	tags: ["autodocs"],
 }
@@ -43,6 +43,7 @@ export const Fulefilled: Story = {
 		ThemeDecorator(Theme.darkTheme),
 		ReduxDecorator({
 			ArticleReducer: {
+				isLoading: false,
 				data: {
 					id: "1",
 					title: "Javascript news",

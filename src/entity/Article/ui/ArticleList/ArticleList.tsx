@@ -7,8 +7,8 @@ import {
 	Article,
 	ArticleLabel,
 } from "entity/ArticleDetalis/model/types/Article"
-import { ArticleItemSkeleton } from "entity/ArticleDetalis/ui/ArticleItem/ArticleItemSkeleton"
-import { ArticleItem } from "entity/ArticleDetalis/ui/ArticleItem/ArticleItem"
+import { ArticleItemSkeleton } from "../ArticleItem/ArticleItemSkeleton"
+import { ArticleItem } from "../ArticleItem/ArticleItem"
 
 interface ArticleListProps {
   articles: Article[];
@@ -42,13 +42,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
 				itemClassName={clx.Item}
 				listClassName={clx.List}
 				components={{
-					Footer: () => (
-						<div className={clx.List}>
-							{isLoading
-								? new Array(3).fill(<ArticleItemSkeleton mode={mode} />)
-								: null}
-						</div>
-					),
+					Footer: () =>
+						isLoading ? (
+							<div className={clx.List}>
+								{new Array(3).fill(<ArticleItemSkeleton mode={mode} />)}
+							</div>
+						) : null,
 				}}
 				itemContent={(index, element) => (
 					<div style={{ paddingBottom: "16px" }}>
