@@ -5,14 +5,14 @@ import { userSliceReducer } from "entity/user"
 import { $api } from "shared/api/api"
 import { SaveScrollReducer } from "features/SaveScroll"
 import { TagSliceReducer } from "entity/Tag"
-import { sameArticlesApi } from "features/getSameArticles/model/services/sameArticlesApi"
+import { rtkApi } from "shared/api/rtk"
 
 const staticReducers = {
 	counter: counterSliceReducer,
 	user: userSliceReducer,
 	scroll: SaveScrollReducer,
 	tags: TagSliceReducer,
-	[sameArticlesApi.reducerPath]: sameArticlesApi.reducer,
+	[rtkApi.reducerPath]: rtkApi.reducer,
 }
 
 // @ts-ignore
@@ -30,13 +30,13 @@ export const createStore = (preloadedState?: DeepPartial<StoreSchema>) => {
 			user: userSliceReducer,
 			scroll: SaveScrollReducer,
 			tags: TagSliceReducer,
-			[sameArticlesApi.reducerPath]: sameArticlesApi.reducer,
+			[rtkApi.reducerPath]: rtkApi.reducer,
 		},
 		preloadedState: preloadedState as StoreSchema,
 		devTools: __IS_DEV__,
 		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware({ thunk: { extraArgument: { api: $api } } }).concat(
-				sameArticlesApi.middleware
+				rtkApi.middleware
 			),
 	})
 

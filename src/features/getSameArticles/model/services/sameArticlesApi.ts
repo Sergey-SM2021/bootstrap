@@ -1,13 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { rtkApi } from "shared/api/rtk"
 
-export const sameArticlesApi = createApi({
-	reducerPath: "sameArticlesApi",
-	baseQuery: fetchBaseQuery({ baseUrl: __API__ }),
-	endpoints: (builder) => ({
-		getSameArticles: builder.query({
-			query: (name) => "articles/theSame/2",
+const recomendations = rtkApi.injectEndpoints({
+	endpoints: (build) => ({
+		getSameArticles: build.query({
+			query: () => "articles/theSame/2",
 		}),
 	}),
+	overrideExisting: false,
 })
 
-export const { useGetSameArticlesQuery } = sameArticlesApi
+export const { useGetSameArticlesQuery } = recomendations
