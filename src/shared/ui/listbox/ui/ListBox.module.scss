@@ -1,0 +1,45 @@
+.Button {
+    background-color: var(--listbox);
+    height: 32px;
+    min-width: 200px;
+    border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.DefaultButton {
+    background-color: transparent;
+    border: none;
+}
+
+.Wrapper {
+    max-width: min-content;
+    position: relative;
+}
+
+.List {
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 120%;
+    list-style: none;
+    background-color: var(--listbox);
+
+    .item {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .text {
+        padding-left: 24px;
+    }
+}
+
+.Icon {
+    position: absolute;
+}
