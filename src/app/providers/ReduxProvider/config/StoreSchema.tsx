@@ -8,17 +8,20 @@ import { SaveScrollSchema } from "features/SaveScroll"
 import { TagSchema } from "entity/Tag/model/type/TagSchema"
 import { ArticleCommentsSchema } from "features/ArticleComments/model/types/ArticleCommentsSchema"
 import { ArticleSchema } from "entity/ArticleDetalis"
+import { sameArticlesApi } from "features/getSameArticles/model/services/sameArticlesApi"
 
 export interface StoreSchema {
   counter: CounterSchema;
-  login?: LoginSchema;
+  tags: TagSchema;
+  scroll: SaveScrollSchema;
   user: UserSchema;
+  [sameArticlesApi.reducerPath]: ReturnType<typeof sameArticlesApi.reducer>;
+  login?: LoginSchema;
   profile?: ProfileSchema;
   ArticleReducer?: ArticleSchema;
   ArticlesPageReducer?: ArticlePageSchema;
-  scroll: SaveScrollSchema;
-  tags: TagSchema;
   articleComments?: ArticleCommentsSchema;
+  sameArticles?: ArticleCommentsSchema;
 }
 
 export interface thunkExtra {

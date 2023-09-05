@@ -5,12 +5,14 @@ import { userSliceReducer } from "entity/user"
 import { $api } from "shared/api/api"
 import { SaveScrollReducer } from "features/SaveScroll"
 import { TagSliceReducer } from "entity/Tag"
+import { sameArticlesApi } from "features/getSameArticles/model/services/sameArticlesApi"
 
 const staticReducers = {
 	counter: counterSliceReducer,
 	user: userSliceReducer,
 	scroll: SaveScrollReducer,
 	tags: TagSliceReducer,
+	[sameArticlesApi.reducerPath]: sameArticlesApi.reducer,
 }
 
 // @ts-ignore
@@ -28,11 +30,14 @@ export const createStore = (preloadedState?: DeepPartial<StoreSchema>) => {
 			user: userSliceReducer,
 			scroll: SaveScrollReducer,
 			tags: TagSliceReducer,
+			[sameArticlesApi.reducerPath]: sameArticlesApi.reducer,
 		},
 		preloadedState: preloadedState as StoreSchema,
 		devTools: __IS_DEV__,
 		middleware: (getDefaultMiddleware) =>
-			getDefaultMiddleware({ thunk: { extraArgument: { api: $api } } }),
+			getDefaultMiddleware({ thunk: { extraArgument: { api: $api } } }).concat(
+				sameArticlesApi.middleware
+			),
 	})
 
 	// @ts-ignore

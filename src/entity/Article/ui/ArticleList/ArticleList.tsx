@@ -22,7 +22,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 	const { articles, mode, endReached, isLoading } = props
 	const { t } = useTranslation()
 
-	if (!articles.length) {
+	if (!articles) {
 		return (
 			<div>
 				<Text>{t("empty articles")}</Text>
