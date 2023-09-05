@@ -1,16 +1,26 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { ArticleList } from "./ArticleList"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import img from "shared/assets/assasyn.jpg"
-import { ArticleBlock, ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
+import {
+	ArticleBlock,
+	ArticleLabel,
+	ArticleType,
+} from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleList> = {
 	title: "Entity/ArticleList",
 	component: ArticleList,
 	tags: ["autodocs"],
 }
+
+const Page = (Story: StoryFn) => (
+	<div style={{ height: "100vh", width: "100vw" }}>
+		<Story />
+	</div>
+)
 
 export default meta
 type Story = StoryObj<typeof ArticleList>;
@@ -51,8 +61,14 @@ export const Big: Story = {
 	args: {
 		mode: "big",
 		articles,
+		virtual: true,
+		endReached: () => {},
+		hasMore: false,
+		isLoading: false,
+		saveScroll: false,
+		className: "",
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [Page, RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const Small: Story = {
@@ -60,7 +76,7 @@ export const Small: Story = {
 		mode: "small",
 		articles,
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [Page, RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const isLoadingSmall: Story = {
@@ -69,7 +85,7 @@ export const isLoadingSmall: Story = {
 		articles,
 		isLoading: true,
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [Page, RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const isLoadingBig: Story = {
@@ -78,7 +94,7 @@ export const isLoadingBig: Story = {
 		articles,
 		isLoading: true,
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [Page, RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }
 
 export const Empty: Story = {
@@ -87,5 +103,5 @@ export const Empty: Story = {
 		articles: [],
 		isLoading: false,
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [Page, RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
 }

@@ -25,7 +25,7 @@ export const ArticleItemSkeleton = memo((props: ArticleItemProps) => {
 	}
 
 	return (
-		<Flex direction="column" gap={8}>
+		<Flex direction="column" gap={8} full={false}>
 			<Skeleton radius={5} height={300} width={408} />
 			<Flex gap={8}>
 				<Skeleton radius={5} height={50} width={300} />

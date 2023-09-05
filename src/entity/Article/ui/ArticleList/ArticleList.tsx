@@ -3,7 +3,10 @@ import { Text } from "shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso"
 import clx from "./ArticleList.module.scss"
-import { Article, ArticleLabel } from "entity/ArticleDetalis/model/types/Article"
+import {
+	Article,
+	ArticleLabel,
+} from "entity/ArticleDetalis/model/types/Article"
 import { ArticleItemSkeleton } from "entity/ArticleDetalis/ui/ArticleItem/ArticleItemSkeleton"
 import { ArticleItem } from "entity/ArticleDetalis/ui/ArticleItem/ArticleItem"
 
@@ -81,8 +84,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 					isLoading ? (
 						<ArticleItemSkeleton mode={mode} />
 					) : (
-					// eslint-disable-next-line
-            <div>Больше нет статей</div>
+						<div>{t("articles not found")}</div>
 					),
 			}}
 		/>
