@@ -142,11 +142,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 				{city ? (
 					<div className={style.item}>
 						<Text>{t("city")}</Text>
-						<City
-							onChange={handlerChangeCity}
-							value={city}
-							disabled={readOnly}
-						/>
+						<City value={{ id: 1, name: "" }} citys={[]} onChange={() => {}} />
 					</div>
 				) : null}
 				{avatar ? (

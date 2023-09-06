@@ -45,7 +45,7 @@ export const ArticleComments = memo((props: ArticleCommentsProps) => {
 				onSubmit={handlerSendComment}
 				value={newCommentText}
 			/>
-			<CommentList comments={comments} isLoading={false} />
+			<CommentList error="" comments={comments} isLoading={false} />
 		</AsyncComponent>
 	)
 })

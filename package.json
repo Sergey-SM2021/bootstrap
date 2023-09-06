@@ -52,6 +52,7 @@
     "eslint-plugin-i18next": "^6.0.3",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
+    "fork-ts-checker-webpack-plugin": "^8.0.0",
     "generate-react-cli": "^8.3.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.0",

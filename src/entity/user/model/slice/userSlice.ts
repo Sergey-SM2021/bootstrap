@@ -29,6 +29,6 @@ const userSlice = createSlice({
 })
 
 export const {
-	actions: { setUser, initAuthData, logout, test },
+	actions: { setUser, initAuthData, logout },
 } = userSlice
 export const { reducer: userSliceReducer } = userSlice

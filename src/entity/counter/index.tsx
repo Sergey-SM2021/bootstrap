@@ -1,1 +1,1 @@
-export {CounterSchema} from "./model/types/counterSchema"
+export type {CounterSchema} from "./model/types/counterSchema"
