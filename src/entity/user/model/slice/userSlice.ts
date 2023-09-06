@@ -24,11 +24,11 @@ const userSlice = createSlice({
 		logout(state) {
 			state.authData = undefined
 			localStorage.removeItem(USER_LOCALSTORAGE_NAME)
-		},
+		}
 	},
 })
 
 export const {
-	actions: { setUser, initAuthData, logout },
+	actions: { setUser, initAuthData, logout, test },
 } = userSlice
 export const { reducer: userSliceReducer } = userSlice
