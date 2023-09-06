@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import webpack from "webpack"
 import { BuildOptions } from "./types/config"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
+import CircularDependencyPlugin from "circular-dependency-plugin"
 
 export function buildPlugins({
 	paths,
@@ -29,6 +30,10 @@ export function buildPlugins({
 			new webpack.ProgressPlugin(),
 			new BundleAnalyzerPlugin(),
 			new webpack.HotModuleReplacementPlugin(),
+      // @ts-ignore
+      new CircularDependencyPlugin({
+      	exclude: /node_modules/,
+      }) as webpack.WebpackPluginInstance,
 		]
 	}
 	return plugins
