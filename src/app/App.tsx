@@ -1,5 +1,4 @@
 import { RouterProvider } from "./providers/RouterProvider/ui/RouterProvider"
-import { Navbar } from "widgets/navbar/ui/navbar"
 import { Sidebar } from "widgets/sidebar"
 import "shared/config/i18nConfig/i18n"
 import { ErrorBoundary } from "./providers/ErrorBoundary"
@@ -9,6 +8,7 @@ import { initAuthData } from "entity/user/model/slice/userSlice"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { useSelector } from "react-redux"
 import { getInited } from "entity/user/model/selector/getInited"
+import { Navbar } from "widgets/navbar"
 
 export const App = () => {
 	const dispatch = useAppDispatch()
