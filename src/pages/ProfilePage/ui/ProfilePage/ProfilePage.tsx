@@ -12,7 +12,7 @@ import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 const ProfilePage = () => {
 	const ProfileId = useParams().id
 
-	const isMy = useSelector(isMyProfile(ProfileId))
+	const isMy = useSelector(isMyProfile(Number(ProfileId)))
 
 	if (!ProfileId) {
 		return <Navigate to={RouterPaths.home} />

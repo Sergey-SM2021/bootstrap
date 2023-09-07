@@ -4,7 +4,7 @@ import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 import Profile from "widgets/sidebar/assets/Profile.svg"
 import Article from "widgets/sidebar/assets/Article.svg"
 import { createSelector } from "@reduxjs/toolkit"
-import { getUserId } from "entity/user/model/selector/getUserSelector"
+import { getUserId } from "entity/user/model/selector/getUser"
 
 export const LinksSelector = createSelector(
 	getUserId,

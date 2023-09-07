@@ -17,7 +17,7 @@ export const Avatar = memo((props: AvatarProps) => {
 	} else if (size === "sm") {
 		avatarSize = 100
 	} else {
-		avatarSize = 75
+		avatarSize = 32
 	}
 
 	return (

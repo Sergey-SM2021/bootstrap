@@ -3,20 +3,21 @@ import { Flex } from "shared/ui/Flex/Flex"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { MyDropdown } from "shared/ui/menu"
 import { Logo } from "widgets/Logo"
-import Profile from "shared/assets/profile.svg"
 import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 import { useNavigate } from "react-router-dom"
 import { logout } from "entity/user/model/slice/userSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 import clx from "../../style/navbar.module.scss"
-import { getUser } from "entity/user/model/selector/getUserSelector"
+import * as userSelector from "entity/user/model/selector/getUser"
+import { Avatar } from "shared/ui/avatar/avatar"
 
 export const Auth = memo(() => {
 	const nav = useNavigate()
 	const dispatch = useDispatch()
 	const { t } = useTranslation()
-	const currrentUserId = useSelector(getUser)?.id
+	const currrentUserId = useSelector(userSelector.getUserId)
+	const userAvatar = useSelector(userSelector.getUserAvatar)
 
 	const handlerCreatePost = useCallback(() => {
 		nav(RouterPaths.article_create)
@@ -42,7 +43,7 @@ export const Auth = memo(() => {
 			</AppButton>
 			<div className={clx.links}></div>
 			<MyDropdown
-				Trigger={<Profile />}
+				Trigger={<Avatar src={userAvatar} size="xs"/>}
 				items={[
 					{ onClick: logoutHandler, text: t("logout") },
 					{ onClick: handlerNavgate, text: t("profile") },

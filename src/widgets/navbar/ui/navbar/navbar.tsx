@@ -2,7 +2,7 @@ import { memo } from "react"
 import { Auth } from "../auth/Auth"
 import { useSelector } from "react-redux"
 import { NotAuth } from "../notAuth/NotAuth"
-import { getUser } from "entity/user/model/selector/getUserSelector"
+import { getUser } from "entity/user/model/selector/getUser"
 
 export const Navbar = memo(() => {
 	const isAuth = useSelector(getUser)
