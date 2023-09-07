@@ -6,7 +6,6 @@
     height: 100%;
     opacity: 0;
     pointer-events: none;
-    z-index: -1;
 }
 
 .Content {
@@ -25,7 +24,7 @@
 }
 
 .Opend {
-    z-index: var(--modal-z-index);
+    z-index: var(--z-index-xxl);
     opacity: 1;
     pointer-events: all;
 
