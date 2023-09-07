@@ -1,10 +1,11 @@
 import { Role } from "../const/user"
 
 export interface UserSchema {
-  authData?: {
-    id: string;
-    avatar?: string;
-    role: Role
+  data?: {
+    id: string,
+    avatar?: string,
+    role: Role,
+    token: string
   };
   _inited: boolean;
 }

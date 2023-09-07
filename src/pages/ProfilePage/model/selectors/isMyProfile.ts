@@ -1,4 +1,5 @@
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
+import { getUserId } from "entity/user/model/selector/getUserSelector"
 
 export const isMyProfile = (profileId?: string) => (state: StoreSchema) =>
-	state.user.authData?.id === profileId
+	getUserId(state) === profileId

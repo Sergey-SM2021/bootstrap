@@ -25,7 +25,7 @@ export const Dark: Story = {
 export const Logined: Story = {
 	decorators: [
 		RouterDecorator(),
-		ReduxDecorator({ user: { authData: {id:"8"} } }),
+		ReduxDecorator({ user: { data: {id:"8"} } }),
 		ThemeDecorator(Theme.lightTheme),
 	],
 }
