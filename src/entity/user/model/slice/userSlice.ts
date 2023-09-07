@@ -4,7 +4,7 @@ import { USER_LOCALSTORAGE_NAME } from "shared/const/localstorage"
 import jwt_decode from "jwt-decode"
 
 const initialState: UserSchema = {
-	_inited: false
+	_inited: false,
 }
 
 const userSlice = createSlice({
@@ -24,7 +24,7 @@ const userSlice = createSlice({
 		logout(state) {
 			state.authData = undefined
 			localStorage.removeItem(USER_LOCALSTORAGE_NAME)
-		}
+		},
 	},
 })
 

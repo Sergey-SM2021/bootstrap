@@ -26,6 +26,10 @@ export const Auth = memo(() => {
 		nav(`${RouterPaths.profile}${currrentUserId}`)
 	}, [nav, currrentUserId])
 
+	const handlerAnalyticsNavgate = useCallback(() => {
+		nav("/analytics")
+	}, [nav])
+
 	const logoutHandler = useCallback(async () => {
 		dispatch(logout())
 	}, [dispatch])
@@ -42,6 +46,7 @@ export const Auth = memo(() => {
 				items={[
 					{ onClick: logoutHandler, text: t("logout") },
 					{ onClick: handlerNavgate, text: t("profile") },
+					{ onClick: handlerAnalyticsNavgate, text: t("analytics") },
 				]}
 				top={"100%"}
 				right={0}

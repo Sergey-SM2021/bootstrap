@@ -1,4 +1,5 @@
 import { AboutPage } from "pages/AboutPage"
+import { Analytics } from "pages/Analytics/ui/Analytics"
 import { ArticlePageAsync } from "pages/ArticleDetalisPage"
 import { ArticlesPage } from "pages/ArticlesPage"
 import { CreateArticle } from "pages/CreateArticle/CreateArticle"
@@ -20,6 +21,7 @@ enum RouterPages {
   ARTICLE_DETALIS = "article_detalis",
   ARTICLE_CREATE = "article_create",
   ARTICLE_EDIT = "article_edit",
+  ANALYTICS = "analytics",
 }
 
 export const RouterPaths: Record<RouterPages, string> = {
@@ -31,6 +33,7 @@ export const RouterPaths: Record<RouterPages, string> = {
 	article_detalis: "/article/",
 	article_create: "/article/new",
 	article_edit: "/article/:id/edit",
+	analytics: "/analytics",
 }
 
 export const RouterConfig: Record<RouterPages, RoutePropsType> = {
@@ -67,11 +70,16 @@ export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 	article_create: {
 		isPrivate: true,
 		element: <CreateArticle />,
-		path: RouterPaths.article_create
+		path: RouterPaths.article_create,
 	},
 	article_edit: {
 		isPrivate: true,
 		element: <CreateArticle />,
-		path: RouterPaths.article_edit
-	}
+		path: RouterPaths.article_edit,
+	},
+	analytics: {
+		isPrivate: true,
+		element: <Analytics />,
+		path: RouterPaths.analytics,
+	},
 }

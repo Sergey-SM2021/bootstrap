@@ -5,9 +5,9 @@ import { useSelector } from "react-redux"
 import { NotAuth } from "../notAuth/NotAuth"
 
 export const Navbar = memo(() => {
-	const selector = useSelector((state: StoreSchema) => state.user.authData)
+	const isAuth = useSelector((state: StoreSchema) => state.user.authData?.id)
 
-	if (selector) {
+	if (isAuth) {
 		return <Auth />
 	}
 
