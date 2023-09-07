@@ -1,7 +1,7 @@
-import { memo, useCallback, useMemo } from "react"
+import { Suspense, memo, useCallback, useMemo } from "react"
 import { Flex } from "shared/ui/Flex/Flex"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
-import { MyDropdown } from "shared/ui/menu"
+import { MyDropdown } from "shared/ui/menu/Dropdown"
 import { Logo } from "widgets/Logo"
 import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 import { useNavigate } from "react-router-dom"
@@ -12,6 +12,11 @@ import clx from "../../style/navbar.module.scss"
 import * as userSelector from "entity/user/model/selector/getUser"
 import { Avatar } from "shared/ui/avatar/avatar"
 import { Role } from "entity/user/model/const/user"
+import { Icon } from "shared/ui/icon/Icon"
+import Notifications from "shared/assets/notifications.svg"
+import { MyPopover } from "shared/ui/menu/popover/ui/Popover"
+import { NotificationsList } from "entity/Notifications"
+import { Spinner } from "shared/ui/spinner"
 
 export const Auth = memo(() => {
 	const nav = useNavigate()
@@ -42,7 +47,10 @@ export const Auth = memo(() => {
 			[
 				{ onClick: logoutHandler, text: t("logout") },
 				{ onClick: handlerNavgate, text: t("profile") },
-				userRole === Role.admin && { onClick: handlerAnalyticsNavgate, text: t("analytics") },
+				userRole === Role.admin && {
+					onClick: handlerAnalyticsNavgate,
+					text: t("analytics"),
+				},
 			].filter(Boolean),
 		[logoutHandler, handlerNavgate, handlerAnalyticsNavgate, t, userRole]
 	)
@@ -54,6 +62,17 @@ export const Auth = memo(() => {
 				{t("create post")}
 			</AppButton>
 			<div className={clx.links}></div>
+			<MyPopover
+				trigger={
+					<Icon>
+						<Notifications />
+					</Icon>
+				}
+			>
+				<Suspense fallback={<Spinner />}>
+					<NotificationsList />
+				</Suspense>
+			</MyPopover>
 			<MyDropdown
 				Trigger={<Avatar src={userAvatar} size="xs" />}
 				// @ts-ignore

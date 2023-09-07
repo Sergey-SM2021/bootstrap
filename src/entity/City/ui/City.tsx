@@ -1,4 +1,4 @@
-import { MyListbox } from "shared/ui/listbox/ui/Listbox"
+import { MyListbox } from "shared/ui/menu/listbox/ui/Listbox"
 
 interface CityType {
   id: number;

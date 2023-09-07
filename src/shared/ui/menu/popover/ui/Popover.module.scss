@@ -1,0 +1,23 @@
+.trigger {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.list {
+    position: absolute;
+    background-color: var(--popover-list);
+    top: 100%;
+    right: 0;
+    padding: 4px;
+    border-radius: 5px;
+    width: 400px;
+    z-index: var(--z-index-l);
+}
+
+.wrapper {
+    position: relative;
+}
