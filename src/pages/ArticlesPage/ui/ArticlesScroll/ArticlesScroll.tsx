@@ -30,7 +30,8 @@ export const ArticlesScroll = () => {
 
 	useEffect(() => {
 		dispatch(getArticles({ page, reset: false }))
-	}, [dispatch, page])
+		// eslint-disable-next-line
+  }, []);
 
 	return (
 		<ArticleList
