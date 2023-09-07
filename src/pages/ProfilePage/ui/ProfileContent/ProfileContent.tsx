@@ -1,5 +1,9 @@
 import { ProfileCard } from "entity/profile"
-import { selectError, selectProfile, selectReadOnly } from "pages/ProfilePage/model/selectors/ProfilePageSelectors"
+import {
+	selectError,
+	selectProfile,
+	selectReadOnly,
+} from "pages/ProfilePage/model/selectors/ProfilePageSelectors"
 import { getProfile } from "pages/ProfilePage/model/services/getProfile/getProfile"
 import { editProfile } from "pages/ProfilePage/model/slice/profileSlice/profileSlice"
 import { Profile } from "pages/ProfilePage/model/types/ProfileSchema"
@@ -35,7 +39,7 @@ export const ProfileContent = memo(() => {
 		<ProfileCard
 			profile={profile}
 			error={error}
-			isLoading
+			isLoading={false}
 			handlerCange={handlerChange}
 			readOnly={ReadOnly}
 		/>

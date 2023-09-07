@@ -31,4 +31,16 @@ export default {
 	},
 
 	setupFilesAfterEnv: ["<rootDir>/setupTest.ts"],
+
+	reporters: [
+		"default",
+		[
+			"jest-html-reporters",
+			{
+				publicPath: "./html-report",
+				filename: "report.html",
+				openReport: true,
+			},
+		],
+	],
 }
