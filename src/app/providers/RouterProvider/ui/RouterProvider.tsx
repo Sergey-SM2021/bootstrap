@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import { RouterConfig } from "shared/config/routerConfig/RouterConfig"
 import { PageLoader } from "widgets/pageLoader"
 import { RouteGuard } from "./RouterGuard"
+import { ForbiddenGuard } from "./ForbiddenGuard"
 
 export const RouterProvider = () => {
 	const routes = Object.values(RouterConfig)
@@ -10,13 +11,19 @@ export const RouterProvider = () => {
 	return (
 		<Suspense fallback={<PageLoader />}>
 			<Routes>
-				{routes.map(({ element, path, isPrivate }) => (
-					<Route
-						key={path}
-						element={isPrivate ? <RouteGuard>{element}</RouteGuard> : element}
-						path={path}
-					/>
-				))}
+				{routes.map(({ element, path, isPrivate, role }) => {
+					const privateGuard = isPrivate ? (
+						<RouteGuard>{element}</RouteGuard>
+					) : (
+						element
+					)
+
+					const forbiddenGuard = (
+						<ForbiddenGuard role={role}>{privateGuard}</ForbiddenGuard>
+					)
+
+					return <Route key={path} element={forbiddenGuard} path={path} />
+				})}
 			</Routes>
 		</Suspense>
 	)

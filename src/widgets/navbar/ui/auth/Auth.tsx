@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react"
+import { memo, useCallback, useMemo } from "react"
 import { Flex } from "shared/ui/Flex/Flex"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { MyDropdown } from "shared/ui/menu"
@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next"
 import clx from "../../style/navbar.module.scss"
 import * as userSelector from "entity/user/model/selector/getUser"
 import { Avatar } from "shared/ui/avatar/avatar"
+import { Role } from "entity/user/model/const/user"
 
 export const Auth = memo(() => {
 	const nav = useNavigate()
@@ -18,6 +19,7 @@ export const Auth = memo(() => {
 	const { t } = useTranslation()
 	const currrentUserId = useSelector(userSelector.getUserId)
 	const userAvatar = useSelector(userSelector.getUserAvatar)
+	const userRole = useSelector(userSelector.getUserRole)
 
 	const handlerCreatePost = useCallback(() => {
 		nav(RouterPaths.article_create)
@@ -35,6 +37,16 @@ export const Auth = memo(() => {
 		dispatch(logout())
 	}, [dispatch])
 
+	const links = useMemo(
+		() =>
+			[
+				{ onClick: logoutHandler, text: t("logout") },
+				{ onClick: handlerNavgate, text: t("profile") },
+				userRole === Role.admin && { onClick: handlerAnalyticsNavgate, text: t("analytics") },
+			].filter(Boolean),
+		[logoutHandler, handlerNavgate, handlerAnalyticsNavgate, t, userRole]
+	)
+
 	return (
 		<Flex align="center" gap={32} className={clx.navbar}>
 			<Logo />
@@ -43,12 +55,9 @@ export const Auth = memo(() => {
 			</AppButton>
 			<div className={clx.links}></div>
 			<MyDropdown
-				Trigger={<Avatar src={userAvatar} size="xs"/>}
-				items={[
-					{ onClick: logoutHandler, text: t("logout") },
-					{ onClick: handlerNavgate, text: t("profile") },
-					{ onClick: handlerAnalyticsNavgate, text: t("analytics") },
-				]}
+				Trigger={<Avatar src={userAvatar} size="xs" />}
+				// @ts-ignore
+				items={links}
 				top={"100%"}
 				right={0}
 			/>
