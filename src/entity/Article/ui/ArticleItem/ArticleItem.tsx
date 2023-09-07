@@ -69,11 +69,11 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 				</Flex>
 				<div className={clx.img} style={{ backgroundImage: `URL(${img})` }} />
 				<ArticleParagraph block={text} className={clx.content} />
-				<Flex justify="space-between" align="center" className={clx.footer}>
+				<Flex justify="space-between" align="end" className={clx.footer}>
 					<AppButton onClick={handlerNavigate} theme={AppButtonTheme.primary}>
 						{t("read more")}
 					</AppButton>
-					{ViewsCount}
+					<div>{ViewsCount}</div>
 				</Flex>
 			</div>
 		)
