@@ -35,7 +35,7 @@ export const Notifications = memo(() => {
 				</AppButton>
 				<Drawer isOpen={isOpen} onClose={handlerClose}>
 					<Suspense fallback={<Spinner />}>
-						<NotificationsList className={clx.notificationsList} />
+						<NotificationsList />
 					</Suspense>
 				</Drawer>
 			</MobileView>

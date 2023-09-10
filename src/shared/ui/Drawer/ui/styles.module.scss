@@ -1,0 +1,17 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-index-xl);
+    background-color: var(--overlay-background-color);
+}
+
+.sheet {
+    z-index: var(--z-index-xl);
+    position: fixed;
+    left: 2vw;
+    height: calc(100vh + 100px);
+    width: 96vw;
+    border-radius: 12px 12px 0;
+    background: #fff;
+    touch-action: none;
+}
