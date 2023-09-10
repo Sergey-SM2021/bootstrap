@@ -1,6 +1,3 @@
-import { useDrag } from "@use-gesture/react"
-import { a, useSpring, config } from "@react-spring/web"
-
 import styles from "./styles.module.scss"
 import { PropsWithChildren, useCallback, useEffect } from "react"
 
@@ -11,36 +8,39 @@ interface openProps {
   canceled?: boolean;
 }
 
-interface DrawerProps extends PropsWithChildren {
+export interface DrawerProps extends PropsWithChildren {
   isOpen: boolean;
   onClose: VoidFunction;
+  Gesture: typeof import("@use-gesture/react");
+  Spring: typeof import("@react-spring/web");
 }
 
 export const Drawer = (props: DrawerProps) => {
-	const { isOpen, onClose, children } = props
-	const [{ y }, api] = useSpring(() => ({ y: height }))
+	const { isOpen, onClose, children, Gesture, Spring } = props
+
+	const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
 
 	const open = useCallback(
 		({ canceled }: openProps) => {
 			api.start({
 				y: 0,
 				immediate: false,
-				config: canceled ? config.wobbly : config.stiff,
+				config: canceled ? Spring.config.wobbly : Spring.config.stiff,
 			})
 		},
-		[api]
+		[api, Spring.config.stiff, Spring.config.wobbly]
 	)
 
 	const close = (velocity = 0) => {
 		api.start({
 			y: height,
 			immediate: false,
-			config: { ...config.stiff, velocity },
+			config: { ...Spring.config.stiff, velocity },
 		})
 		onClose()
 	}
 
-	const bind = useDrag(
+	const bind = Gesture.useDrag(
 		({
 			last,
 			velocity: [, vy],
@@ -75,15 +75,15 @@ export const Drawer = (props: DrawerProps) => {
 	return (
 		<>
 			{isOpen ? (
-				<a.div onClick={() => close()} className={styles.overlay} />
+				<Spring.a.div onClick={() => close()} className={styles.overlay} />
 			) : null}
-			<a.div
+			<Spring.a.div
 				className={styles.sheet}
 				{...bind()}
 				style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
 			>
 				{children}
-			</a.div>
+			</Spring.a.div>
 		</>
 	)
 }

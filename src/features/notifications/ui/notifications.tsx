@@ -8,7 +8,6 @@ import { MobileView } from "react-device-detect"
 import { Drawer } from "shared/ui/Drawer"
 import NotificationsIcon from "shared/assets/notifications.svg"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
-import clx from "./notifications.module.scss"
 
 export const Notifications = memo(() => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -33,11 +32,11 @@ export const Notifications = memo(() => {
 				<AppButton onClick={handlerOpenDrawer} theme={AppButtonTheme.clear}>
 					{button}
 				</AppButton>
-				<Drawer isOpen={isOpen} onClose={handlerClose}>
-					<Suspense fallback={<Spinner />}>
+				<Suspense fallback={<Spinner />}>
+					<Drawer isOpen={isOpen} onClose={handlerClose}>
 						<NotificationsList />
-					</Suspense>
-				</Drawer>
+					</Drawer>
+				</Suspense>
 			</MobileView>
 			<BrowserView>
 				<MyPopover trigger={button}>
