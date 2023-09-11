@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "backend": "node ./backend/index.js",
     "html-report": "reg-cli ./.loki/current ./.loki/reference ./.loki/difference -R ./report.html",
     "eslint": "eslint src/** --fix",
     "start": "webpack serve --env PORT=8081 API=http://localhost:4200/api/",
@@ -15,9 +14,7 @@
     "test:loki": "yarn loki --config ./config/storybook test",
     "loki:approve": "yarn loki --config ./config/storybook approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "jest-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
-    "loki:ci": "storybook build -c ./config/storybook && loki --config ./config/storybook --requireReference --reactUri file:./storybook-static",
-    "prepare": "husky install"
+    "loki:ci": "storybook build -c ./config/storybook && loki --config ./config/storybook --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],
   "author": "",
