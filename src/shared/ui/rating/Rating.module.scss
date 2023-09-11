@@ -1,0 +1,9 @@
+.star {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.active {
+    fill: var(--gold);
+}

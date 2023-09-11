@@ -1,11 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryFn, StoryObj } from "@storybook/react"
 
 import ArticleDetalisPage from "./ArticleDetalisPage"
+import { MemoryRouter, Route, Routes } from "react-router-dom"
+import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
+import {
+	ArticleLabel,
+	ArticleType,
+} from "entity/ArticleDetalis/model/types/Article"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
-import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
-import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
-import { ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleDetalisPage> = {
 	title: "Pages/ArticleDetalisPage",
@@ -16,15 +19,32 @@ const meta: Meta<typeof ArticleDetalisPage> = {
 export default meta
 type Story = StoryObj<typeof ArticleDetalisPage>;
 
-export const Error: Story = {
-	args: {
-		id: 67,
-	},
+export const Pending: Story = {
 	decorators: [
-		RouterDecorator("/id=9"),
-		ThemeDecorator(Theme.darkTheme),
+		(Story: StoryFn) => (
+			<MemoryRouter initialEntries={["/9"]} basename="/">
+				<Routes>
+					<Route path="/:id" element={<Story />} />
+				</Routes>
+			</MemoryRouter>
+		),
+		ThemeDecorator(Theme.CustomTheme),
+	],
+}
+
+export const Default: Story = {
+	decorators: [
+		(Story: StoryFn) => (
+			<MemoryRouter initialEntries={["/9"]} basename="/">
+				<Routes>
+					<Route path="/:id" element={<Story />} />
+				</Routes>
+			</MemoryRouter>
+		),
+		ThemeDecorator(Theme.CustomTheme),
 		ReduxDecorator({
 			ArticleReducer: {
+				isLoading: false,
 				data: {
 					id: "1",
 					title: "Javascript news",
@@ -59,7 +79,7 @@ export const Error: Story = {
 							],
 						},
 						{
-							id:2,
+							id: 2,
 							type: ArticleType.IMAGE,
 							src: "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
 							title: "Рисунок 1 - скриншот сайта",

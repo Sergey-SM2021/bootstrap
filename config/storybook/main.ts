@@ -7,6 +7,7 @@ const config: StorybookConfig = {
 		"@storybook/addon-links",
 		"@storybook/addon-essentials",
 		"@storybook/addon-interactions",
+		"storybook-addon-mock",
 	],
 	framework: {
 		name: "@storybook/react-webpack5",
@@ -18,23 +19,23 @@ const config: StorybookConfig = {
 	webpackFinal(config, options) {
 		const webpackConfig = config
 
-		const imageRule = config.module?.rules?.find(rule => {
+		const imageRule = config.module?.rules?.find((rule) => {
 			const test = (rule as { test: RegExp }).test
-  
+
 			if (!test) {
 				return false
 			}
-  
+
 			return test.test(".svg")
 		}) as { [key: string]: any }
-  
+
 		imageRule.exclude = /\.svg$/
-  
+
 		webpackConfig.module?.rules?.push({
 			test: /\.svg$/,
-			use: ["@svgr/webpack"]
+			use: ["@svgr/webpack"],
 		})
-    
+
 		if (webpackConfig.module?.rules) {
 			webpackConfig.module.rules = [
 				...webpackConfig.module.rules,
@@ -60,11 +61,13 @@ const config: StorybookConfig = {
 
 		webpackConfig.resolve?.modules?.push("src")
 
-		webpackConfig.plugins?.push(new webpack.DefinePlugin({
-			__IS_DEV__: true,
-			__PROJECT__: JSON.stringify("storybok"),
-			__API__: JSON.stringify("path/to/api"),
-		}))
+		webpackConfig.plugins?.push(
+			new webpack.DefinePlugin({
+				__IS_DEV__: true,
+				__PROJECT__: JSON.stringify("storybok"),
+				__API__: JSON.stringify("http://localhost:4200/api/"),
+			})
+		)
 
 		return webpackConfig
 	},
