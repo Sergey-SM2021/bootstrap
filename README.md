@@ -60,7 +60,6 @@
 
 3) Скриншотные тесты на компоненты, для них я настроил loki и storybook
 
-Подробнее про тесты [здесь](/docs/tests.md) 
 Дока локи: https://loki.js.org/
 Дока storybook: https://storybook.js.org/
 
