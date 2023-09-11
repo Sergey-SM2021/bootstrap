@@ -1,1 +1,1 @@
-export { ArticleRationg } from "./ui/SendRating"
+export { SendRating } from "./ui/SendRating"
