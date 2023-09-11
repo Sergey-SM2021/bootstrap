@@ -7,15 +7,15 @@ import { useSelector } from "react-redux"
 import { isMyProfile } from "../../model/selectors/isMyProfile"
 import { Navigate, useParams } from "react-router-dom"
 import { ProfileContent } from "../ProfileContent/ProfileContent"
-import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
+import { GetRouter } from "shared/const/router"
 
 const ProfilePage = () => {
 	const ProfileId = useParams().id
-
+	
 	const isMy = useSelector(isMyProfile(Number(ProfileId)))
 
 	if (!ProfileId) {
-		return <Navigate to={RouterPaths.home} />
+		return <Navigate to={GetRouter.Home()} />
 	}
 
 	return (

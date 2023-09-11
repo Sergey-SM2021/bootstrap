@@ -6,7 +6,7 @@ import { Layout } from "shared/ui/Layout/Layout"
 import { ArticleComments } from "features/ArticleComments"
 import { ArticleDetalis } from "entity/ArticleDetalis"
 import { GetSameArticles } from "features/getSameArticles/ui/GetSameArticles"
-import { Rating } from "shared/ui/rating/Rating"
+import { RateArticle } from "features/RateArticle"
 
 const ArticleDetalisPage = memo(() => {
 	const { id } = useParams()
@@ -28,7 +28,7 @@ const ArticleDetalisPage = memo(() => {
 			</AppButton>
 			<ArticleDetalis id={Number(id)} />
 			<GetSameArticles id={id} />
-			<Rating />
+			<RateArticle  />
 			<ArticleComments id={Number(id)} />
 		</Layout>
 	)

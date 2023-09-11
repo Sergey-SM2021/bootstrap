@@ -1,9 +1,9 @@
 import { Suspense } from "react"
 import { Route, Routes } from "react-router-dom"
-import { RouterConfig } from "shared/config/routerConfig/RouterConfig"
 import { PageLoader } from "widgets/pageLoader"
 import { RouteGuard } from "./RouterGuard"
 import { ForbiddenGuard } from "./ForbiddenGuard"
+import { RouterConfig } from "../routerConfig/RouterConfig"
 
 export const RouterProvider = () => {
 	const routes = Object.values(RouterConfig)

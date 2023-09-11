@@ -3,7 +3,6 @@ import { Flex } from "shared/ui/Flex/Flex"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { MyDropdown } from "shared/ui/menu/Dropdown"
 import { Logo } from "widgets/Logo"
-import { RouterPaths } from "shared/config/routerConfig/RouterConfig"
 import { useNavigate } from "react-router-dom"
 import { logout } from "entity/user/model/slice/userSlice"
 import { useDispatch, useSelector } from "react-redux"
@@ -13,6 +12,7 @@ import * as userSelector from "entity/user/model/selector/getUser"
 import { Avatar } from "shared/ui/avatar/avatar"
 import { Role } from "entity/user/model/const/user"
 import { Notifications } from "features/notifications/ui/notifications"
+import { GetRouter } from "shared/const/router"
 
 export const Auth = memo(() => {
 	const nav = useNavigate()
@@ -23,11 +23,11 @@ export const Auth = memo(() => {
 	const userRole = useSelector(userSelector.getUserRole)
 
 	const handlerCreatePost = useCallback(() => {
-		nav(RouterPaths.article_create)
+		nav(GetRouter.NewArticle())
 	}, [nav])
 
 	const handlerNavgate = useCallback(() => {
-		nav(`${RouterPaths.profile}${currrentUserId}`)
+		nav(GetRouter.Profile(currrentUserId as string))
 	}, [nav, currrentUserId])
 
 	const handlerAnalyticsNavgate = useCallback(() => {

@@ -9,41 +9,16 @@ import { MainPage } from "pages/MainPage"
 import { NotFoundPage } from "pages/NotFoundPage/ui/NotFoundPage"
 import { ProfilePage } from "pages/ProfilePage"
 import { RouteProps } from "react-router-dom"
+import { GetRouter, RouterPages } from "shared/const/router"
 
 type RoutePropsType = RouteProps & {
   isPrivate: boolean;
   role: Role[];
 };
 
-enum RouterPages {
-  HOME = "home",
-  ABOUT = "about",
-  NOT_FOUND = "not_found",
-  PROFILE = "profile",
-  ARTICLES = "articles",
-  ARTICLE_DETALIS = "article_detalis",
-  ARTICLE_CREATE = "article_create",
-  ARTICLE_EDIT = "article_edit",
-  ANALYTICS = "analytics",
-  FORBIDDEN = "forbidden",
-}
-
-export const RouterPaths: Record<RouterPages, string> = {
-	about: "/about",
-	home: "/",
-	not_found: "*",
-	profile: "/profile/",
-	articles: "/articles",
-	article_detalis: "/article/",
-	article_create: "/article/new",
-	article_edit: "/article/:id/edit",
-	analytics: "/analytics",
-	forbidden: "/forbidden",
-}
-
 export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 	about: {
-		path: RouterPaths.about,
+		path: GetRouter.About(),
 		element: <AboutPage />,
 		isPrivate: false,
 		role: [Role.user, Role.admin],
@@ -51,55 +26,55 @@ export const RouterConfig: Record<RouterPages, RoutePropsType> = {
 	home: {
 		isPrivate: false,
 		element: <MainPage />,
-		path: RouterPaths.home,
+		path: GetRouter.Home(),
 		role: [Role.user, Role.admin],
 	},
 	not_found: {
 		isPrivate: false,
 		element: <NotFoundPage />,
-		path: RouterPaths.not_found,
+		path: GetRouter.NotFound(),
 		role: [Role.user, Role.admin],
 	},
 	profile: {
 		isPrivate: true,
 		element: <ProfilePage />,
-		path: `${RouterPaths.profile}:id`,
+		path: GetRouter.Profile(":id"),
 		role: [Role.user, Role.admin],
 	},
 	articles: {
 		isPrivate: true,
 		element: <ArticlesPage />,
-		path: RouterPaths.articles,
+		path: GetRouter.Articles(),
 		role: [Role.user, Role.admin],
 	},
 	article_detalis: {
 		isPrivate: true,
 		element: <ArticlePageAsync />,
-		path: `${RouterPaths.article_detalis}:id`,
+		path: GetRouter.ArticleDetalis(":id"),
 		role: [Role.user, Role.admin],
 	},
 	article_create: {
 		isPrivate: true,
 		element: <CreateArticle />,
-		path: RouterPaths.article_create,
+		path: GetRouter.NewArticle(),
 		role: [Role.user, Role.admin],
 	},
 	article_edit: {
 		isPrivate: true,
 		element: <CreateArticle />,
-		path: RouterPaths.article_edit,
+		path: GetRouter.EditArticle(":id"),
 		role: [Role.user, Role.admin],
 	},
 	analytics: {
 		role: [Role.admin],
 		isPrivate: true,
 		element: <Analytics />,
-		path: RouterPaths.analytics,
+		path: GetRouter.Analytics(),
 	},
 	forbidden: {
 		role: [Role.user, Role.admin],
 		isPrivate: false,
 		element: <ForbiddenPage />,
-		path: RouterPaths.forbidden,
+		path: GetRouter.Forbidden(),
 	},
 }
