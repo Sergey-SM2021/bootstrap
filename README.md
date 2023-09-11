@@ -32,9 +32,7 @@
 
 Проект построен в соответствии с методологией feature-slice-design(FSD)
 
-Подробнее можешь прочитать здесь 
-
-https://feature-sliced.design/ru/docs/get-started/overview
+Подробнее можешь прочитать здесь - [feature-slice-design](https://feature-sliced.design/ru/docs/get-started/overview) 
 
 ---
 
@@ -112,11 +110,11 @@ https://feature-sliced.design/ru/docs/get-started/overview
 
 ## Стили
 
-Для стилизации я настроил scss и scss module
+В проекте присутствует три темы: 
 
----
-
-## Стили
+- Светлая
+- Темная
+- и кастомная
 
 Для стилизации я настроил scss и scss module
 
