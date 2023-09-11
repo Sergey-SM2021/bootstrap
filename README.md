@@ -119,3 +119,13 @@
 Для стилизации я настроил scss и scss module
 
 ---
+
+## Сущности
+
+- [Article Item](/src/entity/Article/ui/ArticleItem/README.md)
+
+- [Article List](/src/entity/Article/ui/ArticleList/README.md)
+
+---
+
+## Фичи
