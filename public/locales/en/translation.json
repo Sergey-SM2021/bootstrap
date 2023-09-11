@@ -39,5 +39,9 @@
   "sort by": "Sort by",
   "create post": "Create post",
   "create article": "Create article",
-  "articles not found": "all articles in viewport"
+  "articles not found": "all articles in viewport",
+  "Rate this article": "Rate this article",
+  "rate": "Cast a vote",
+  "send": "Send message",
+  "add comment": "Add comment"
 }
