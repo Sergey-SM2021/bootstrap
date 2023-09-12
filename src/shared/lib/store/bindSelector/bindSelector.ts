@@ -14,5 +14,5 @@ export function bindSelector<T>(selector: SelectorType<T>) {
 		return useSelector(selector)
 	}
 
-	return [useSelectorHook, selector]
+	return [useSelectorHook]
 }
