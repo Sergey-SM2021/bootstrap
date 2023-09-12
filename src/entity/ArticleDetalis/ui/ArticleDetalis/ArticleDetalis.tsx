@@ -1,6 +1,5 @@
 import { ArticleReducer } from "../../model/slice/Article"
 import { memo, useEffect } from "react"
-import { useSelector } from "react-redux"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import clx from "./Article.module.scss"
@@ -37,9 +36,9 @@ const renderArticleBlock = (articleBlock: ArticleBlock) => {
 export const ArticleDetalis = memo(({ id }: ArticleProps) => {
 	const dispatch = useAppDispatch()
 	const { t } = useTranslation()
-	const article = useSelector(getArticleDetalisData)
-	const error = useSelector(getArticleDetalisError)
-	const isLoading = useSelector(getArticleDetalisIsLoading)
+	const article = getArticleDetalisData()
+	const error = getArticleDetalisError()
+	const isLoading = getArticleDetalisIsLoading()
 
 	useEffect(() => {
 		if (__PROJECT__ === "frontend") {
