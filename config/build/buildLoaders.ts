@@ -14,6 +14,9 @@ export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 		exclude: /node_modules/,
 		use: {
 			loader: "babel-loader",
+			options: {
+				cacheDirectory: true,
+			},
 		},
 	}
 

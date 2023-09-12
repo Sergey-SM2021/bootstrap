@@ -25,6 +25,6 @@ export function BuildWebpackConfig(
 		},
 		resolve: BuildResolve(BuildOptions),
 		devServer: isDev ? BuildDevServer(BuildOptions) : undefined,
-		devtool: isDev ? "inline-source-map" : undefined,
+		devtool: isDev ? "eval-cheap-source-map" : undefined,
 	}
 }

@@ -8,13 +8,14 @@
     "eslint": "eslint src/** --fix",
     "start": "webpack serve --env PORT=8081 API=http://localhost:4200/api/",
     "build:prod": "webpack --env MODE=production API=http://localhost:4200/api/",
-    "build:dev": "webpack --env MODE=development",
+    "build:dev": "webpack --env MODE=development API=http://localhost:4200/api/",
     "stylelint": "stylelint **/*.scss --fix",
     "test": "jest",
     "test:loki": "yarn loki --config ./config/storybook test",
     "loki:approve": "yarn loki --config ./config/storybook approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "loki:ci": "storybook build -c ./config/storybook && loki --config ./config/storybook --requireReference --reactUri file:./storybook-static"
+    "loki:ci": "storybook build -c ./config/storybook && loki --config ./config/storybook --requireReference --reactUri file:./storybook-static",
+    "postinstall": "rm -rf node_modules/.cache"
   },
   "keywords": [],
   "author": "",

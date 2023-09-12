@@ -15,10 +15,6 @@ export function buildPlugins({
 		new HtmlWebpackPlugin({
 			template: paths.html,
 		}),
-		new MiniCssExtractPlugin({
-			filename: "css/[name].[contenthash:8].css",
-			chunkFilename: "css/[name].[contenthash:8].css",
-		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: isDev,
 			__PROJECT__: JSON.stringify("frontend"),
@@ -28,6 +24,10 @@ export function buildPlugins({
 	if (isDev) {
 		return [
 			...plugins,
+			new MiniCssExtractPlugin({
+				filename: "css/[name].[contenthash:8].css",
+				chunkFilename: "css/[name].[contenthash:8].css",
+			}),
 			new webpack.ProgressPlugin(),
 			new BundleAnalyzerPlugin(),
 			new webpack.HotModuleReplacementPlugin(),
