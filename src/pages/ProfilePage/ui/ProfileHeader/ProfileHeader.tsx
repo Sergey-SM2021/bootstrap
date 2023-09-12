@@ -7,12 +7,9 @@ import { selectReadOnly } from "../../model/selectors/ProfilePageSelectors"
 import { selectProfileValidateErrors } from "../../model/selectors/ProfilePageSelectors"
 import { selectError } from "../../model/selectors/ProfilePageSelectors"
 import { memo, useCallback } from "react"
-import {
-	cancleEdit,
-	toggleReadOnly,
-} from "pages/ProfilePage/model/slice/profileSlice/profileSlice"
 import { updateProfile } from "pages/ProfilePage/model/services/updateProfile/updateProfile"
 import { Flex } from "shared/ui/Flex/Flex"
+import { useActions } from "pages/ProfilePage/model/slice/profileSlice/profileSlice"
 
 export const ProfileHeader = memo(() => {
 	const { t } = useTranslation()
@@ -20,19 +17,20 @@ export const ProfileHeader = memo(() => {
 	const edit = useSelector(selectReadOnly)
 	const errors = useSelector(selectProfileValidateErrors)
 	const isProfileReceived = useSelector(selectError)
+	const { cancleEdit, toggleReadOnly } = useActions()
 
 	const handlerCancle = useCallback(() => {
-		dispatch(toggleReadOnly())
-		dispatch(cancleEdit())
-	}, [dispatch])
+		toggleReadOnly()
+		cancleEdit()
+	}, [toggleReadOnly, cancleEdit])
 
 	const handlerSave = useCallback(async () => {
 		dispatch(updateProfile())
 	}, [dispatch])
 
 	const handlerEditProfile = useCallback(() => {
-		dispatch(toggleReadOnly())
-	}, [dispatch])
+		toggleReadOnly()
+	}, [toggleReadOnly])
 
 	return (
 		<Flex justify="space-between" align="center">

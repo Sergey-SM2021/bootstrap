@@ -1,9 +1,10 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { PayloadAction } from "@reduxjs/toolkit"
 import { ProfileSchema } from "../../types/ProfileSchema"
 import { getProfile } from "../../services/getProfile/getProfile"
 import { Country, Currency } from "shared/const/common"
 import { updateProfile } from "../../services/updateProfile/updateProfile"
 import { Citys } from "entity/City/model/types/CitySchema"
+import { buildSlice } from "shared/lib/store/buildSlice/buildSlice"
 
 const initialState: ProfileSchema = {
 	error: "",
@@ -32,7 +33,7 @@ const initialState: ProfileSchema = {
 	isLoading: false,
 }
 
-const profileSlice = createSlice({
+const profileSlice = buildSlice({
 	initialState,
 	name: "profile",
 	reducers: {
@@ -80,7 +81,8 @@ const profileSlice = createSlice({
 	},
 })
 
+export const { useActions } = profileSlice
 export const {
-	reducer: ProfileReducer,
 	actions: { editProfile, toggleReadOnly, cancleEdit },
+	reducer: ProfileReducer,
 } = profileSlice
