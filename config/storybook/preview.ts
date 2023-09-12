@@ -10,8 +10,16 @@ const preview: Preview = {
 				date: /Date$/,
 			},
 		},
+		themes: {
+			default: "light",
+			list: [
+				{ name: "light", class: "light-theme", color: "#fff" },
+				{ name: "dark", class: "dark-theme", color: "#000" },
+				{ name: "custom", class: "custom-theme", color: "#3b5998" },
+			],
+		},
 	},
-	decorators: [CssDecorator ],
+	decorators: [CssDecorator],
 }
 
 export default preview

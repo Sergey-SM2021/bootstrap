@@ -7,7 +7,7 @@ import img from "shared/assets/assasyn.jpg"
 import { ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleItem> = {
-	title: "Entity/ArticleItem",
+	title: "Entity/Article/ArticleItem",
 	component: ArticleItem,
 	tags: ["autodocs"],
 }
@@ -29,7 +29,7 @@ export const Small: Story = {
 		title: "Assasyn creed valhalla",
 		views: 210,
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [RouterDecorator()],
 }
 
 export const Big: Story = {
@@ -63,5 +63,5 @@ export const Big: Story = {
 			id: 12,
 		},
 	},
-	decorators: [RouterDecorator(), ThemeDecorator(Theme.darkTheme)],
+	decorators: [RouterDecorator()],
 }

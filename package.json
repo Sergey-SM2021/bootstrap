@@ -96,6 +96,7 @@
     "react-virtuoso": "^4.5.0",
     "reg-cli": "^0.17.7",
     "storybook-addon-mock": "^4.2.1",
+    "storybook-addon-themes": "^6.1.0",
     "style-loader": "^3.3.3",
     "webpack-bundle-analyzer": "^4.9.0"
   },

@@ -11,7 +11,7 @@ import {
 } from "entity/ArticleDetalis/model/types/Article"
 
 const meta: Meta<typeof ArticleList> = {
-	title: "Entity/ArticleList",
+	title: "Entity/Article/ArticleList",
 	component: ArticleList,
 	tags: ["autodocs"],
 }
