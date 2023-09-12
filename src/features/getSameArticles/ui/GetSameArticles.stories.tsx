@@ -1,9 +1,9 @@
 import type { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { GetSameArticles } from "./GetSameArticles"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
+import { GetSameArticles } from "./GetSameArticles.async"
 import {
 	ArticleLabel,
 	ArticleType,

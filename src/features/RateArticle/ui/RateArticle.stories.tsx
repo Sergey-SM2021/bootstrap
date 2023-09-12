@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { RateArticle } from "./RateArticle"
+import { RateArticle } from "./RateArticle.async"
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
