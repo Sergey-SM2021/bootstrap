@@ -1,1 +1,1 @@
-export { ArticleComments } from "./ui/ArticleComments"
+export { ArticleComments } from "./ui/ArticleComments.async"

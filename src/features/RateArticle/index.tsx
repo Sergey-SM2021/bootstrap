@@ -1,1 +1,1 @@
-export { RateArticle } from "./ui/RateArticle"
+export { RateArticle } from "./ui/RateArticle.async"

@@ -7,7 +7,7 @@ interface GetSameArticlesProps {
   id: string;
 }
 
-export const GetSameArticles = ({ id }: GetSameArticlesProps) => {
+const GetSameArticles = ({ id }: GetSameArticlesProps) => {
 	const { t } = useTranslation()
 	const { data, isLoading } = useGetSameArticlesQuery(9)
 
@@ -18,3 +18,5 @@ export const GetSameArticles = ({ id }: GetSameArticlesProps) => {
 		</>
 	)
 }
+
+export default GetSameArticles

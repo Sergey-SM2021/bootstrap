@@ -2,7 +2,7 @@ import { memo, useCallback } from "react"
 import { SendRating } from "entity/SendRating"
 import { useRateArticleMutation } from "../model/api/RateArticle"
 
-export const RateArticle = memo(() => {
+const RateArticle = memo(() => {
 	const [rateArticle] = useRateArticleMutation()
 
 	const handlerRate = useCallback(
@@ -18,3 +18,5 @@ export const RateArticle = memo(() => {
 		</div>
 	)
 })
+
+export default RateArticle

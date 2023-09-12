@@ -49,3 +49,5 @@ export const ArticleComments = memo((props: ArticleCommentsProps) => {
 		</AsyncComponent>
 	)
 })
+
+export default ArticleComments
