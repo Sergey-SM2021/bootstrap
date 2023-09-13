@@ -31,7 +31,7 @@ export default {
 		"\\.svg": "<rootDir>/__mocks__/svg.ts",
 	},
 
-	setupFilesAfterEnv: ["<rootDir>/setupTest.ts"],
+	setupFilesAfterEnv: ["@testing-library/jest-dom", "./jest.setup.ts"],
 
 	reporters: [
 		"default",
