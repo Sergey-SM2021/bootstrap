@@ -4,6 +4,7 @@ export default {
 	globals: {
 		__IS_DEV__: true,
 		__API__: "path/to/backend",
+		__PROJECT__: "jest",
 	},
 
 	moduleDirectories: ["node_modules", "src"],

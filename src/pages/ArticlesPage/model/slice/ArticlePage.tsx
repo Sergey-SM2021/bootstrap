@@ -60,9 +60,13 @@ const ArticlePageSlice = createSlice({
 			.addCase(getArticles.fulfilled, (state, payload) => {
 				state.isLoading = false
 				if (payload.meta.arg.reset) {
-					articleAdapter.setAll(state.articles, payload.payload.articles)
+					if (payload.payload.articles) {
+						articleAdapter.setAll(state.articles, payload.payload.articles)
+					}
 				} else {
-					articleAdapter.addMany(state.articles, payload.payload.articles)
+					if (payload.payload.articles) {
+						articleAdapter.addMany(state.articles, payload.payload.articles)
+					}
 				}
 			})
 			.addCase(getArticles.rejected, (state) => {

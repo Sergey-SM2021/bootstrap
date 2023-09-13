@@ -11,7 +11,7 @@ import { GetRouter } from "shared/const/router"
 
 const ProfilePage = () => {
 	const ProfileId = useParams().id
-	
+
 	const isMy = useSelector(isMyProfile(Number(ProfileId)))
 
 	if (!ProfileId) {
@@ -20,7 +20,7 @@ const ProfilePage = () => {
 
 	return (
 		<AsyncComponent reducer={ProfileReducer} reducerName="profile">
-			<Layout>
+			<Layout DataTestid={"profile"}>
 				<Flex direction="column" gap={16}>
 					{isMy ? <ProfileHeader /> : null}
 					<ProfileContent />

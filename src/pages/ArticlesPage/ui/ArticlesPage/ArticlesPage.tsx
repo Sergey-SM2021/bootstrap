@@ -25,7 +25,7 @@ const ArticlesPage = memo(() => {
 			reducer={ArticlePageReducer}
 			reducerName="ArticlesPageReducer"
 		>
-			<Flex direction="column" gap={16} className={clx.content}>
+			<Flex direction="column" gap={16} className={clx.content} data-testid={"ArticlesPage"}>
 				<Filters />
 				<ArticlesScroll />
 			</Flex>

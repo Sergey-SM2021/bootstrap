@@ -23,7 +23,7 @@ const ArticleDetalisPage = memo(() => {
 	}
 
 	return (
-		<Layout>
+		<Layout DataTestid="article-detalis-page" >
 			<AppButton theme={AppButtonTheme.primary} onClick={handlerBack}>
 				{t("back")}
 			</AppButton>
