@@ -16,3 +16,13 @@ $api.interceptors.request.use((config) => {
 	config.headers.Authorization = `Bearer ${getToken()}`
 	return config
 })
+
+$api.interceptors.response.use(
+	(res) => res,
+	(error) => {
+		if (error.response.status === 401) {
+			localStorage.removeItem(USER_LOCALSTORAGE_NAME)
+			location.reload()
+		}
+	}
+)
