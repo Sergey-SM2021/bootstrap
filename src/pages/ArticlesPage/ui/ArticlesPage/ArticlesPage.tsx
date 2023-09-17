@@ -4,10 +4,8 @@ import { Filters } from "../filters/filters"
 import { Flex } from "shared/ui/Flex/Flex"
 import { useSearchParams } from "react-router-dom"
 import clx from "./ArticlesPage.module.scss"
-import {
-	ArticlePageReducer,
-} from "pages/ArticlesPage/model/slice/ArticlePage"
-import { InitSearchParams } from "pages/ArticlesPage/model/services/InitSearchParams"
+import { InitSearchParams } from "pages/ArticlesPage"
+import { ArticlePageReducer } from "pages/ArticlesPage"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { ArticlesScroll } from "../ArticlesScroll/ArticlesScroll"
 

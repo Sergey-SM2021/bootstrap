@@ -9,13 +9,8 @@ import {
 	setPassword,
 } from "../../model/slice/loginSlice"
 import { memo, useCallback } from "react"
-import { login_action } from "features/login/model/services/loginService"
-import {
-	LoginFormErrorSelector,
-	LoginFormIsLoadingSelector,
-	LoginFormLoginSelector,
-	LoginFormPasswordSelector,
-} from "features/login/model/selectors/loginSelector"
+import { login_action } from "features/login"
+import { loginSelector } from "features/login"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { Flex } from "shared/ui/Flex/Flex"
@@ -27,10 +22,10 @@ interface FormProps {
 const Form = memo(({ onSuccess }: FormProps) => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
-	const password = useSelector(LoginFormPasswordSelector)
-	const error = useSelector(LoginFormErrorSelector)
-	const isLoading = useSelector(LoginFormIsLoadingSelector)
-	const login = useSelector(LoginFormLoginSelector)
+	const password = useSelector(loginSelector.LoginFormPasswordSelector)
+	const error = useSelector(loginSelector.LoginFormErrorSelector)
+	const isLoading = useSelector(loginSelector.LoginFormIsLoadingSelector)
+	const login = useSelector(loginSelector.LoginFormLoginSelector)
 
 	const onChangeLogin = useCallback(
 		(value: string) => {

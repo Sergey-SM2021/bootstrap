@@ -1,4 +1,4 @@
-import { getUser } from "entity/user/model/selector/getUser"
+import { getUser } from "entity/user"
 import { PropsWithChildren } from "react"
 import { useSelector } from "react-redux"
 import { Navigate } from "react-router-dom"

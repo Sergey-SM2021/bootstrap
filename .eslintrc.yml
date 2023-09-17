@@ -16,7 +16,10 @@ plugins:
   - react
   - i18next
   - "@typescript-eslint"
+  - "react-combo-plugin-v4"
 rules:
+  "react-combo-plugin-v4/fsd-import-mast-be-from-index":
+    - error
   "react-hooks/rules-of-hooks":
     - error
   "react-hooks/exhaustive-deps":

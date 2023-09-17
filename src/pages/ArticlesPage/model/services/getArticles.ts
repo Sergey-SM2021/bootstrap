@@ -1,9 +1,14 @@
 import { $api } from "shared/api/api"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
-import { getSearch, getSortBy, getStrategy, getTags } from "../selectors/ArticlePageSelectors"
+import {
+	getSearch,
+	getSortBy,
+	getStrategy,
+	getTags,
+} from "../selectors/ArticlePageSelectors"
 import { incrementPage } from "../slice/ArticlePage"
-import { Article } from "entity/ArticleDetalis/model/types/Article"
+import { ArticleType } from "entity/ArticleDetalis"
 
 interface Params {
   page: number;
@@ -11,7 +16,7 @@ interface Params {
 }
 
 interface getArticlesRes {
-  articles: Array<Article>;
+  articles: Array<ArticleType>;
   hasMore: boolean;
 }
 
@@ -32,7 +37,8 @@ export const getArticles = createAsyncThunk<
 	window.history.pushState(undefined, "", path)
 
 	try {
-		const responce = (await extra.api.get(`${path}&page=${page}&limit=10`)).data
+		const responce = (await extra.api.get(`${path}&page=${page}&limit=10`))
+			.data
 		dispatch(incrementPage())
 		return responce
 	} catch (error) {

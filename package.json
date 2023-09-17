@@ -2,6 +2,7 @@
   "name": "bootstrap",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "html-report": "reg-cli ./.loki/current ./.loki/reference ./.loki/difference -R ./report.html",
@@ -51,6 +52,7 @@
     "eslint": "^8.44.0",
     "eslint-plugin-i18next": "^6.0.3",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-combo-plugin-v4": "0.0.4",
     "eslint-plugin-storybook": "^0.6.12",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "generate-react-cli": "^8.3.0",

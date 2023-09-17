@@ -4,14 +4,14 @@ import { useTranslation } from "react-i18next"
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso"
 import clx from "./ArticleList.module.scss"
 import {
-	Article,
 	ArticleLabel,
-} from "entity/ArticleDetalis/model/types/Article"
+	ArticleType
+} from "entity/ArticleDetalis"
 import { ArticleItemSkeleton } from "../ArticleItem/ArticleItemSkeleton"
 import { ArticleItem } from "../ArticleItem/ArticleItem"
 
 interface ArticleListProps {
-  articles: Article[];
+  articles: ArticleType[];
   mode: "big" | "small";
   isLoading: boolean;
   className?: string;

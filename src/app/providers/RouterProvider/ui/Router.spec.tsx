@@ -1,7 +1,7 @@
 import { ComponentRender } from "shared/config/test"
 import { RouterProvider } from "./RouterProvider"
 import { render, waitFor } from "@testing-library/react"
-import { Role } from "entity/user/model/const/user"
+import { Role } from "entity/user"
 import { $api } from "shared/api/api"
 import { GetRouter } from "shared/const/router"
 

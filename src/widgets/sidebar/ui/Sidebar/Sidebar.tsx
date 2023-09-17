@@ -8,7 +8,7 @@ import { AppButtonSize } from "shared/ui/appButton/ui/appButton"
 import { useTranslation } from "react-i18next"
 import { SidebarItem } from "../SidebarItem/SidebarItem"
 import { useSelector } from "react-redux"
-import { LinksSelector } from "widgets/sidebar/model/selectors/linksSelector"
+import { LinksSelector } from "../../model/selectors/linksSelector"
 import { Flex } from "shared/ui/Flex/Flex"
 
 export const Sidebar = () => {

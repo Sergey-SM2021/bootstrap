@@ -1,24 +1,19 @@
-import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
-import {
-	getHasMore,
-	getIsLoading,
-	getPage,
-	getView,
-} from "pages/ArticlesPage/model/selectors/ArticlePageSelectors"
-import { getArticles } from "pages/ArticlesPage/model/services/getArticles"
-import { articlesSelectors } from "pages/ArticlesPage/model/slice/ArticlePage"
+import { ArticleList } from "entity/Article"
+import { articlePageSelectors } from "pages/ArticlesPage"
+import { getArticles } from "pages/ArticlesPage"
+import { articlesSelectors } from "../../model/slice/ArticlePage"
 import { useCallback, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import clx from "./ArticlesPage.module.scss"
 
 export const ArticlesScroll = () => {
-	const hasMore = useSelector(getHasMore)
+	const hasMore = useSelector(articlePageSelectors.getHasMore)
 	const articles = useSelector(articlesSelectors.selectAll)
-	const isLoading = useSelector(getIsLoading)
+	const isLoading = useSelector(articlePageSelectors.getIsLoading)
 	const dispatch = useAppDispatch()
-	const page = useSelector(getPage)
-	const view = useSelector(getView)
+	const page = useSelector(articlePageSelectors.getPage)
+	const view = useSelector(articlePageSelectors.getView)
 
 	const onIntersecting = useCallback(() => {
 		setTimeout(async () => {

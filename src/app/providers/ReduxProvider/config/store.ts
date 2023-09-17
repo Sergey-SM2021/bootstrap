@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { StoreSchema } from "./StoreSchema"
-import { counterSliceReducer } from "entity/counter/model/slice/counterSlice"
 import { userSliceReducer } from "entity/user"
 import { $api } from "shared/api/api"
 import { SaveScrollReducer } from "features/SaveScroll"
@@ -8,7 +7,6 @@ import { TagSliceReducer } from "entity/Tag"
 import { rtkApi } from "shared/api/rtk"
 
 const staticReducers = {
-	counter: counterSliceReducer,
 	user: userSliceReducer,
 	scroll: SaveScrollReducer,
 	tags: TagSliceReducer,
@@ -26,7 +24,6 @@ function createReducer(asyncReducers) {
 export const createStore = (preloadedState?: DeepPartial<StoreSchema>) => {
 	const store = configureStore({
 		reducer: {
-			counter: counterSliceReducer,
 			user: userSliceReducer,
 			scroll: SaveScrollReducer,
 			tags: TagSliceReducer,

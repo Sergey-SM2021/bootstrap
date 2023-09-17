@@ -1,9 +1,9 @@
-import About from "widgets/sidebar/assets/Description.svg"
-import Home from "widgets/sidebar/assets/Home.svg"
-import Profile from "widgets/sidebar/assets/Profile.svg"
-import Article from "widgets/sidebar/assets/Article.svg"
+import About from "../../assets/Description.svg"
+import Home from "../../assets/Home.svg"
+import Profile from "../../assets/Profile.svg"
+import Article from "../../assets/Article.svg"
 import { createSelector } from "@reduxjs/toolkit"
-import { getUserId } from "entity/user/model/selector/getUser"
+import { getUserId } from "entity/user"
 import { GetRouter } from "shared/const/router"
 
 export const LinksSelector = createSelector(

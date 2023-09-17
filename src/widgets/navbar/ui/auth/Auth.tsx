@@ -4,23 +4,21 @@ import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { MyDropdown } from "shared/ui/menu/Dropdown"
 import { Logo } from "widgets/Logo"
 import { useNavigate } from "react-router-dom"
-import { logout } from "entity/user/model/slice/userSlice"
+import { actions, userSelectors, Role } from "entity/user"
+import { Notifications } from "features/notifications"
+import { Avatar } from "shared/ui/avatar/avatar"
 import { useDispatch, useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 import clx from "../../style/navbar.module.scss"
-import * as userSelector from "entity/user/model/selector/getUser"
-import { Avatar } from "shared/ui/avatar/avatar"
-import { Role } from "entity/user/model/const/user"
-import { Notifications } from "features/notifications/ui/notifications"
 import { GetRouter } from "shared/const/router"
 
 export const Auth = memo(() => {
 	const nav = useNavigate()
 	const dispatch = useDispatch()
 	const { t } = useTranslation()
-	const currrentUserId = useSelector(userSelector.getUserId)
-	const userAvatar = useSelector(userSelector.getUserAvatar)
-	const userRole = useSelector(userSelector.getUserRole)
+	const currrentUserId = useSelector(userSelectors.getUserId)
+	const userAvatar = useSelector(userSelectors.getUserAvatar)
+	const userRole = useSelector(userSelectors.getUserRole)
 
 	const handlerCreatePost = useCallback(() => {
 		nav(GetRouter.NewArticle())
@@ -35,7 +33,7 @@ export const Auth = memo(() => {
 	}, [nav])
 
 	const logoutHandler = useCallback(async () => {
-		dispatch(logout())
+		dispatch(actions.logout())
 	}, [dispatch])
 
 	const links = useMemo(

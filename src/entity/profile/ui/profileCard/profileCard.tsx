@@ -7,9 +7,9 @@ import { Avatar } from "shared/ui/avatar/avatar"
 import { Option, Select } from "shared/ui/menu/Select"
 import { City } from "entity/City"
 import { classNames } from "shared/lib/helpers/classNames/classNames"
-import { Citys } from "entity/City/model/types/CitySchema"
+import { Citys } from "entity/City"
 import { memo } from "react"
-import { Profile } from "pages/ProfilePage/model/types/ProfileSchema"
+import { Profile } from "pages/ProfilePage"
 
 interface ProfileCardProps {
   profile: Partial<Profile>;

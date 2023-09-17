@@ -7097,6 +7097,7 @@ __metadata:
     eslint-plugin-i18n: "npm:^2.1.0"
     eslint-plugin-i18next: "npm:^6.0.3"
     eslint-plugin-react: "npm:^7.32.2"
+    eslint-plugin-react-combo-plugin-v4: "npm:0.0.4"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-storybook: "npm:^0.6.12"
     fork-ts-checker-webpack-plugin: "npm:^8.0.0"
@@ -9513,6 +9514,17 @@ __metadata:
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
   checksum: ec705741c110cd1cb4d702776e1c7f7fe60b671b71f706c88054ab443cf2767aae5a663928fb426373ba1095eaeda312a740a4f880546631f0e0727f298b3393
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-react-combo-plugin-v4@npm:0.0.4":
+  version: 0.0.4
+  resolution: "eslint-plugin-react-combo-plugin-v4@npm:0.0.4"
+  dependencies:
+    requireindex: "npm:^1.2.0"
+  peerDependencies:
+    eslint: ">=7"
+  checksum: e968bfa1c6d5912d1ccf03093771c11af865cff1f08de36794f1a53f05d6c010b6cf98d2f1abb7ec54765e96da998d00ab243d6344cf8b5eba8a5ddc95c86401
   languageName: node
   linkType: hard
 
@@ -16214,7 +16226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"requireindex@npm:^1.1.0":
+"requireindex@npm:^1.1.0, requireindex@npm:^1.2.0":
   version: 1.2.0
   resolution: "requireindex@npm:1.2.0"
   checksum: 7fb42aed73bf8de9acc4d6716cf07acc7fbe180e58729433bafcf702e76e7bb10e54f8266c06bfec62d752e0ac14d50e8758833de539e6f4e2cd642077866153

@@ -4,11 +4,7 @@ import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorato
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
 import img from "shared/assets/assasyn.jpg"
-import {
-	ArticleBlock,
-	ArticleLabel,
-	ArticleType,
-} from "entity/ArticleDetalis/model/types/Article"
+import { ArticleBlock, ArticleLabel, ArticleMode } from "entity/ArticleDetalis"
 
 const meta: Meta<typeof ArticleList> = {
 	title: "Entity/Article/ArticleList",
@@ -39,7 +35,7 @@ const articles = new Array(10).fill({
 	blocks: [
     {
     	id: 1,
-    	type: ArticleType.TEXT,
+    	type: ArticleMode.TEXT,
     	title: "Заголовок этого блока",
     	paragraphs: [
     		"Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",

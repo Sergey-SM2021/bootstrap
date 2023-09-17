@@ -1,1 +1,8 @@
 export { ProfilePage } from "./ui/ProfilePage/ProfilePage.async"
+export { ProfileReducer } from "./model/slice/profileSlice/profileSlice"
+export * as ProfilePageSelectors from "./model/selectors/ProfilePageSelectors"
+export * as isMyProfileSelectors from "./model/selectors/isMyProfile"
+export { getProfile } from "./model/services/getProfile/getProfile"
+export { actions } from "./model/slice/profileSlice/profileSlice"
+export type { Profile } from "./model/types/ProfileSchema"
+export type { ProfileSchema } from "./model/types/ProfileSchema"

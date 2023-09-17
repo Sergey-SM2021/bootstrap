@@ -1,4 +1,4 @@
-import { Role } from "entity/user/model/const/user"
+import { Role } from "entity/user"
 
 export interface loginParams {
   login: string;

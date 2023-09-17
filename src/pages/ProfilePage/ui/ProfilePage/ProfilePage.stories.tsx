@@ -4,7 +4,7 @@ import { RouterDecorator } from "shared/config/storybook/decorators/routerDecora
 import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
 import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import { ReduxDecorator } from "shared/config/storybook/decorators/reduxDecorator"
-import { Citys } from "entity/City/model/types/CitySchema"
+import { Citys } from "entity/City"
 import { Country, Currency } from "shared/const/common"
 
 const meta: Meta<typeof ProfilePage> = {

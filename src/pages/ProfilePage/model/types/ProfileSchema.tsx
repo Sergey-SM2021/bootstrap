@@ -1,5 +1,5 @@
 import { Country, Currency } from "shared/const/common"
-import { Citys } from "entity/City/model/types/CitySchema"
+import { Citys } from "entity/City"
 
 export interface Profile {
   name: string;

@@ -1,4 +1,4 @@
-import { Profile } from "pages/ProfilePage/model/types/ProfileSchema"
+import { Profile } from "pages/ProfilePage"
 
 export interface Comment {
     id: string 

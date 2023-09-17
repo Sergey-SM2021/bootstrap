@@ -10,9 +10,9 @@ import {
 	StrategyType,
 } from "../types/articleSchema"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
-import { Article } from "entity/ArticleDetalis/model/types/Article"
+import { ArticleType } from "entity/ArticleDetalis"
 
-const articleAdapter = createEntityAdapter<Article>()
+const articleAdapter = createEntityAdapter<ArticleType>()
 
 const initialState: ArticlePageSchema = {
 	isLoading: false,

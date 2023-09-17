@@ -4,12 +4,12 @@ import {
 	createSlice,
 } from "@reduxjs/toolkit"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
-import { Comment } from "entity/Comment/model/types/Comment"
+import { CommentType } from "entity/Comment"
 import { getComments } from "../services/getComment/getComments"
 import { CreateCommentAsync } from "../services/createComment/createComment"
 import { ArticleCommentsSchema } from "../types/ArticleCommentsSchema"
 
-export const commentsAdapter = createEntityAdapter<Comment>()
+export const commentsAdapter = createEntityAdapter<CommentType>()
 
 const initialState: ArticleCommentsSchema = {
 	isLoading: false,
@@ -27,7 +27,7 @@ const Comments = createSlice({
 	extraReducers(builder) {
 		builder.addCase(
 			getComments.fulfilled,
-			(state, action: PayloadAction<Comment[]>) => {
+			(state, action: PayloadAction<CommentType[]>) => {
 				commentsAdapter.removeAll(state.comments)
 				commentsAdapter.setMany(state.comments, action.payload)
 				state.isLoading = false
@@ -42,7 +42,7 @@ const Comments = createSlice({
 		})
 		builder.addCase(
 			CreateCommentAsync.fulfilled,
-			(state, action: PayloadAction<Comment>) => {
+			(state, action: PayloadAction<CommentType>) => {
 				commentsAdapter.addOne(state.comments, action.payload)
 			}
 		)

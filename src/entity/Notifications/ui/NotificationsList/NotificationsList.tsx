@@ -1,4 +1,4 @@
-import { useNotificationsQuery } from "entity/Notifications/model/api/getNotifications"
+import { useNotificationsQuery } from "entity/Notifications"
 import { memo } from "react"
 import { NotificationsItem } from "../NotificationsItem/NotificationItem"
 import { Flex } from "shared/ui/Flex/Flex"

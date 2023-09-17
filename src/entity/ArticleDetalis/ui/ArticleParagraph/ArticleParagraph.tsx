@@ -1,6 +1,6 @@
 import { Text, TextSize } from "shared/ui/Text/Text"
 import clx from "./ArticleParagraph.module.scss"
-import { ArticleTextBlock } from "entity/ArticleDetalis/model/types/Article"
+import { ArticleTextBlock } from "../../model/types/Article"
 
 interface IArticleParagraph {
   block: ArticleTextBlock;

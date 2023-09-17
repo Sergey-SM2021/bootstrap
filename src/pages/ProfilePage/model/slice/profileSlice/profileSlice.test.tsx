@@ -6,7 +6,7 @@ import {
 } from "./profileSlice"
 import { ProfileSchema } from "../../types/ProfileSchema"
 import { Country, Currency } from "shared/const/common"
-import { Citys } from "entity/City/model/types/CitySchema"
+import { Citys } from "entity/City"
 
 describe("Profile reducer", () => {
 	it("toggle test", () => {

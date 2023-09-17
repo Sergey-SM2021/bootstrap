@@ -1,1 +1,7 @@
 export { ArticlesPage } from "./ui/ArticlesPage/ArticlesPage.async"
+export * as articlePageSelectors from "./model/selectors/ArticlePageSelectors"
+export { getArticles } from "./model/services/getArticles"
+export { AddTagToFilter } from "./model/services/AddToFilter"
+export { InitSearchParams } from "./model/services/InitSearchParams"
+export { ArticlePageReducer } from "./model/slice/ArticlePage"
+export type { ArticlePageSchema } from "./model/types/articleSchema"

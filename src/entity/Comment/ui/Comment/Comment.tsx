@@ -1,4 +1,4 @@
-import { Comment as CommentType } from "entity/Comment/model/types/Comment"
+import { CommentType } from "entity/Comment"
 import { Flex } from "shared/ui/Flex/Flex"
 import { Avatar } from "shared/ui/avatar/avatar"
 import { Text, TextSize } from "shared/ui/Text/Text"

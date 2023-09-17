@@ -1,4 +1,4 @@
-import { Tag } from "entity/Tag/model/type/Tag"
+import { Tag } from "entity/Tag"
 import { memo } from "react"
 import { Flex } from "shared/ui/Flex/Flex"
 import { Label } from "shared/ui/Label/Label"

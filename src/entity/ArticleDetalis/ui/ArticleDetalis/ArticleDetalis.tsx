@@ -14,9 +14,13 @@ import { Icon } from "shared/ui/icon/Icon"
 import { ArticleCode } from "../ArticleCode/ArticleCode"
 import { ArticleImg } from "../ArticleImg/ArticleImg"
 import { ArticleParagraph } from "../ArticleParagraph/ArticleParagraph"
-import { getArticleDetalisData, getArticleDetalisError, getArticleDetalisIsLoading } from "entity/ArticleDetalis/model/selector/Article/ArticleDataSelector"
-import { ArticleBlock, ArticleType } from "entity/ArticleDetalis/model/types/Article"
-import { getArticle } from "entity/ArticleDetalis/model/services/getArticle/getArticle"
+import {
+	getArticleDetalisData,
+	getArticleDetalisError,
+	getArticleDetalisIsLoading,
+} from "entity/ArticleDetalis"
+import { ArticleBlock, ArticleMode } from "entity/ArticleDetalis"
+import { getArticle } from "entity/ArticleDetalis"
 
 interface ArticleProps {
   id: number;
@@ -24,11 +28,11 @@ interface ArticleProps {
 
 const renderArticleBlock = (articleBlock: ArticleBlock) => {
 	switch (articleBlock.type) {
-	case ArticleType.CODE:
+	case ArticleMode.CODE:
 		return <ArticleCode block={articleBlock} />
-	case ArticleType.IMAGE:
+	case ArticleMode.IMAGE:
 		return <ArticleImg block={articleBlock} />
-	case ArticleType.TEXT:
+	case ArticleMode.TEXT:
 		return <ArticleParagraph block={articleBlock} />
 	}
 }

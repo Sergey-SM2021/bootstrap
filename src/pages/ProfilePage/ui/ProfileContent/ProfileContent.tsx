@@ -1,21 +1,17 @@
 import { ProfileCard } from "entity/profile"
-import {
-	selectError,
-	selectProfile,
-	selectReadOnly,
-} from "pages/ProfilePage/model/selectors/ProfilePageSelectors"
-import { getProfile } from "pages/ProfilePage/model/services/getProfile/getProfile"
-import { editProfile } from "pages/ProfilePage/model/slice/profileSlice/profileSlice"
-import { Profile } from "pages/ProfilePage/model/types/ProfileSchema"
+import { ProfilePageSelectors } from "pages/ProfilePage"
+import { getProfile } from "pages/ProfilePage"
+import { actions } from "pages/ProfilePage"
+import { Profile } from "pages/ProfilePage"
 import { memo, useCallback, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 
 export const ProfileContent = memo(() => {
-	const profile = useSelector(selectProfile)
-	const error = useSelector(selectError)
-	const ReadOnly = useSelector(selectReadOnly)
+	const profile = useSelector(ProfilePageSelectors.selectProfile)
+	const error = useSelector(ProfilePageSelectors.selectError)
+	const ReadOnly = useSelector(ProfilePageSelectors.selectReadOnly)
 
 	const dispatch = useAppDispatch()
 	const id = useParams().id
@@ -30,7 +26,7 @@ export const ProfileContent = memo(() => {
 
 	const handlerChange = useCallback(
 		(data: Partial<Profile>) => {
-			dispatch(editProfile(data))
+			dispatch(actions.editProfile(data))
 		},
 		[dispatch]
 	)

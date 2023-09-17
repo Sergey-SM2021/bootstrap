@@ -3,7 +3,7 @@ import { getProfile } from "./getProfile"
 import { StoreSchema } from "app/providers/ReduxProvider/config/StoreSchema"
 import axios from "axios"
 import { Country, Currency } from "shared/const/common"
-import { Citys } from "entity/City/model/types/CitySchema"
+import { Citys } from "entity/City"
 
 jest.mock("axios")
 

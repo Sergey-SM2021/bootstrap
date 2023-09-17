@@ -4,16 +4,16 @@ import "shared/config/i18nConfig/i18n"
 import { ErrorBoundary } from "./providers/ErrorBoundary"
 import { ErrorPage } from "widgets/ErrorPage"
 import { useEffect } from "react"
-import { initAuthData } from "entity/user/model/slice/userSlice"
+import { initAuthData } from "entity/user"
+import { getInited } from "entity/user"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { useSelector } from "react-redux"
-import { getInited } from "entity/user/model/selector/getInited"
 import { Navbar } from "widgets/navbar"
 
 export const App = () => {
 	const dispatch = useAppDispatch()
 	const inited = useSelector(getInited)
-	
+
 	useEffect(() => {
 		dispatch(initAuthData())
 	}, [dispatch])

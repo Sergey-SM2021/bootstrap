@@ -3,7 +3,7 @@ import { ProfileSchema } from "../../types/ProfileSchema"
 import { getProfile } from "../../services/getProfile/getProfile"
 import { Country, Currency } from "shared/const/common"
 import { updateProfile } from "../../services/updateProfile/updateProfile"
-import { Citys } from "entity/City/model/types/CitySchema"
+import { Citys } from "entity/City"
 import { buildSlice } from "shared/lib/store/buildSlice/buildSlice"
 
 const initialState: ProfileSchema = {
@@ -83,6 +83,6 @@ const profileSlice = buildSlice({
 
 export const { useActions } = profileSlice
 export const {
-	actions: { editProfile, toggleReadOnly, cancleEdit },
+	actions, 
 	reducer: ProfileReducer,
 } = profileSlice

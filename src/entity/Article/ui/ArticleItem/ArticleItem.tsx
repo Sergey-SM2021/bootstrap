@@ -10,12 +10,16 @@ import { useTranslation } from "react-i18next"
 import { useHover } from "shared/lib/hooks/useHover"
 import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Avatar } from "shared/ui/avatar/avatar"
-import { Article, ArticleTextBlock, ArticleType } from "entity/ArticleDetalis/model/types/Article"
-import { ArticleParagraph } from "entity/ArticleDetalis/ui/ArticleParagraph/ArticleParagraph"
+import {
+	ArticleTextBlock,
+	ArticleType,
+	ArticleMode,
+	ArticleParagraph,
+} from "entity/ArticleDetalis"
 
-interface ArticleItemProps extends Article {
+interface ArticleItemProps extends ArticleType {
   mode: "big" | "small";
-  className?: string
+  className?: string;
 }
 
 export const ArticleItem = memo((props: ArticleItemProps) => {
@@ -46,7 +50,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 
 	if (mode === "big") {
 		const text = blocks.find(
-			(el) => el.type === ArticleType.TEXT
+			(el) => el.type === ArticleMode.TEXT
 		) as ArticleTextBlock
 
 		return (
@@ -80,10 +84,7 @@ export const ArticleItem = memo((props: ArticleItemProps) => {
 	}
 
 	return (
-		<div
-			className={classNames(clx.small, { }, [clx.card])}
-			{...hover}
-		>
+		<div className={classNames(clx.small, {}, [clx.card])} {...hover}>
 			<div className={clx.content} style={{ backgroundImage: `url(${img})` }}>
 				<div className={clx.createdAt}>{createdAt}</div>
 			</div>

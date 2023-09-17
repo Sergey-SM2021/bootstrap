@@ -1,4 +1,4 @@
-import { Comment as CommentType } from "entity/Comment/model/types/Comment"
+import { CommentType } from "entity/Comment"
 import { Text, TextSize } from "shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
 import clx from "./CommentList.module.scss"

@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ArticleItem } from "./ArticleItem"
 import { RouterDecorator } from "shared/config/storybook/decorators/routerDecorator"
-import { ThemeDecorator } from "shared/config/storybook/decorators/themeDecorator"
-import { Theme } from "app/providers/ThemeProvider/lib/ThemeContext"
 import img from "shared/assets/assasyn.jpg"
-import { ArticleLabel, ArticleType } from "entity/ArticleDetalis/model/types/Article"
+import { ArticleLabel, ArticleMode } from "entity/ArticleDetalis"
 
 const meta: Meta<typeof ArticleItem> = {
 	title: "Entity/Article/ArticleItem",
@@ -48,7 +46,7 @@ export const Big: Story = {
 		blocks: [
 			{
 				id: 1,
-				type: ArticleType.TEXT,
+				type: ArticleMode.TEXT,
 				title: "Заголовок этого блока",
 				paragraphs: [
 					"Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",

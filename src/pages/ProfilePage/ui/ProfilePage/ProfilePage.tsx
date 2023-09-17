@@ -1,4 +1,4 @@
-import { ProfileReducer } from "pages/ProfilePage/model/slice/profileSlice/profileSlice"
+import { ProfileReducer } from "pages/ProfilePage"
 import { AsyncComponent } from "shared/lib/AsyncComponent/AsyncComponent"
 import { Flex } from "shared/ui/Flex/Flex"
 import { ProfileHeader } from "../ProfileHeader/ProfileHeader"

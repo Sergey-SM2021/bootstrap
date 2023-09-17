@@ -1,4 +1,4 @@
-import { ArticleList } from "entity/Article/ui/ArticleList/ArticleList"
+import { ArticleList } from "entity/Article"
 import { useTranslation } from "react-i18next"
 import { Text, TextSize } from "shared/ui/Text/Text"
 import { useGetSameArticlesQuery } from "../model/services/sameArticlesApi"

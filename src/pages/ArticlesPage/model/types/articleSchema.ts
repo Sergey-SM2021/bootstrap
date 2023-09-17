@@ -1,5 +1,5 @@
 import { EntityState } from "@reduxjs/toolkit/src/entities/models"
-import { Article } from "entity/ArticleDetalis/model/types/Article"
+import { ArticleType } from "entity/ArticleDetalis"
 
 export enum SortBy {
   "Views" = "views",
@@ -13,7 +13,7 @@ export enum StrategyType {
 }
 
 export interface ArticlePageSchema {
-  articles: EntityState<Article>;
+  articles: EntityState<ArticleType>;
 
   isLoading: boolean;
   error?: string;

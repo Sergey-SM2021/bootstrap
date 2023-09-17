@@ -9,25 +9,22 @@ import { AppButton, AppButtonTheme } from "shared/ui/appButton"
 import { Icon } from "shared/ui/icon/Icon"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
-import { TagsOnFilters } from "entity/Tag/ui/TagsOnFilters/TagsOnFilters"
-import { getArticles } from "pages/ArticlesPage/model/services/getArticles"
+import { TagsOnFilters } from "entity/Tag"
+import { getArticles } from "../../model/services/getArticles"
 import {
 	getSearch,
 	getSortBy,
 	getStrategy,
 	getTags,
-} from "pages/ArticlesPage/model/selectors/ArticlePageSelectors"
+} from "../../model/selectors/ArticlePageSelectors"
 import {
 	setSearch,
 	setSortBy,
 	setStrategy,
 	toggleView,
-} from "pages/ArticlesPage/model/slice/ArticlePage"
-import {
-	SortBy,
-	StrategyType,
-} from "pages/ArticlesPage/model/types/articleSchema"
-import { AddTagToFilter } from "pages/ArticlesPage/model/services/AddToFilter"
+} from "../../model/slice/ArticlePage"
+import { SortBy, StrategyType } from "../../model/types/articleSchema"
+import { AddTagToFilter } from "pages/ArticlesPage"
 
 const views = ["small", "big"] as const
 
@@ -44,15 +41,18 @@ export const Filters = memo(() => {
 		dispatch(toggleView())
 	}, [dispatch])
 
-	const handlerInputType = useCallback((value: string) => {
-		dispatch(setSearch(value))
-		if (timer.current) {
-			clearTimeout(timer.current)
-		}
-		setTimeout(() => {
-			dispatch(getArticles({ reset: true, page: 1 }))
-		}, 1500)
-	},[dispatch])
+	const handlerInputType = useCallback(
+		(value: string) => {
+			dispatch(setSearch(value))
+			if (timer.current) {
+				clearTimeout(timer.current)
+			}
+			setTimeout(() => {
+				dispatch(getArticles({ reset: true, page: 1 }))
+			}, 1500)
+		},
+		[dispatch]
+	)
 
 	const handlerSetSortBy = (value: string) => {
 		dispatch(setSortBy(value as SortBy))

@@ -2,7 +2,7 @@ import { AppLink } from "shared/ui/appLink"
 import clx from "./SidebarItem.module.scss"
 import { memo } from "react"
 import { useSelector } from "react-redux"
-import { getUser } from "entity/user/model/selector/getUser"
+import { getUser } from "entity/user"
 import { Flex } from "shared/ui/Flex/Flex"
 
 interface SidebarItemProps {
