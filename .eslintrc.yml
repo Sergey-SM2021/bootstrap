@@ -7,6 +7,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:react/jsx-runtime
   - plugin:i18next/recommended
+  - eslint-config-prettier
 parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: latest
@@ -28,9 +29,6 @@ rules:
     - off
   "@typescript-eslint/no-extra-semi":
     - off
-  indent:
-    - error
-    - tab
   react/display-name:
     - 0
   linebreak-style:
@@ -38,12 +36,6 @@ rules:
     - unix
   "@typescript-eslint/ban-ts-comment":
     - off
-  quotes:
-    - error
-    - double
-  semi:
-    - error
-    - never
   no-mixed-spaces-and-tabs:
     - off
 settings:
