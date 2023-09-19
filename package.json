@@ -2,7 +2,6 @@
   "name": "bootstrap",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "html-report": "reg-cli ./.loki/current ./.loki/reference ./.loki/difference -R ./report.html",

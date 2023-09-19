@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { thunkExtra } from "app/providers/ReduxProvider/config/StoreSchema"
-import { setUser } from "entity/user"
+import { actions } from "entity/user"
 import { USER_LOCALSTORAGE_NAME } from "shared/const/localstorage"
 import { loginParams, loginResponce } from "../types/loginTypes"
 
@@ -14,7 +14,7 @@ loginParams,
 			await thankAPI.extra.api.post<loginResponce>("auth/login", { login, password })
 		).data
 		localStorage.setItem(USER_LOCALSTORAGE_NAME, JSON.stringify(user))
-		thankAPI.dispatch(setUser(user))
+		thankAPI.dispatch(actions.setUser(user))
 		return user
 	} catch (error) {
 		return thankAPI.rejectWithValue("error")

@@ -7,9 +7,9 @@ import { selectReadOnly } from "../../model/selectors/ProfilePageSelectors"
 import { selectProfileValidateErrors } from "../../model/selectors/ProfilePageSelectors"
 import { selectError } from "../../model/selectors/ProfilePageSelectors"
 import { memo, useCallback } from "react"
-import { updateProfile } from "../../model/services/updateProfile/updateProfile"
 import { Flex } from "shared/ui/Flex/Flex"
 import { useActions } from "../../model/slice/profileSlice/profileSlice"
+import { updateProfile } from "../../model/services/updateProfile/updateProfile"
 
 export const ProfileHeader = memo(() => {
 	const { t } = useTranslation()

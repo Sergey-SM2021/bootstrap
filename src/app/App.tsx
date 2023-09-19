@@ -4,7 +4,7 @@ import "shared/config/i18nConfig/i18n"
 import { ErrorBoundary } from "./providers/ErrorBoundary"
 import { ErrorPage } from "widgets/ErrorPage"
 import { useEffect } from "react"
-import { initAuthData } from "entity/user"
+import { actions } from "entity/user"
 import { getInited } from "entity/user"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch"
 import { useSelector } from "react-redux"
@@ -15,7 +15,7 @@ export const App = () => {
 	const inited = useSelector(getInited)
 
 	useEffect(() => {
-		dispatch(initAuthData())
+		dispatch(actions.initAuthData())
 	}, [dispatch])
 
 	return (
