@@ -1,4 +1,3 @@
-import { CounterSchema } from "entity/counter"
 import { ProfileSchema } from "pages/ProfilePage"
 import { UserSchema } from "entity/user"
 import { LoginSchema } from "features/login"
@@ -11,7 +10,6 @@ import { ArticleSchema } from "entity/ArticleDetalis"
 import { rtkApi } from "shared/api/rtk"
 
 export interface StoreSchema {
-  counter: CounterSchema;
   tags: TagSchema;
   scroll: SaveScrollSchema;
   user: UserSchema;
